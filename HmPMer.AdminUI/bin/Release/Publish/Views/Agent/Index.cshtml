@@ -1,0 +1,69 @@
+﻿
+
+@{
+    ViewBag.Title = "代理管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+@section HeadSection{
+    <script src="/scripts/Agent/agent.js?@ViewBag.StaticVersion"></script>
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+
+                <div class="layui-input-inline">
+                    代理ID：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="UserId" name="UserId" placeholder="请输入代理ID" />
+                </div>
+
+                <div class="layui-input-inline">
+                    邮箱：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="Email" name="Email" placeholder="请输入邮箱" />
+                </div>
+
+                <div class="layui-input-inline">
+                    手机：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="MobilePhone" name="MobilePhone" placeholder="请输入代理手机" />
+                </div>
+                <div class="layui-input-inline">
+                    状态：
+                </div>
+                <div class="layui-input-inline">
+                    <select id="IsEnabled" name="IsEnabled" lay-verify="" lay-filter="AloneRate">
+                        <option value="-1">请选择</option>
+                        <option value="0">待审核</option>
+                        <option value="1" selected>正常</option>
+                        <option value="2">冻结</option>
+                    </select>
+                </div>
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+                <a class="layui-btn layui-btn-normal " id="btn_add">
+                    <i class="layui-icon">&#xe608;</i>添加
+                </a>
+            </div>
+
+        </form>
+    </blockquote>
+    <table id="BusinessList" lay-filter="BusinessList"></table>
+
+    <!--操作-->
+    <script type="text/html" id="BusinessListBar">
+        {{#  if(d.IsEnabled == "1"){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="btn_freeze">冻结</a>
+        {{#  }}}
+        {{#  if(d.IsEnabled == "2"){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="btn_defreeze">解冻</a>
+        {{#  }}}
+        <a class="layui-btn layui-btn-xs" lay-event="btn_paytype">支付类型</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="deldata">删除</a>
+    </script>
+</div>

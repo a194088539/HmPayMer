@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{C38067D5-BE28-43BE-9A29-81E3B9C6FA0E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>HmPMer.Dal</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJSON, Version=0.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LitJson.0.16.0\lib\net45\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration">
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HM.DAL\DalContext.cs" />
+    <Compile Include="HM.DAL\DbConfig.cs" />
+    <Compile Include="HM.DAL\DbConnectionString.cs" />
+    <Compile Include="HmPMer.Dal.Innerface\UserBaseDal.cs" />
+    <Compile Include="HmPMer.Dal.System\DistrictDal.cs" />
+    <Compile Include="HmPMer.Dal\AccountDal.cs" />
+    <Compile Include="HmPMer.Dal\CountDataDal.cs" />
+    <Compile Include="HmPMer.Dal\FeedbackDal.cs" />
+    <Compile Include="HmPMer.Dal\GradeDal.cs" />
+    <Compile Include="HmPMer.Dal\InterfaceDal.cs" />
+    <Compile Include="HmPMer.Dal\MenuRoleDal.cs" />
+    <Compile Include="HmPMer.Dal\OrderDal.cs" />
+    <Compile Include="HmPMer.Dal\PayDal.cs" />
+    <Compile Include="HmPMer.Dal\RateDal.cs" />
+    <Compile Include="HmPMer.Dal\RiskDal.cs" />
+    <Compile Include="HmPMer.Dal\SystemDal.cs" />
+    <Compile Include="HmPMer.Dal\UserBankDal.cs" />
+    <Compile Include="HmPMer.Dal\WithdrawDal.cs" />
+    <Compile Include="HmPMer\SysConfigDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HmPMer.Entity\HmPMer.Entity.csproj">
+      <Project>{b892094f-67a3-4a0b-a627-fd16c6145637}</Project>
+      <Name>HmPMer.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HM\Dapper\HM.Framework.Dapper.csproj">
+      <Project>{80f6e1b0-149d-47d3-a366-7d6b772582f8}</Project>
+      <Name>HM.Framework.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HM\Framework\HM.Framework.csproj">
+      <Project>{613b9753-79c5-4bf8-9ce8-5ea3f842039d}</Project>
+      <Name>HM.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

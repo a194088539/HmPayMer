@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "风控方案管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+@section HeadSection{
+    <script src="/scripts/risk/riskschemelist.js?@ViewBag.StaticVersion"></script>
+
+}
+
+<div class="layui-form">
+
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    方案类型：
+                </div>
+                <div class="layui-input-inline">
+                    <select id="RiskSchemeTaype" name="RiskSchemeTaype" lay-verify="" lay-filter="RiskSchemeTaype">
+                        <option value="-1">请选择</option>
+                        <option value="1">接口商方案</option>
+                        <option value="2">商户方案</option>
+                    </select>
+                </div>
+
+
+
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+            </div>
+            <div class="layui-inline">
+                <a class="layui-btn layui-btn-normal" id="btn_add">
+                    <i class="layui-icon">&#xe608;</i>添加
+                </a>
+            </div>
+
+        </form>
+    </blockquote>
+    <table id="RiskSchemeList" lay-filter="RiskSchemeList"></table>
+    <!--操作-->
+    <script type="text/html" id="RiskSchemeListBar">
+        <a class="layui-btn layui-btn-xs" lay-event="btn_edit">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="deldata">删除</a>
+    </script>
+</div>
+

@@ -1,0 +1,135 @@
+﻿@using HmPMer.Business;
+@model List<HmPMer.Entity.Menu>
+@{
+    ViewBag.Title = "角色权分配";
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var menu1 = new MenuRoleBll().GetRoleList("0", 1);
+
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+    @Html.Hidden("RoleId", Request["RoleId"])
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="8%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center"><input type="checkbox" lay-filter="cbkal1" name="" lay-skin="primary">一级菜单名称</td>
+                <td align="center">二级菜单名称</td>
+            </tr>
+        </thead>
+        <tbody id="menuallbody">
+            @foreach (var item in menu1)
+            {
+                <tr>
+                    <td class="tdrigth" id="td1@(item.Id)"><input type="checkbox" lay-filter="cbk1" name="mennucbk" value="@(item.Id)" title="@item.menuName" @(Model.Where(a => a.Id.Equals(item.Id)).Count() > 0 ? "checked" : "") lay-skin="primary"></td>
+                    <td id="td@(item.Id)">
+                        @{ var menu2 = new MenuRoleBll().GetRoleList(item.Id, 1);}
+                        @foreach (var item2 in menu2)
+                        {
+                            <input type="checkbox" lay-filter="cbk2" name="mennucbk" title="@item2.menuName" value="@(item2.Id)" parentID="@item2.parentID" @(Model.Where(a => a.Id.Equals(item2.Id)).Count() > 0 ? "checked" : "") lay-skin="primary">
+                        }
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        form.on('checkbox(cbkal1)', function (data) {
+            var id = data.elem.value;
+            var child = $('#menuallbody').find('input[type="checkbox"]');
+            child.each(function (index, item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+
+        });
+
+        form.on('checkbox(cbk1)', function (data) {
+            var id = data.elem.value;
+            var child = $('#td' + id).find('input[type="checkbox"]');
+            child.each(function (index, item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+
+        });
+
+
+
+        form.on('checkbox(cbk2)', function (data) {
+            var parentID = $(data.elem).attr("parentID");
+            if (data.elem.checked) {
+                var child = $('#td1' + parentID).find('input[type="checkbox"]');
+                child.each(function (index, item) {
+                    item.checked = true;
+                });
+                form.render('checkbox');
+            }
+        });
+
+
+        //提交表单
+        $("#btn_submit").click(function () {
+
+            var arr = new Array()
+            $("input[name='mennucbk']:checked").each(function (i, v) {
+                arr[i] = v.value;
+            })
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/MenuRole/SetRoleMenu", {
+                    data: { roleID: $("#RoleId").val(), MenuId: arr.join(',') },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 500 }, function () {
+                                var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                                parent.tableIns.reload();
+                                parent.layer.close(index);
+                            });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        parent.layer.close(index);
+                    }
+                });
+
+            }, 500);
+
+        });
+
+
+    });
+</script>

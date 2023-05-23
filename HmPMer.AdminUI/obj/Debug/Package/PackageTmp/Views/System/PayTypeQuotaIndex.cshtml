@@ -1,0 +1,152 @@
+﻿
+
+@model List<HmPMer.Entity.PayTypeQuota>
+@{
+    ViewBag.Title = "邮箱设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+
+    .flotright input {
+        width: 200px;
+        float: left;
+    }
+
+
+    .flotright span {
+        float: left;
+        line-height: 30px;
+        height: 30px;
+        padding: 0 10px;
+    }
+</style>
+
+@if (Model != null && Model.Count > 0)
+{
+    <form class="layui-form" id="formdata">
+        <table class="layui-table mag0">
+            <colgroup>
+                <col width="20%">
+                <col></col>
+            </colgroup>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="tdrigth">@(item.PayName)：</td>
+                        <td class="flotright" paycode="@(item.PayCode)" payname="@item.PayName">
+                            <span style="float:left">(单笔最小)</span>
+                            <input type="text" class="layui-input" lay-verify="required" value="@((item.minMoney/100).ToString("0.00"))" name="minMoney" placeholder="请输入单笔最小交易额">
+                            <span>-</span>
+                            <span>(单笔最大)</span>
+                            <input type="text" class="layui-input " lay-verify="required" value="@((item.maxMoney/100).ToString("0.00"))" name="maxMoney" placeholder="请输入单笔最大交易额">
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <div class="magt10" style="text-align:center">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">保存</button>
+            </div>
+        </div>
+    </form>
+}
+else
+{
+    <div>请先设置支付类型</div>
+}
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交表单
+        $("#btn_submit").click(function () {
+            //循环input
+            var bool = true;
+            var ListModel = [];
+           
+            //循环获取值
+            $(".flotright").each(function (a, b) {
+                var model = {};
+                var PayCode = $(this).attr("paycode");
+                var minMoney = $(this).find("input[name=minMoney]").val();
+                var maxMoney = $(this).find("input[name=maxMoney]").val();
+                if (parseFloat(minMoney) != 0) {
+                    var reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+                    if (!reg.test(minMoney)) {
+                        layer.msg($(this).attr("payname") + "最小金额只能是2位小数！");
+                        $($(this).find("input[name=minMoney]")).focus();
+                        bool = false;
+                        return false;
+                    }
+                    var reg1 = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+                    if (!reg1.test(maxMoney)) {
+                        layer.msg($(this).attr("payname") + "最大金额只能是2位小数！");
+                        $($(this).find("input[name=maxMoney]")).focus();
+                        bool = false;
+                        return false;
+                    }
+
+                    if (parseFloat(maxMoney) < parseFloat(minMoney))
+                    {
+                        layer.msg($(this).attr("payname") + "最大金额必须大于最小金额！");
+                        $($(this).find("input[name=maxMoney]")).focus();
+                        bool = false;
+                        return false;
+                    }
+                    
+                }
+                model.PayCode = PayCode;
+                model.minMoney = parseFloat(minMoney);
+                model.maxMoney = parseFloat(maxMoney);
+                ListModel.push(model);
+            });
+          
+            if (bool) {
+                var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+                setTimeout(function () {
+                    layer.close(index);
+                    hm.ajax("/System/SetPayTypeQuota", {
+                        data: { ListModel: ListModel },
+                        type: "POST",
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result.Success) {
+                                layer.msg("操作成功！", { icon: 1, time: 300 });
+                            } else {
+                                layer.msg(result.Message);
+                            }
+                        },
+                        error: function (x, t, e) {
+                            layer.closeAll();
+                        }
+                    });
+
+                }, 500);
+            }
+
+        });
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+
+
+    });
+</script>

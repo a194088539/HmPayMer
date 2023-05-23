@@ -1,0 +1,98 @@
+﻿
+@model HmPMer.Entity.FeedbackInfo
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+        @Html.Hidden("FeedbackId", Model.feedback.Id)
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" value="@Model.feedback.Title" lay-verify="required" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">内容</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" value="@Model.feedback.Content" lay-verify="required" />
+            </div>
+        </div>
+
+        @foreach (var item in Model.feedbackreply)
+        {
+            <div class="layui-form-item">
+                <label class="layui-form-label">@(item.createUser)回复</label>
+                <div class="layui-input-block">
+                    <div style="width:580px;display:block;word-break: break-all;word-wrap: break-word;padding-top:5px;">@item.Content<span style="float:right">@(item.AddTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</span></div>
+                    @*<input type="text" class="layui-input inputreadonly" value="@(item.Content)           @("回复时间："+item.AddTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))" lay-verify="required" />*@
+                </div>
+            </div>
+        }
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">回复内容</label>
+            <div class="layui-input-block">
+                <textarea style="width:500px;height:100px;" id="Content"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn " lay-filter="" style="width:100px" type="button" id="btn_Add">回复</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var Content = $("#Content").val();
+            if (!Content || Content == "") {
+                layer.msg("请输入回复内容！");
+                return;
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/CountData/AddFeedbackReply", {
+                    data: { Content: Content, FeedbackId: $("#FeedbackId").val() },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

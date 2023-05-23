@@ -1,0 +1,6 @@
+2019-11-26 01:03:00,338 [6] INFO  loginfo [(null)] <(null)>
+ - riskScheme=True
+2019-11-26 02:18:20,729 [6] INFO  loginfo [(null)] <(null)>
+ - 订单:19112602085722139737001，金额不一致!
+2019-11-26 02:19:37,251 [8] INFO  loginfo [(null)] <(null)>
+ - riskScheme=True

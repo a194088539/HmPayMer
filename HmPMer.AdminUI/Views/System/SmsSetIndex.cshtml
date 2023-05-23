@@ -1,0 +1,163 @@
+﻿
+@model HmPMer.Entity.SmsSet
+@{
+    ViewBag.Title = "短信设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        @*<thead>
+                <tr>
+                    <td align="center">参数说明</td>
+                    <td align="center">参数值</td>
+                    <td align="center">变量名</td>
+                </tr>
+            </thead>*@
+        <tbody>
+            <tr>
+                <td class="tdrigth">短信服务商</td>
+                <td><input type="text" class="layui-input inputreadonly" lay-verify="required" value="@Model.SmsCode" id="SmsCode" name="SmsCode" placeholder="请输入邮箱服务器" readonly></td>
+                <td pc>暂且只有短信宝(DXB)</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">账号</td>
+                <td><input type="text" class="layui-input version" value="@Model.Account" name="Account" placeholder="请输入账号"></td>
+                <td pc>发送短信的账号</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">密码</td>
+                <td><input type="password" class="layui-input version" value="@Model.Pwd" name="Pwd"></td>
+                <td pc>发送短信的账号密码</td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
+        </div>
+    </div>
+</form>
+
+<br /><br />
+<form class="layui-form" id="formtestdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center" colspan="2">发送测试</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td class="tdrigth">手机号码</td>
+                <td><input type="text" class="layui-input version" value="" name="mobile" placeholder="请输入手机号码"></td>
+
+            </tr>
+
+
+            <tr>
+                <td class="tdrigth">内容</td>
+                <td><input type="text" class="layui-input server" value="" name="content" placeholder="请输入短信内容"></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_send">发送</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交表单
+        $("#btn_submit").click(function () {
+
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/UpdateSmsSet", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+
+        $("#btn_send").click(function () {
+
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/SendSms", {
+                    data: $("#formtestdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("发送成功！", { icon: 1, time: 300 });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    });
+</script>

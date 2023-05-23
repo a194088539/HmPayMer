@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{871BBAB4-0B3A-49FC-BDE5-1D6C7BBC5DE7}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>HmPMer.Business</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJSON, Version=0.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LitJson.0.16.0\lib\net45\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HmPMer.Business.Pay\ApiNotity.cs" />
+    <Compile Include="HmPMer.Business\AccountBll.cs" />
+    <Compile Include="HmPMer.Business\CountDataBll.cs" />
+    <Compile Include="HmPMer.Business\DistrictBll.cs" />
+    <Compile Include="HmPMer.Business\FeedbackBll.cs" />
+    <Compile Include="HmPMer.Business\GradeBll.cs" />
+    <Compile Include="HmPMer.Business\InterfaceBll.cs" />
+    <Compile Include="HmPMer.Business\MenuRoleBll.cs" />
+    <Compile Include="HmPMer.Business\OrderBll.cs" />
+    <Compile Include="HmPMer.Business\PayBll.cs" />
+    <Compile Include="HmPMer.Business\RateBll.cs" />
+    <Compile Include="HmPMer.Business\RiskBll.cs" />
+    <Compile Include="HmPMer.Business\SysConfigBll.cs" />
+    <Compile Include="HmPMer.Business\SystemBll.cs" />
+    <Compile Include="HmPMer.Business\UserBankBll.cs" />
+    <Compile Include="HmPMer.Business\UserBaseBll.cs" />
+    <Compile Include="HmPMer.Business\WithdrawBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HmPMer.Dal\HmPMer.Dal.csproj">
+      <Project>{c38067d5-be28-43be-9a29-81e3b9c6fa0e}</Project>
+      <Name>HmPMer.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HmPMer.Entity\HmPMer.Entity.csproj">
+      <Project>{b892094f-67a3-4a0b-a627-fd16c6145637}</Project>
+      <Name>HmPMer.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HM\Dapper\HM.Framework.Dapper.csproj">
+      <Project>{80f6e1b0-149d-47d3-a366-7d6b772582f8}</Project>
+      <Name>HM.Framework.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HM\Framework\HM.Framework.csproj">
+      <Project>{613b9753-79c5-4bf8-9ce8-5ea3f842039d}</Project>
+      <Name>HM.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HM\PayApi\HM.Framework.PayApi.csproj">
+      <Project>{486492e3-925c-48ac-ad51-155a9f1fd848}</Project>
+      <Name>HM.Framework.PayApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

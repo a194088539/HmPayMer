@@ -1,0 +1,99 @@
+﻿@model List<HmPMer.Entity.PayType>
+@{
+    ViewBag.Title = "接口商支付类型";
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var channelList = new HmPMer.Business.PayBll().GetPayTypeList();
+}
+
+<style>
+    .layui-unselect {
+        margin-top: 5px;
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+    @Html.Hidden("InterfaceCode", Request["Code"])
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="8%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center"><input type="checkbox" lay-filter="cbkal1" name="" lay-skin="primary">全选</td>
+            </tr>
+        </thead>
+        <tbody id="menuallbody">
+              <tr>
+                    <td>
+                        @foreach (var item in channelList)
+                        {
+                            <input type="checkbox" lay-filter="cbk" class="cbkbox" name="cbktype" title="@item.PayName" value="@(item.PayCode)" @(Model.Where(a=>a.PayCode.Equals(item.PayCode)).Count()>0?"checked":"")  lay-skin="primary">
+                       }
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        form.on('checkbox(cbkal1)', function (data) {
+            var id = data.elem.value;
+            var child = $('#menuallbody').find('input[type="checkbox"]');
+            child.each(function (index, item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+
+        });
+
+
+        //提交表单
+        $("#btn_submit").click(function () {
+
+            var arr = new Array()
+            $("input[name='cbktype']:checked").each(function (i, v) {
+                arr[i] = v.value;
+            })
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Pay/SetInterfaceType", {
+                    data: { InterfaceCode: $("#InterfaceCode").val(), PayCode: arr.join(','),type:'@(Request["Type"])' },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 }, function () {
+                                var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                                parent.tableIns.reload();
+                                parent.layer.close(index);
+                            });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+
+    });
+</script>

@@ -1,0 +1,30 @@
+﻿
+@model List<HmPMer.Entity.InterfaceAnalysis>
+<table class="layui-table mag0" style="text-align:center">
+    <thead>
+        <tr>
+            <td align="center">支付时间</td>
+            <td align="center">接口商名称</td>
+            <td align="center">支付类型</td>
+            <td align="center">提交订单总额（元）</td>
+            <td align="center">支付订单总额（元）</td>
+            <td align="center">提交订单总数（条）</td>
+            <td align="center">支付订单总数（条）</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@(item.PayTime.Value.ToString("yyyy-MM-dd"))</td>
+            <td>@(item.InterfaceName)</td>
+            <td>@(item.PayName)</td>
+            <td>@((item.CountOrderAmt / 100).ToString("0.00"))</td>
+            <td>@((item.CountPayOrderAmt / 100).ToString("0.00"))</td>
+            <td>@(item.OrderCount)</td>
+            <td>@(item.PayOrderCount)</td>
+        </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_UnLoginLayout.cshtml";
+    var isreg = new HmPMer.Business.SysConfigBll().GetConfigVaule("RegIsOpen");
+}
+
+<div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+    <div class="layui-form-item">
+        <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+        <input type="text" name="username" id="username" lay-verify="required" placeholder="用户名" class="layui-input">
+    </div>
+    <div class="layui-form-item">
+        <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+        <input type="password" name="pwd" id="pwd" lay-verify="required" placeholder="密码" class="layui-input">
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-row">
+            <div class="layui-col-xs7">
+                <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+                <input type="text" name="imgCode" id="imgCode" lay-verify="required" placeholder="图形验证码" class="layui-input">
+            </div>
+            <div class="layui-col-xs5">
+                <div style="margin-left: 10px;">
+                    <img id="" src="/DrawingApi/GetValidateImg?codeKey=hmerpmlogin&t=@DateTime.Now.Ticks" onclick="this.src = '/DrawingApi/GetValidateImg?codeKey=hmerpmlogin&t=' + Math.random();" width="100" height="40" style="cursor:pointer" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-bottom: 20px;">
+        <a href="/account/forget" class="layadmin-link" style="margin-top: 7px;float:left">忘记密码？</a>
+        @if (isreg.Equals("1"))
+        {
+        <a href="/account/reg" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">注册账号</a>
+        }
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn layui-btn-fluid" type="button" lay-filter="btn_submit" id="btn_submit">登 入</button>
+    </div>
+
+</div>
+<script>
+    $(function () {
+
+        document.onkeydown = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+
+            if (e && e.keyCode == 13) { // enter 键
+                //要做的事情
+                btnsbmit();
+            }
+        };
+
+        function btnsbmit() {
+            var username = $.trim($('#username').val());
+            var pwd = $.trim($('#pwd').val());
+            var imgCode = $.trim($('#imgCode').val());
+
+            if (username == '') {
+                layer.msg('请填写用户名', { icon: 5 });
+                $('#username').focus();
+                return;
+            }
+            if (pwd == '') {
+                layer.msg('请填写密码', { icon: 5 });
+                $('#password').focus();
+                return;
+            }
+            if (imgCode == '') {
+                layer.msg('请填写验证码', { icon: 5 });
+                $('#verify').focus();
+                return;
+            }
+            if (imgCode.length != 4) {
+                layer.msg('验证码输入错误', { icon: 5 });
+                $('#imgCode').focus();
+                return;
+            }
+
+            $.post("/Account/LoginIn", { 'MobilePhone': username, 'Pass': pwd, 'Pass2': imgCode }, function (d) {
+                if (!d.IsSuccess) {
+                    layer.msg(d.message, { icon: 5 });
+
+                    return;
+                }
+                layer.alert("登录成功！", { icon: 1 }, function () {
+                    window.location.href = "/index/index";
+                });
+                // window.location.href = "/index/index";
+            });
+        }
+
+        $("#btn_submit").click(function () {
+            btnsbmit();
+        });
+    });
+</script>

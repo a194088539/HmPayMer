@@ -1,0 +1,218 @@
+﻿@model HM.Entity.UsersPayBank
+
+@{
+    var withdrawChannelList = new HM.Business.WithdrawBll().GetWithdrawChannelList(1);
+    var dicList = new HM.Business.DistrictBll().LoadAll().FindAll(p => p.Flag == 0).OrderBy(p => p.Id).ToList();
+}
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-overrides.css">
+<link rel="stylesheet" type="text/css" href="/static/css/lib/font-awesome.css">
+
+<link rel="stylesheet" type="text/css" href="/static/css/layout.css">
+<link rel="stylesheet" type="text/css" href="/static/css/elements.css">
+<link rel="stylesheet" type="text/css" href="/static/css/icons.css">
+<link rel="stylesheet" type="text/css" href="/static/css/css.css">
+<link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+
+<script src="/static/js/jquery-1.8.3.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/theme.js"></script>
+<script src="/static/js/layer/layer.js"></script>
+<script src="/static/js/base.js"></script>
+
+<style>
+    .alert-msg {
+        display: none;
+        margin-left: 5px;
+    }
+</style>
+<div class="container-fluid">
+    <div id="pad-wrapper" class="form-page">
+
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>重新提交</h4>
+            </div>
+        </div>
+
+        <div class="row-fluid withdraw">
+            @Html.Hidden("bankId", Model.Id)
+            <div class="field-box withdrawApply">
+                <label>开户姓名：</label>
+                <input class="span6" type="text" id="FactName" name="FactName" placeholder="开户姓名" value="@Model.FactName" /><span class="alert-msg"></span>
+            </div>
+
+            <div class="field-box withdrawApply">
+                <label>银行卡号：</label>
+                <input class="span6" type="text" id="BankCode" name="BankCode" placeholder="银行卡号" value="@Model.BankCode" /><span class="alert-msg"></span>
+            </div>
+
+            <div class="field-box withdrawApply">
+                <label>开户银行：</label>
+                <div class="ui-select" style="width:275px;">
+                    <select id="WithdrawChannelCode" name="WithdrawChannelCode">
+                        <option value="">请选择开户行</option>
+                        @foreach (var item in withdrawChannelList)
+                        {
+                            <option value="@item.Code" @(item.Code.Equals(Model.WithdrawChannelCode) ? "selected" : "")>@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <span class="alert-msg" id="msg_WithdrawChannelCode"></span>
+            </div>
+
+            <div class="field-box withdrawApply">
+                <label>开户省市：</label>
+                <div class="ui-select" style="width:135px;">
+                    <select id="ProvinceId" name="ProvinceId">
+                        <option value="">请选择</option>
+                        @foreach (var item in dicList)
+                        {
+                            <option value="@item.Id" @(item.Id.Equals(Model.ProvinceId) ? "selected" : "")>@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="ui-select" style="width:135px;">
+                    <select id="CityId" name="CityId">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+                <span class="alert-msg" id="msg_Province"></span>
+            </div>
+
+            <div class="field-box withdrawApply">
+                <label>支行名称：</label>
+                <input class="span6" type="text" id="BankAddress" name="BankAddress" placeholder="支行名称" value="@Model.BankAddress" /><span class="alert-msg"></span>
+            </div>
+
+            <div class="span11 field-box actions">
+                <label></label>
+                <input type="button" class="btn-glow primary" id="btn_submit" value="确认提交">
+
+            </div>
+
+            <div class="span11 field-box actions">
+                <div class="col-md-10" style="text-align:center;font-weight:bold;font-size:20px;">添加后请联系客服进行审核！</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function loadCity(pid) {
+        $.HM.ajax("base/loadcitylist/" + pid,
+            {
+                data: { 'ts': (new Date().getTime()) },
+                type: "GET",
+                dataType: 'json',
+                load: false,
+                success: function (d) {
+                    if (d.length == 0) {
+                        $("#CityId").empty().append('<option value="">请选择</option>');
+                        return;
+                    }
+                    var _html = '';
+                    $.each(d.data, function (i, v) {
+                        _html += '<option value="' + v.Id + '">' + v.Name + '</option>';
+                    });
+                    $("#CityId").empty().append(_html);
+                }
+            });
+    }
+
+    function SetTips(id, meg) {
+        $("#" + id).next("span").html('<i class="icon-remove-sign"></i>' + meg);
+        $("#" + id).next("span").show();
+        $("#" + id).focus();
+    }
+
+    $(function () {
+        $("#ProvinceId").change(function () {
+            var pid = $.trim(this.value);
+            if (pid == '') {
+                $("#CityId").empty().append('<option value="">请选择</option>');
+                return;
+            }
+            loadCity(pid);
+        });
+
+        $("#btn_submit").click(function () {
+            $(".alert-msg").css("display", "none");
+            var data = {
+                'Id': $.trim($("#bankId").val()),
+                'FactName': $.trim($("#FactName").val()),
+                'BankCode': $.trim($("#BankCode").val()),
+                'WithdrawChannelCode': $.trim($("#WithdrawChannelCode").val()),
+                'BankName': $.trim($("#WithdrawChannelCode").find("option:selected").text()),
+                'ProvinceId': $.trim($("#ProvinceId").val()),
+                'ProvinceName': $.trim($("#ProvinceId").find("option:selected").text()),
+                'CityId': $.trim($("#CityId").val()),
+                'CityName': $.trim($("#CityId").find("option:selected").text()),
+                'BankAddress': $.trim($("#BankAddress").val())
+            };
+
+            if (data.FactName == '') {
+
+                SetTips('FactName', "请输入收款人姓名");
+                return;
+
+            }
+            if (data.BankCode == '') {
+                SetTips('BankCode', "请输入银行卡号");
+                return;
+            }
+            if (data.WithdrawChannelCode == '') {
+                $("#msg_WithdrawChannelCode").html('<i class="icon-remove-sign"></i>请选择开户行');
+                $("#msg_WithdrawChannelCode").show();
+                $("#WithdrawChannelCode").focus();
+                return;
+            }
+
+
+            if (data.ProvinceId == '') {
+                $("#msg_Province").html('<i class="icon-remove-sign"></i>请选择省');
+                $("#msg_Province").show();
+                $("#ProvinceId").focus();
+                return;
+
+            }
+
+            if (data.CityId == '') {
+                $("#msg_Province").html('<i class="icon-remove-sign"></i>请选择市');
+                $("#msg_Province").show();
+                $("#CityId").focus();
+                return;
+            }
+
+            if (data.BankAddress == '') {
+                SetTips('BankAddress', "请输入支行地址");
+                return;
+            }
+
+            $.HM.ajax("Withdraw/RestUserPayBank", {
+                data: data,
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.IsSuccess) {
+                        layer.msg(d.message, { icon: 1 });
+
+                        setTimeout(function () {
+                            window.parent.location.reload();
+                        }, 1500);
+
+                    } else {
+                        layer.msg(d.message, { icon: 0 });
+                    }
+                }
+            });
+
+        });
+
+    });
+
+</script>

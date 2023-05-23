@@ -1,0 +1,38 @@
+2019-11-24 00:20:54,527 [9] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={}
+2019-11-24 00:22:05,218 [19] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={}
+2019-11-24 00:41:06,423 [23] DEBUG logdebug [(null)] <(null)>
+ - 接口:xinfa,订单号：1212，不存在
+2019-11-24 00:41:27,913 [10] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={}
+2019-11-24 00:41:41,148 [10] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={}
+2019-11-24 00:50:05,209 [9] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={}
+2019-11-24 14:57:38,415 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={}
+2019-11-24 14:59:30,830 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={"data":"iACgFR0IecowxBJ4ycv3ywX08KduqJSkWztJkGNka7jAd//IaNfjr38n2C+/mwfTRO0eSXyNRpDwq55pwQFmzQ1oyVsI/WVUBVDPSIJIQBrvXhRNLnwBHbcIniM0tl5pn7dhSpeWkJWySdfsfEGVYJRgBXsrg77pvzPG4syMY/KI9mJ7TOvSZiCNPT+lvceK+sKAfx96huSH+skbr33Gs2CueYUWyeCXeAU5T3VDJDDoLGz6PqK/D2XAypEMYpyZBRXyA1CZBBTJBaZATybkoG7j32WSmZamEeWvfq9er5qKArkbjtrHQxB54MQ6Rc7NJxRYREPvPNti/QUDvnyVhQ==","merchNo":"XF201903072284","orderNo":"19112414402574783370001"}
+2019-11-24 14:59:30,893 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发,NotifyParamToOrder={"amount":"1000","goodsName":"iPhone配件","merchNo":"XF201903072284","orderNo":"19112414402574783370001","payDate":"20191124144113","payStateCode":"00","payType":"ZFB","sign":"17EE363B0AB10E947E12D2025F9C9AA5"}
+2019-11-24 15:00:03,296 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={"data":"iACgFR0IecowxBJ4ycv3ywX08KduqJSkWztJkGNka7jAd//IaNfjr38n2C+/mwfTRO0eSXyNRpDwq55pwQFmzQ1oyVsI/WVUBVDPSIJIQBrvXhRNLnwBHbcIniM0tl5pn7dhSpeWkJWySdfsfEGVYJRgBXsrg77pvzPG4syMY/KI9mJ7TOvSZiCNPT+lvceK+sKAfx96huSH+skbr33Gs2CueYUWyeCXeAU5T3VDJDDoLGz6PqK/D2XAypEMYpyZBRXyA1CZBBTJBaZATybkoG7j32WSmZamEeWvfq9er5qKArkbjtrHQxB54MQ6Rc7NJxRYREPvPNti/QUDvnyVhQ==","merchNo":"XF201903072284","orderNo":"19112414402574783370001"}
+2019-11-24 15:00:21,331 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发,NotifyParamToOrder={"amount":"1000","goodsName":"iPhone配件","merchNo":"XF201903072284","orderNo":"19112414402574783370001","payDate":"20191124144113","payStateCode":"00","payType":"ZFB","sign":"17EE363B0AB10E947E12D2025F9C9AA5"}
+2019-11-24 15:01:12,088 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={"data":"iACgFR0IecowxBJ4ycv3ywX08KduqJSkWztJkGNka7jAd//IaNfjr38n2C+/mwfTRO0eSXyNRpDwq55pwQFmzQ1oyVsI/WVUBVDPSIJIQBrvXhRNLnwBHbcIniM0tl5pn7dhSpeWkJWySdfsfEGVYJRgBXsrg77pvzPG4syMY/KI9mJ7TOvSZiCNPT+lvceK+sKAfx96huSH+skbr33Gs2CueYUWyeCXeAU5T3VDJDDoLGz6PqK/D2XAypEMYpyZBRXyA1CZBBTJBaZATybkoG7j32WSmZamEeWvfq9er5qKArkbjtrHQxB54MQ6Rc7NJxRYREPvPNti/QUDvnyVhQ==","merchNo":"XF201903072284","orderNo":"19112414402574783370001"}
+2019-11-24 15:01:33,250 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发,NotifyParamToOrder={"amount":"1000","goodsName":"iPhone配件","merchNo":"XF201903072284","orderNo":"19112414402574783370001","payDate":"20191124144113","payStateCode":"00","payType":"ZFB","sign":"17EE363B0AB10E947E12D2025F9C9AA5"}
+2019-11-24 15:05:42,351 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={"data":"iACgFR0IecowxBJ4ycv3ywX08KduqJSkWztJkGNka7jAd//IaNfjr38n2C+/mwfTRO0eSXyNRpDwq55pwQFmzQ1oyVsI/WVUBVDPSIJIQBrvXhRNLnwBHbcIniM0tl5pn7dhSpeWkJWySdfsfEGVYJRgBXsrg77pvzPG4syMY/KI9mJ7TOvSZiCNPT+lvceK+sKAfx96huSH+skbr33Gs2CueYUWyeCXeAU5T3VDJDDoLGz6PqK/D2XAypEMYpyZBRXyA1CZBBTJBaZATybkoG7j32WSmZamEeWvfq9er5qKArkbjtrHQxB54MQ6Rc7NJxRYREPvPNti/QUDvnyVhQ==","merchNo":"XF201903072284","orderNo":"19112414402574783370001"}
+2019-11-24 15:05:47,783 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发,NotifyParamToOrder={"amount":"1000","goodsName":"iPhone配件","merchNo":"XF201903072284","orderNo":"19112414402574783370001","payDate":"20191124144113","payStateCode":"00","payType":"ZFB","sign":"17EE363B0AB10E947E12D2025F9C9AA5"}
+2019-11-24 15:06:29,169 [21] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={"data":"iACgFR0IecowxBJ4ycv3ywX08KduqJSkWztJkGNka7jAd//IaNfjr38n2C+/mwfTRO0eSXyNRpDwq55pwQFmzQ1oyVsI/WVUBVDPSIJIQBrvXhRNLnwBHbcIniM0tl5pn7dhSpeWkJWySdfsfEGVYJRgBXsrg77pvzPG4syMY/KI9mJ7TOvSZiCNPT+lvceK+sKAfx96huSH+skbr33Gs2CueYUWyeCXeAU5T3VDJDDoLGz6PqK/D2XAypEMYpyZBRXyA1CZBBTJBaZATybkoG7j32WSmZamEeWvfq9er5qKArkbjtrHQxB54MQ6Rc7NJxRYREPvPNti/QUDvnyVhQ==","merchNo":"XF201903072284","orderNo":"19112414402574783370001"}
+2019-11-24 15:06:36,967 [21] DEBUG logdebug [(null)] <(null)>
+ - 鑫发,NotifyParamToOrder={"amount":"1000","goodsName":"iPhone配件","merchNo":"XF201903072284","orderNo":"19112414402574783370001","payDate":"20191124144113","payStateCode":"00","payType":"ZFB","sign":"17EE363B0AB10E947E12D2025F9C9AA5"}
+2019-11-24 15:07:55,778 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发GetNotifyParam={"data":"iACgFR0IecowxBJ4ycv3ywX08KduqJSkWztJkGNka7jAd//IaNfjr38n2C+/mwfTRO0eSXyNRpDwq55pwQFmzQ1oyVsI/WVUBVDPSIJIQBrvXhRNLnwBHbcIniM0tl5pn7dhSpeWkJWySdfsfEGVYJRgBXsrg77pvzPG4syMY/KI9mJ7TOvSZiCNPT+lvceK+sKAfx96huSH+skbr33Gs2CueYUWyeCXeAU5T3VDJDDoLGz6PqK/D2XAypEMYpyZBRXyA1CZBBTJBaZATybkoG7j32WSmZamEeWvfq9er5qKArkbjtrHQxB54MQ6Rc7NJxRYREPvPNti/QUDvnyVhQ==","merchNo":"XF201903072284","orderNo":"19112414402574783370001"}
+2019-11-24 15:07:55,825 [6] DEBUG logdebug [(null)] <(null)>
+ - 鑫发,NotifyParamToOrder={"amount":"1000","goodsName":"iPhone配件","merchNo":"XF201903072284","orderNo":"19112414402574783370001","payDate":"20191124144113","payStateCode":"00","payType":"ZFB","sign":"17EE363B0AB10E947E12D2025F9C9AA5"}

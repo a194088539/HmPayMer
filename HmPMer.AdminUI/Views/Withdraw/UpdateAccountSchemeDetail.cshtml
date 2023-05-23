@@ -1,0 +1,202 @@
+﻿@model HmPMer.Entity.AccountSchemeDetailInfo
+
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    string strtime = ViewBag.Startimstr as string;
+}
+
+
+<form class="layui-form" id="formData" style="width:90%;">
+    <br />
+    <div class="layui-row">
+        @Html.Hidden("Id",Request["Id"])
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">开始时间</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" lay-verify="required" id="StarTime" name="StarTime" value="@Model.StartimeStr" readonly>
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">结束时间</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" lay-verify="required" id="EndTime" name="EndTime" value="@Model.EndTimeStr" readonly>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">入账类型</label>
+            <div class="layui-input-block">
+                <input type="radio" name="SchemeType1" value="0" title="D" @(Model.SchemeType1==0?"checked":"") />
+                <input type="radio" name="SchemeType1" value="1" title="T" @(Model.SchemeType1==1?"checked":"") />
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">到账天数</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" lay-verify="required" id="TDay1" name="TDay1" value="@Model.TDay1" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')">
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">到账比例</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" lay-verify="required" id="AmtSingle1" name="AmtSingle1" value="@Model.AmtSingle1" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row" id="div2" style="visibility:@(Model.AmtSingle1<100?"visible":"hidden")">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">入账类型</label>
+            <div class="layui-input-block">
+                <input type="radio" name="SchemeType2" value="0" title="D" @(Model.SchemeType2==0?"checked":"") />
+                <input type="radio" name="SchemeType2" value="1" title="T" @(Model.SchemeType2==1?"checked":"") />
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">到账天数</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" lay-verify="required" id="TDay2" name="TDay2" value="@Model.TDay2" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')">
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">到账比例</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" lay-verify="required" id="AmtSingle2" name="AmtSingle2" value="@Model.AmtSingle2" readonly onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-row layui-col-xs12" style="text-align:center">
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn layui-btn-sm" id="btn_update_sub">保存</button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        //提交数据
+        $("#btn_update_sub").click(function () {
+
+            var Data = hm.serializeObject($("#formData"));
+                      
+            //判断到账天数
+            if (Data.TDay1 == "") {
+                layer.msg("请输入到账天数！");
+                $("#TDay1").focus();
+                return;
+            }
+            
+            if (Data.AmtSingle1 == "") {
+                layer.msg("请输入到账比例！");
+                $("#AmtSingle1").focus();
+                return;
+            }
+
+            if (parseInt(Data.AmtSingle1) == 0) {
+                layer.msg("到账比例不能为0！");
+                $("#AmtSingle1").focus();
+                return;
+            }
+
+            if (parseInt(Data.AmtSingle1) > 100) {
+                layer.msg("到账比例不能大于100！");
+                $("#AmtSingle1").focus();
+                return;
+            }
+
+            if (parseInt(Data.TDay1) == 0 && parseInt(Data.AmtSingle1 < 100)) {
+                if (Data.TDay1 == "") {
+                    layer.msg("请输入到账天数！");
+                    $("#TDay2").focus();
+                    return;
+                }
+            }
+
+            var index = layer.msg('新增中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Withdraw/UpdateAccountSchemeDetailInfo", {
+                    data: {
+                        Model: Data
+                    },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300, });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                            parent.window.location.href = parent.window.location.href;
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+
+        $("#TDay1").blur(function () {
+            var TDay1 = parseInt($(this).val());
+            if (TDay1 == 0) {
+                $("#AmtSingle1").removeAttr("readonly");
+            } else if (TDay1>0) {
+                $("#AmtSingle1").val(100).attr("readonly", "readonly");
+                $("#div2").css("visibility", "hidden");
+                $("#AmtSingle2").val(0);
+                $("#TDay2").val();
+            }
+        });
+
+        $("#AmtSingle1").blur(function () {
+            var AmtSingle1 = parseInt($(this).val());
+
+            if (AmtSingle1 == 0) {
+                layer.msg("到账比例不能为0！");
+                $("#AmtSingle1").focus();
+                return;
+            }
+
+            if (AmtSingle1 > 100) {
+                layer.msg("到账比例不能大于100！");
+                $("#AmtSingle1").focus();
+                return;
+            }
+
+            if (AmtSingle1 < 100) {
+                $("#div2").css("visibility", "visible");
+                $("#AmtSingle2").val(100 - AmtSingle1);
+            }
+
+            if (AmtSingle1 == 100) {
+                $("#div2").css("visibility", "hidden");
+                $("#AmtSingle2").val(0);
+                $("#TDay2").val();
+            }
+        });
+
+    })
+</script>

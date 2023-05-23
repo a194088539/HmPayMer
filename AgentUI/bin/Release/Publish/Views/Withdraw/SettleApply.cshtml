@@ -1,0 +1,359 @@
+﻿@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "结算申请";
+    ViewBag.PageUri = "/Withdraw/WithdrawApply";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var withdrawChannelList = new HmPMer.Business.WithdrawBll().GetWithdrawChannelList(1);
+    var dicList = new HmPMer.Business.DistrictBll().LoadParentId(0);
+    var userdetail = new HmPMer.Business.UserBaseBll().GetUserDetail(Model.UserId);
+}
+
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="form-page">
+
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>结算申请</h4>
+            </div>
+        </div>
+        <form id="formdata">
+            <div class="row-fluid withdraw">
+
+                <div class="field-box withdrawApply">
+                    <label>商户ID: </label>@Model.UserId
+                </div>
+                <div class="field-box withdrawApply">
+                    @Html.Hidden("Balance", Model.Balance / 100)
+                    <label>可用余额: </label>
+                    <b>￥@(Model.Balance / 100) </b>
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>账户类型</label>
+                    @if (userdetail.WithdrawAccountType == 0)
+                    {
+                        <span>个人</span>
+                    }
+                    @if (userdetail.WithdrawAccountType == 1)
+                    {
+                        <span>企业</span>
+                    }
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>收款人</label>
+                    @userdetail.WithdrawFactName
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>银行账户</label>
+                    @userdetail.WithdrawBankCode
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>预留手机号</label>
+                    @userdetail.WithdrawReservedPhone
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>开户银行：</label>
+                    @userdetail.WithdrawBank
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>开户行地址：</label>
+                    @userdetail.WithdrawProvince  @userdetail.WithdrawCity  @userdetail.WithdrawBankBranch
+                </div>
+
+                <div class="input-append withdrawApply">
+                    <label>提现金额</label>
+                    <input class="input-large" type="text" id="WithdrawAmt" name="WithdrawAmt" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    <span class="add-on">.00</span>
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>手续费</label>
+                    <b>￥<span id="Handing">0.00</span></b>
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>验证码:</label>
+                    <input class="span2 inline-input" placeholder="请输入右则图形验证码" type="text" name="ImgCode" id="ImgCode" maxlength="4" />
+                    <img id="img_code" src="/DrawingApi/GetValidateImg?codeKey=imgagentsettleapply" alt="" onclick="this.src = '/DrawingApi/GetValidateImg?codeKey=imgagentsettleapply&t=' + Math.random();" height="20" style="cursor:pointer" />
+                </div>
+
+                @*<div class="field-box withdrawApply">
+                    <label>手机号码</label> @Model.MobilePhone <span class="btn-flat white" id="GetSmsCode">获取验证码</span>
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>短信验证码:</label>
+                    <input class="span2 inline-input" placeholder="点击上方按钮获取短信验证码" id="PhoneCode" name="PhoneCode" type="text" />
+                </div>*@
+
+                <div class="field-box withdrawApply">
+                    <label>提现密码:</label>
+                    <input class="span2 inline-input" id="Pass2" name="Pass2" type="password" value="" />
+                </div>
+
+                <div class="span11 field-box actions">
+
+                    @if (Model.WithdrawStatus == 1)
+                    {
+
+                        if (Model.IsMobilePhone == 1)
+                        {
+
+                            if (Model.IdCardStatus == 1)
+                            {
+                                <label></label>
+                                <input type="button" class="btn-glow primary" value="确认提交" id="btn_submit">
+                            }
+                            else
+                            {
+                                if (Model.AccountType == 0)
+                                {
+                                    <span style="color:red;font-size:16px;margin-left:20px;">请先进行实名认证</span><a href="/Center/AuthIdCard" style="font-size:16px;margin-left:5px;">去认证</a>
+                                }
+                                else
+                                {
+                                    <span style="color:red;font-size:16px;margin-left:20px;">请先进行企业认证</span><a href="/Center/AuthCompany" style="font-size:16px;margin-left:5px;">去认证</a>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <span style="color:red;font-size:16px;margin-left:20px;">请先进行手机认证</span><a href="/Center/AuthPhone" style="font-size:16px;margin-left:5px;">去认证</a>
+                        }
+
+                    }
+                    else
+                    {
+                        <span style="color:red;font-size:16px;margin-left:20px;">请先设置结算账户</span><a href="/center/userwithdrawindex" style="font-size:16px;margin-left:5px;">去设置</a>
+                    }
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+
+    function loadCity(pid) {
+        $.HM.ajax("base/loadcitylist/" + pid,
+            {
+                data: { 'ts': (new Date().getTime()) },
+                type: "GET",
+                dataType: 'json',
+                load: false,
+                success: function (d) {
+                    if (d.length == 0) {
+                        $("#CityId").empty().append('<option value="">请选择</option>');
+                        return;
+                    }
+                    var _html = '';
+                    $.each(d.data, function (i, v) {
+                        _html += '<option value="' + v.Id + '">' + v.Name + '</option>';
+                    });
+                    $("#CityId").empty().append(_html);
+                }
+            });
+    }
+
+    function SetTips(id, meg) {
+        $("#" + id).next("span").html('<i class="icon-remove-sign"></i>' + meg);
+        $("#" + id).next("span").show();
+        $("#" + id).focus();
+
+    }
+
+    function getWithdrawHanding(amount) {
+        if (amount == '') {
+            $("#Handing").val('0');
+            return;
+        }
+
+        $.HM.ajax("Withdraw/GetWithdrawHanding", {
+            data: { 'amount': amount, 'ts': (new Date().getTime()) },
+            type: "GET",
+            dataType: 'json',
+            load: false,
+            success: function (d) {
+                if (!d.IsSuccess) {
+                    $("#Handing").html('0');
+                    layer.msg(d.message, { icon: 0 });
+                } else {
+                    $("#Handing").html(d.data);
+
+                    var balance = parseFloat($.trim($("#Balance").val()));
+
+                    if (parseFloat(amount) + d.data > balance) {
+                        layer.msg("余额不够，请修改提现金额", { icon: 0 });
+                        $("#WithdrawAmt").focus();
+                        return;
+
+                    }
+                }
+            }
+        });
+    }
+
+    $(function () {
+
+        $("#ProvinceId").change(function () {
+            var pid = $.trim(this.value);
+            if (pid == '') {
+                $("#CityId").empty().append('<option value="">请选择</option>');
+                return;
+            }
+            loadCity(pid);
+        });
+
+        var codeClick = false;
+
+        $("#GetSmsCode").click(function () {
+
+            if (codeClick) {
+                return;
+            }
+
+            var imgCode = $.trim($("#ImgCode").val());
+            if (imgCode == '') {
+                layer.msg('请输入图片验证码', { icon: 5 });
+                $('#ImgCode').focus();
+                return;
+            }
+
+            if (imgCode.length != 4) {
+                layer.msg('验证码输入错误', { icon: 5 });
+                $('#ImgCode').focus();
+                return;
+            }
+
+
+            //获取短信验证码
+            $.post("/DrawingApi/SendMobileCode", { "Mobile": '@Model.MobilePhone', "SmsKey": "smsagentsettleapply", "ImgCode": imgCode, "ImgCodeKey": "imgagentsettleapply", SmsCode: "jiesuan"  }, function (data) {
+                if (data.IsSuccess) {
+                    layer.msg('获取短信验证码成功', { icon: 5 });
+                    codeClick = true;
+                    var showText = '%s s重新获取';
+                    var $this = $("#GetSmsCode");
+
+                    if ($this.data('alt_button_disable_rendered') == 0) {
+                        return false;
+                    }
+                    setTimeout(function () {
+                        var count = 60;
+                        setText();
+                        $this.addClass("cur");
+                        function setText() {
+                            $this.html(showText.replace('%s', count));
+
+                            if (count > 0) {
+                                count--;
+                                $this.data('alt_button_disable_rendered', 0);
+                                setTimeout(setText, 1000);
+                            } else {
+                                codeClick = false;
+                                $this.html('重新获取');
+                                $this.data('alt_button_disable_rendered', 1);
+                            }
+                        }
+                    }, 10);
+
+                } else {
+                    layer.msg(data.message, { icon: 5 });
+                    return false;
+                }
+
+            });
+
+            return;
+        });
+
+
+        $("#SelAccount").change(function () {
+            var selectO = $("#SelAccount").find("option:selected");
+            $("#FactName").val($(selectO).attr("FactName"));
+            $("#BankCode").val($(selectO).attr("BankCode"));
+        });
+
+        $("#WithdrawAmt").blur(function () {
+            var amount = $.trim($("#WithdrawAmt").val());
+            getWithdrawHanding(amount);
+        });
+
+
+        var comt = true;
+
+        //提现申请
+        $("#btn_submit").click(function () {
+
+            var data = validate.serializeObject($("#formdata"));
+
+            if (data.WithdrawAmt == '') {
+                layer.msg('请输入提现金额！', { icon: 5 });
+                $('#WithdrawAmt').focus();
+                return false;
+            }
+
+            if (data.WithdrawAmt==0)
+            {
+                layer.msg('提现金额不能为0！', { icon: 5 });
+                $('#WithdrawAmt').focus();
+                return false;
+            }
+
+            var balance = parseFloat($.trim($("#Balance").val()));
+            var withdrawAmt = parseFloat(data.WithdrawAmt);
+            var handing = parseFloat(data.Handing);
+            if (withdrawAmt + handing > balance) {
+
+                layer.msg('余额不够，请修改提现金额', { icon: 5 });
+                $('#WithdrawAmt').focus();
+                return false;
+            }
+            if (data.Pass2 == '') {
+
+                layer.msg('请填写提现密码', { icon: 5 });
+                $('#Pass2').focus();
+                return false;
+            }
+            if (data.PhoneCode == '') {
+
+                layer.msg('请填写提现短信验证码', { icon: 5 });
+                $('#PhoneCode').focus();
+
+                return false;
+            }
+
+            if (comt)
+            {
+                comt = false;
+                $.HM.ajax("Withdraw/SettleApplyIn", {
+                    data: data,
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (d) {
+                        if (d.IsSuccess) {
+                            layer.msg(d.message, { icon: 1 });
+                            setTimeout(function () {
+                                window.location = window.location.href;
+                            }, 1500);
+                        } else {
+                            comt = true;
+                            layer.msg(d.message, { icon: 0 });
+                        }
+                    }
+                });
+            }
+
+
+        });
+
+    });
+</script>

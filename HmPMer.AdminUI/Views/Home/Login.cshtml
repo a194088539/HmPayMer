@@ -1,0 +1,144 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>登入 - 后台管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/scripts/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/content/home/admin.css" media="all">
+    <link rel="stylesheet" href="/content/home/login.css" media="all">
+    <style>
+        .layui-btn {
+            height: 45px;
+            line-height: 45px;
+            font-size: 16px;
+        }
+
+        .layui-input {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .layadmin-user-login-box {
+            padding: 20px 0 10px 0;
+        }
+    </style>   
+    <script src="/scripts/layui/layui.js" merge="true"></script>
+    <script>
+        layui.config({
+            base: '/Scripts/layui/lay/modules/', //你存放新模块的目录，注意，不是layui的模块目录
+            path: '/Scripts/layui/css/'
+        }).use('index'); //加载入口
+    </script>
+</head>
+<body>
+    <div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
+        <div class="layadmin-user-login-main">
+            <div class="layadmin-user-login-box layadmin-user-login-header">
+                <h2>管理员控制系统</h2>
+            </div>
+            <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+                <div class="layui-form-item">
+                    <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+                    <input type="text" name="username" id="username" lay-verify="required" placeholder="用户名" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+                    <input type="password" name="pwd" id="pwd" lay-verify="required" placeholder="密码" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-row">
+                        <div class="layui-col-xs7">
+                            <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+                            <input type="text" name="code" id="code" lay-verify="required" placeholder="图形验证码" class="layui-input">
+                        </div>
+                        <div class="layui-col-xs5">
+                            <div style="margin-left: 10px;">
+                                <img id="" src="/DrawingApi/GetValidateImg?codeKey=hmpmlogin&t=@DateTime.Now.Ticks" onclick="this.src = '/DrawingApi/GetValidateImg?codeKey=hmpmlogin&t=' + Math.random();" width="100" height="40" style="cursor:pointer" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid" type="button" lay-filter="btn_submit" id="btn_submit">登 入</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        document.onkeydown = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+
+            if (e && e.keyCode == 13) { // enter 键
+                //要做的事情
+                btnsbmit();
+            }
+        }; 
+
+        function btnsbmit() {
+            var username = $.trim($('#username').val());
+            var pwd = $.trim($('#pwd').val());
+            var code = $.trim($('#code').val());
+
+            if (username == '') {
+                layer.msg('请填写用户名', { icon: 5 });
+                $('#username').focus();
+                return;
+            }
+            if (pwd == '') {
+                layer.msg('请填写密码', { icon: 5 });
+                $('#password').focus();
+                return;
+            }
+            if (code == '') {
+                layer.msg('请填写验证码', { icon: 5 });
+                $('#verify').focus();
+                return;
+            }
+            if (code.length != 4) {
+                layer.msg('验证码输入错误', { icon: 5 });
+                $('#code').focus();
+                return;
+            }
+
+            hm.ajax("home/loginin", {
+                data: { 'user': username, 'pwd': pwd, 'code': code },
+                dataType: 'json',
+                type: 'POST',
+                success: function (d) {
+                    if (!d.IsSuccess) {
+                        layer.msg(d.message, { icon: 5 });
+
+                        return;
+                    }
+                    layer.alert("登录成功！", { icon: 1 });
+                    window.location.href = "/home/index";
+                }
+            });
+        }
+
+        $("#btn_submit").click(function () {
+            btnsbmit();
+        });
+
+    });
+
+
+
+</script>

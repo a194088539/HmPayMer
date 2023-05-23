@@ -1,0 +1,147 @@
+﻿@model List<HmPMer.Entity.PayRateInfo>
+@{ 
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 125px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 140px;
+    }
+
+    .div1 {
+        width: 31%;
+        float: left;
+        margin-top: 5px;
+    }
+</style>
+
+<body class="childrenBody">
+    <form class="layui-form linksAdd">
+        @Html.Hidden("UserId", Request["UserId"])
+        @Html.Hidden("Type", Request["Type"])
+        @if (Model != null && Model.Count > 0)
+        {
+            <div style="width:100%">
+
+                @if (Request["Type"] == "2" || Request["Type"] == "4")
+                {
+                    <div>
+                        <label class="layui-form-label"><span>是否开启单独费率</span></label><input type="checkbox" @(Model.FindIndex(a => a.IsEnabled == 1) > -1 ? "checked" : "") name="CbkIsEnabled" id="cbkenble" lay-filter="CbkIsEnabled" lay-skin="switch" lay-text="开启|关闭">
+                    </div>
+                    <br />
+                }
+
+                @foreach (var item in Model)
+                {
+                    <div class="div1">
+                        <label class="layui-form-label">@(item.PayName)<span style="color:red;">(%)</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input masterEmail" paycode="@item.PayCode" name="inputrate" payname="@item.PayName" value="@( HM.Framework.Utils.DelNum0((item.Rate*100).ToString()))" lay-verify="required" placeholder="" />
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <div class="layui-form-item" style="text-align:center;padding-top:10px">
+                <button class="layui-btn" lay-filter="addLink" type="button" style="width:100px;" id="btn_update_payrate">提交</button>
+            </div>
+        }
+        else
+        {
+            <div class="layui-form-item" style="text-align:center;padding-top:20px;font-size:20px">
+                请先设置支付类型
+            </div>
+        }
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交数据
+        $("#btn_update_payrate").click(function () {
+
+            var bool = true;
+
+            var listmodel = [];
+            var IsEnabled = 0;
+            var cbkenble = $('#cbkenble');
+            if (cbkenble.is(':checked')) {
+                IsEnabled = 1;
+            }
+
+            //循环获取值
+            $("input[name=inputrate]").each(function (a, b) {
+                var model = {};
+                var reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+                var paycoe = $(b).attr("paycode");
+                var PayRate = $(b).val();
+
+                if (parseFloat(PayRate) != 0) {
+
+                    if (!reg.test(PayRate)) {
+                        layer.msg($(b).attr("payname") + "只能是2位小数！");
+                        $(b).focus();
+                        bool = false;
+                        return false;
+                    }
+
+                    if (parseFloat(PayRate) >= 100) {
+                        layer.msg($(b).attr("payname") + "只能小于100！");
+                        $(b).focus();
+                        bool = false;
+                        return false;
+                    }
+                }
+                model.ChannelId = $(b).attr("paycode");
+                model.Rate = PayRate;
+                model.IsEnabled = IsEnabled;
+                listmodel.push(model);
+            });
+
+            if (bool) {
+                var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+                setTimeout(function () {
+                    layer.close(index);
+                    hm.ajax("/Rate/SetPayRate", {
+                        data: {
+                            ListModel: listmodel,
+                            UserId: $("#UserId").val(),
+                            Type: $("#Type").val(),
+                            AloneRate: IsEnabled
+                        },
+                        type: "POST",
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result.Success) {
+                                layer.msg("操作成功！", { icon: 1, time: 300 });
+                                var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                                parent.tableIns.reload();
+                                parent.layer.close(index);
+                            } else {
+                                layer.msg(result.Message);
+                            }
+                        },
+                        error: function (x, t, e) {
+                            layer.closeAll();
+                        }
+                    });
+
+                }, 500);
+            }
+
+        });
+
+
+    })
+</script>

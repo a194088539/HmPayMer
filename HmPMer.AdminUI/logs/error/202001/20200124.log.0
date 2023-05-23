@@ -1,0 +1,51 @@
+2020-01-24 03:10:26,949 [7] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= update HmAdmin set LastLoginTime=GETDATE(),LastLoginIp=@LastLoginIp  where AdmUser=@AdmUser 
+System.Data.SqlClient.SqlException (0x80131904): 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception (0x80004005): 找不到网络路径。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\yidianfu\HM\Dapper\Dapper\SqlMapper.cs:行号 5013
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\yidianfu\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\yidianfu\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\yidianfu\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:855e5a99-24df-4a2e-8129-fcb5214854f1
+Error Number:53,State:0,Class:20
+2020-01-24 03:10:27,204 [7] ERROR logerror [(null)] <(null)>
+ - Insert.Error
+System.Data.SqlClient.SqlException (0x80131904): 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception (0x80004005): 找不到网络路径。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.Contrib.Extensions.SqlMapperExtensions.Insert[T](IDbConnection connection, T entityToInsert, IDbTransaction transaction, Nullable`1 commandTimeout) 位置 D:\yidianfu\HM\Dapper\Dapper\Contrib.Extensions\SqlMapperExtensions.cs:行号 781
+   在 HM.DAL.DalContext.Insert[T](T model) 位置 D:\yidianfu\HmPMer.Dal\HM.DAL\DalContext.cs:行号 187
+ClientConnectionId:855e5a99-24df-4a2e-8129-fcb5214854f1
+Error Number:53,State:0,Class:20
+2020-01-24 03:10:30,937 [7] ERROR logerror [(null)] <(null)>
+ - HmSession.SetSession(user,{"ID":"5D8905CE-4EC1-416B-A4D2-49D80D63D941","AdmUser":"admin","AdmPass":"21232f297a57a5a743894a0e4a801fc3","AdmPass2":"21232f297a57a5a743894a0e4a801fc3","NickName":"超级管理员","Flag":-1,"IsEnable":1,"AddTime":"\/Date(1517638127153-0000)\/","LastLoginTime":"\/Date(1573828170280-0000)\/","LastLoginIp":"113.225.130.164","Rate":0.1000,"RegCode":"76894fc22cdbb7a48bdafd52dea41978"})出错！
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.HmSession.getRedis() 位置 D:\yidianfu\HM\Framework\HmSession.cs:行号 50
+   在 HM.Framework.HmSession.SetSession(String key, String val, Boolean isSingle, String singleVal, Int32 min) 位置 D:\yidianfu\HM\Framework\HmSession.cs:行号 95
+2020-01-24 03:15:17,933 [6] ERROR logerror [(null)] <(null)>
+ - HmSession.SetSession(user,{"ID":"5D8905CE-4EC1-416B-A4D2-49D80D63D941","AdmUser":"admin","AdmPass":"21232f297a57a5a743894a0e4a801fc3","AdmPass2":"21232f297a57a5a743894a0e4a801fc3","NickName":"超级管理员","Flag":-1,"IsEnable":1,"AddTime":"\/Date(1517638127153-0000)\/","LastLoginTime":"\/Date(1573828170280-0000)\/","LastLoginIp":"113.225.130.164","Rate":0.1000,"RegCode":"76894fc22cdbb7a48bdafd52dea41978"})出错！
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.HmSession.getRedis() 位置 D:\yidianfu\HM\Framework\HmSession.cs:行号 50
+   在 HM.Framework.HmSession.SetSession(String key, String val, Boolean isSingle, String singleVal, Int32 min) 位置 D:\yidianfu\HM\Framework\HmSession.cs:行号 95

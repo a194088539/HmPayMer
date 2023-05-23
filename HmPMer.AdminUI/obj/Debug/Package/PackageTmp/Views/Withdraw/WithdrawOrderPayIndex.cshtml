@@ -1,0 +1,90 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "清算订单";
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var IBList = new HmPMer.Business.InterfaceBll().GetInterfaceBusinessList(-1);
+}
+
+@section HeadSection{
+    <script src="/Scripts/jquery-1.8.3.min.js?@ViewBag.StaticVersion"></script>
+    <script src="/scripts/Withdraw/withdraworderpayindex.js?@ViewBag.StaticVersion"></script>
+    <script src="/Scripts/My97DatePicker/WdatePicker.js?@ViewBag.StaticVersion"></script>
+
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    商户Id：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="userId" name="userId" placeholder="商户Id" />
+                </div>
+                <div class="layui-input-inline">
+                    清算来源：
+                </div>
+                <div class="layui-input-inline">
+                    <select id="OrderType" name="OrderType" lay-verify="" lay-filter="PayState">
+                        <option value="-1">请选择</option>
+                        <option value="1">结算</option>
+                        <option value="2">代付</option>
+                        <option value="3">后台</option>
+                        <option value="3">Api</option>
+                    </select>
+                </div>
+
+                <div class="layui-input-inline">
+                    接口商：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <select name="InterfaceCode" class="InterfaceCode" lay-filter="InterfaceCode">
+                        <option value="-1">请选择接口商</option>
+                        <option value="">不走接口</option>
+                        @foreach (var item in IBList)
+                        {
+                            <option value="@item.Code">@item.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="layui-input-inline">
+                    付款状态：
+                </div>
+                <div class="layui-input-inline">
+                    <select id="PayState" name="PayState" lay-verify="" lay-filter="PayState">
+                        <option value="-1">请选择</option>
+                        <option value="0">待处理</option>
+                        <option value="2">待确认</option>
+                        <option value="4">处理中</option>
+                        @*<option value="5">退回</option>*@
+                    </select>
+                </div>
+
+                <div class="layui-input-inline">
+                    申请时间：
+                </div>
+
+                <div class="layui-input-inline">
+                    <input style="width:150px" class="layui-input" onfocus="WdatePicker({ maxDate: $('#EndTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00:00")" type="text" id="BeginTime" name="BeginTime" />
+                </div>
+                <div class="layui-input-inline">
+                    到
+                </div>
+                <div class="layui-input-inline">
+                    <input style="width:150px" class="layui-input" onfocus="WdatePicker({ minDate: $('#BeginTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.ToString("yyyy-MM-dd 23:59:59")" type="text" id="EndTime" name="EndTime" />
+                </div>
+
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+                <a class="layui-btn layui-btn-normal" id="span_orderimprotexcel">
+                    <i class="layui-icon">&#xe655;</i>导出
+                </a>
+            </div>
+        </form>
+    </blockquote>
+    <table id="WithdrawOrderPayIndexList" lay-filter="WithdrawOrderPayIndexList"></table>
+    <iframe src="about:blank" id="iframeOut" name="iframeOut" style="display:none"></iframe>
+</div>
+

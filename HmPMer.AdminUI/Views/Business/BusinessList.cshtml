@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "商户管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+
+    var agentList = new HmPMer.Business.UserBaseBll().GetUserBaseForType(2);
+    var adminlist = new HmPMer.Business.AccountBll().GetAllHmAdmin();
+
+}
+
+@section HeadSection{
+    <script src="/scripts/business/business.js?@ViewBag.StaticVersion"></script>
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+                @Html.Hidden("UserType", Request["UserType"])
+
+                <div class="layui-input-inline">
+                    商户ID：
+                </div>
+                <div class="layui-input-inline" style="width:80px">
+                    <input type="text" class="layui-input" id="UserId" name="UserId" placeholder="商户ID" />
+                </div>
+                <div class="layui-input-inline">
+                    商户名称：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="MerName" name="MerName" placeholder="商户名称" />
+                </div>
+                <div class="layui-input-inline">
+                    邮箱：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <input type="text" class="layui-input" id="Email" name="Email" placeholder="邮箱" />
+                </div>
+                <div class="layui-input-inline">
+                    商户手机：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <input type="text" class="layui-input" id="MobilePhone" name="MobilePhone" placeholder="商户手机" />
+                </div>
+                <div class="layui-input-inline">
+                    状态：
+                </div>
+                <div class="layui-input-inline" style="width:60px">
+                    <select id="IsEnabled" name="IsEnabled" lay-verify="" lay-filter="IsEnabled">
+                        <option value="-1">请选择</option>
+                        <option value="0">待审核</option>
+                        <option value="1" selected>正常</option>
+                        <option value="2">冻结</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    所属代理：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <select name="AgentId" class="AgentId" lay-filter="AgentId">
+                        <option value="">请选择代理</option>
+                        @foreach (var item in agentList)
+                        {
+                            <option value="@item.UserId">@item.MerName</option>
+                        }
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    所属业务员：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <select name="PromId" class="PromId" lay-filter="PromId">
+                        <option value="">请选择业务员</option>
+                        @foreach (var item in adminlist)
+                        {
+                            <option value="@item.ID">@item.NickName</option>
+                        }
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    单独费率：
+                </div>
+                <div class="layui-input-inline" style="width:80px">
+                    <select id="AloneRate" name="AloneRate" lay-verify="" lay-filter="AloneRate">
+                        <option value="-1">请选择</option>
+                        <option value="1">开启</option>
+                        <option value="0">关闭</option>
+                    </select>
+                </div>
+
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>&nbsp;&nbsp;
+                <div class="layui-inline">
+                    <a class="layui-btn layui-btn-normal" id="btn_add">
+                        <i class="layui-icon">&#xe608;</i>添加
+                    </a>
+                </div>
+            </div>
+
+
+        </form>
+    </blockquote>
+    <table id="BusinessList" lay-filter="BusinessList"></table>
+
+    <!--操作-->
+    <script type="text/html" id="BusinessListBar">
+        {{#  if(d.IsEnabled == "1"){ }}
+        <a class="layui-btn-xs layui-btn-mycss" lay-event="btn_freeze">冻结</a>
+        {{#  }}}
+        {{#  if(d.IsEnabled == "2"){ }}
+        <a class="layui-btn-xs layui-btn-mycss" lay-event="btn_defreeze">解冻</a>
+        {{#  }}}
+        <a class="layui-btn-xs layui-btn-mycss" lay-event="btn_paytype">支付类型</a>
+        <a class="layui-btn-xs layui-btn-mycss" lay-event="deldata">删除</a>
+        <a class="layui-btn-xs layui-btn-mycss" href="/Business/GetGoto/{{ d.UserId }}" target="_blank">进入</a>
+
+    </script>
+</div>

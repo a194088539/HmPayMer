@@ -1,0 +1,396 @@
+﻿@model  List<HmPMer.Entity.AccountSchemeDetail>
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+@section HeadSection{
+    <script src="/Scripts/jquery-1.8.3.min.js?@ViewBag.StaticVersion"></script>
+    <script src="/Scripts/My97DatePicker/WdatePicker.js?@ViewBag.StaticVersion"></script>
+    <style>
+        .layui-input, .layui-textarea {
+            width: 90%;
+        }
+    </style>
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .layui-input {
+        width: 60px;
+        float: left
+    }
+
+    .linksAdd .layui-input-block {
+        width: 80px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form" id="formdata">
+        <table class="layui-table mag0" style="text-align:center">
+            <tr>
+                <td></td>
+                <td>时间段</td>
+                <td>到账类型</td>
+                <td>到账天数</td>
+                <td>比例(%)</td>
+                <td>到账类型</td>
+                <td>到账天数</td>
+                <td>比例(%)</td>
+            </tr>
+            @{ int i = 0;}
+            @foreach (var item in Model)
+            {
+                i++;
+                if (i == 1)
+                {
+                    var entime = "";
+                    if (item.EndTime <= 59)
+                    {
+                        entime = "00:" + item.EndTime;
+                    }
+                    else
+                    {
+                        entime = (((decimal)item.EndTime) / 100).ToString("00:00");
+                    }
+                    <tr>
+                        <td width="5%">
+                            <label class="layui-form-label">时间段一</label>
+                        </td>
+                        <td>
+                            <input style="width:60px" class="layui-input" value="00:00" type="text" id="StarTime" name="StarTime" readonly />
+                            <span style="float:left">-</span>
+                            <input style="width:60px" class="layui-input" onfocus="WdatePicker({minDate: $('#StarTime').val(),dateFmt:'HH:mm'})" value="@entime" type="text" id="EndTime" name="EndTime" />
+                        </td>
+
+                        <td>
+                            <input type="radio" name="SchemeType1" value="0" title="D" @(item.SchemeType1 == 0 ? "checked" : "")>
+                            <input type="radio" name="SchemeType1" value="1" title="T" @(item.SchemeType1 == 1 ? "checked" : "")>
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" name="TDay1" value="@item.TDay1" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" name="AmtSingle1" id="AmtSingle1" value="@item.AmtSingle1" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                        </td>
+
+                        <td>
+                            <input type="radio" name="SchemeType2" value="0" title="D" @(item.SchemeType2 == 0 ? "checked" : "")>
+                            <input type="radio" name="SchemeType2" value="1" title="T" @(item.SchemeType2 == 1 ? "checked" : "")>
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" name="TDay2" value="@item.TDay2" lay-verify="required" />
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" id="AmtSingle2" name="AmtSingle2" value="@item.AmtSingle2" lay-verify="required" readonly />
+                        </td>
+                    </tr>
+                }
+                if (i == 2)
+                {
+                    var entime = "";
+                    if (item.StarTime <= 59)
+                    {
+                        entime = "00:" + item.StarTime;
+                    }
+                    else
+                    {
+                        entime = (((decimal)item.EndTime) / 100).ToString("00:00");
+                    }
+                    <tr id="tr2" style="visibility:visible">
+                        <td width="5%">
+                            <label class="layui-form-label">时间段二</label>
+                        </td>
+                        <td>
+                            <input style="width:60px" class="layui-input" value="@entime" type="text" id="StarTime2" name="StarTime" readonly />
+                            <span style="float:left">-</span>
+                            <input style="width:60px" class="layui-input" value="00:00" type="text" id="EndTime2" name="EndTime" readonly />
+                        </td>
+
+                        <td>
+                            <input type="radio" name="SchemeType11" value="0" title="D" @(item.SchemeType1 == 0 ? "checked" : "")>
+                            <input type="radio" name="SchemeType11" value="1" title="T" @(item.SchemeType1 == 1 ? "checked" : "")>
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" name="TDay11" value="@item.TDay1" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" id="AmtSingle11" name="AmtSingle11" value="@item.AmtSingle1" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                        </td>
+
+                        <td>
+                            <input type="radio" name="SchemeType21" value="1" title="T" @(item.SchemeType2 == 0 ? "checked" : "")>
+                            <input type="radio" name="SchemeType21" value="0" title="D" @(item.SchemeType2 == 1 ? "checked" : "")>
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" name="TDay21" value="@item.TDay2" lay-verify="required" />
+                        </td>
+                        <td>
+                            <input type="text" class="layui-input" id="AmtSingle21" name="AmtSingle21" value="@item.AmtSingle2" lay-verify="required" readonly />
+                        </td>
+                    </tr>
+                }
+
+            }
+
+            @if (Model.Count == 1)
+            {
+                <tr id="tr2" style="visibility:hidden">
+                    <td width="5%">
+                        <label class="layui-form-label">时间段二</label>
+                    </td>
+                    <td>
+                        <input style="width:60px" class="layui-input" value="00:00" type="text" id="StarTime2" name="StarTime" readonly />
+                        <span style="float:left">-</span>
+                        <input style="width:60px" class="layui-input" value="00:00" type="text" id="EndTime2" name="EndTime" readonly />
+                    </td>
+
+                    <td>
+                        <input type="radio" name="SchemeType11" value="0" title="D" checked>
+                        <input type="radio" name="SchemeType11" value="1" title="T">
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" name="TDay11" value="" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" id="AmtSingle11" name="AmtSingle11" value="" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    </td>
+
+                    <td>
+                        <input type="radio" name="SchemeType21" value="0" title="D" checked>
+                        <input type="radio" name="SchemeType21" value="1" title="T">
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" name="TDay21" value="" lay-verify="required" />
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" id="AmtSingle21" name="AmtSingle21" value="" lay-verify="required" readonly />
+                    </td>
+                </tr>
+            }
+
+            @if (Model.Count == 0)
+            {
+                <tr>
+
+                    <td width="5%">
+                        <label class="layui-form-label">时间段一</label>
+                    </td>
+                    <td>
+                        <input style="width:60px" class="layui-input" value="00:00" type="text" id="StarTime" name="StarTime" readonly />
+                        <span style="float:left">-</span>
+                        <input style="width:60px" class="layui-input" onfocus="WdatePicker({minDate: $('#StarTime').val(),dateFmt:'HH:mm'})" value="00:00" type="text" id="EndTime" name="EndTime" />
+                    </td>
+
+                    <td>
+                        <input type="radio" name="SchemeType1" value="0" title="D" checked>
+                        <input type="radio" name="SchemeType1" value="1" title="T">
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" name="TDay1" value="" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" name="AmtSingle1" id="AmtSingle1" value="" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    </td>
+
+                    <td>
+                        <input type="radio" name="SchemeType2" value="0" title="D" checked>
+                        <input type="radio" name="SchemeType2" value="1" title="T">
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" name="TDay2" value="" lay-verify="required" />
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" id="AmtSingle2" name="AmtSingle2" value="" lay-verify="required" readonly />
+                    </td>
+                </tr>
+
+                <tr id="tr2" style="visibility:hidden">
+                    <td width="5%">
+                        <label class="layui-form-label">时间段二</label>
+                    </td>
+                    <td>
+                        <input style="width:60px" class="layui-input" value="00:00" type="text" id="StarTime2" name="StarTime" readonly />
+                        <span style="float:left">-</span>
+                        <input style="width:60px" class="layui-input" value="00:00" type="text" id="EndTime2" name="EndTime" readonly />
+                    </td>
+
+                    <td>
+                        <input type="radio" name="SchemeType11" value="0" title="D" checked>
+                        <input type="radio" name="SchemeType11" value="1" title="T">
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" name="TDay11" value="" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" id="AmtSingle11" name="AmtSingle11" value="" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    </td>
+
+                    <td>
+                        <input type="radio" name="SchemeType21" value="0" title="D" checked>
+                        <input type="radio" name="SchemeType21" value="1" title="T">
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" name="TDay21" value="" lay-verify="required" />
+                    </td>
+                    <td>
+                        <input type="text" class="layui-input" id="AmtSingle21" name="AmtSingle21" value="" lay-verify="required" readonly />
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+        <br />
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        $("#EndTime").blur(function () {
+            var EndTime = $.trim($("#EndTime").val());
+            if (EndTime != "00:00" || EndTime != "23:59") {
+                $("#StarTime2").val($("#EndTime").val());
+                $("#tr2").css("visibility", "visible");
+            } else {
+                $("#tr2").css("visibility", "hidden");
+            }
+        });
+
+        $("#AmtSingle1").blur(function () {
+            var AmtSingle1 = parseInt($("input[name='AmtSingle1']").val());
+            $("#AmtSingle2").val(100 - AmtSingle1);
+
+        });
+
+
+        $("#AmtSingle11").blur(function () {
+            var AmtSingle1 = parseInt($("input[name='AmtSingle11']").val());
+            $("#AmtSingle21").val(100 - AmtSingle1);
+
+        });
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            //循环input
+            var bool = true;
+            var ListModel = [];
+
+            var EndTime = $.trim($("#EndTime").val());
+            var intEndTime = 0;
+            if (EndTime != "00:00" || EndTime != "23:59") {
+                intEndTime = parseInt(EndTime.split(':')[0] + EndTime.split(':')[1]);
+            } else {
+                intEndTime = 2359;
+            }
+            
+            var model = {};
+            model.AccountSchemeId = '@Request["Id"]';
+            model.StarTime = 0;
+            model.EndTime = intEndTime;
+            model.SchemeType1 = $("input[name='SchemeType1']:checked").val();
+
+            if ($("input[name='TDay1']").val()=="")
+            {
+                layer.msg("请输入到账天数！");
+                $("input[name='TDay1']").focus();
+                return;
+            }
+
+            model.TDay1 = parseInt($("input[name='TDay1']").val());
+
+            if ($("input[name='AmtSingle1']").val() == "") {
+                layer.msg("请输入到账比列！");
+                $("input[name='AmtSingle1']").focus();
+                return;
+            }
+            model.AmtSingle1 = parseInt($("input[name='AmtSingle1']").val());
+            if (model.AmtSingle1 > 100) {
+                layer.msg("到账比列不能大于100！");
+                $("input[name='AmtSingle1']").focus();
+                return;
+            }
+            model.SchemeType2 = $("input[name='SchemeType1']:checked").val();
+
+            if ($("input[name='TDay2']").val() == "") {
+                layer.msg("请输入到账天数！");
+                $("input[name='TDay11']").focus();
+                return;
+            }
+            model.TDay2 = parseInt($("input[name='TDay2']").val());
+            model.AmtSingle2 = 100 - model.AmtSingle1;
+
+            ListModel.push(model);
+            if (EndTime != "00:00" || EndTime != "23:59") {
+                model = {};
+                model.AccountSchemeId = '@Request["Id"]';
+                model.StarTime = intEndTime;
+                model.EndTime = 2359;
+                model.SchemeType1 = $("input[name='SchemeType11']:checked").val();
+                if ($("input[name='TDay11']").val() == "") {
+                    layer.msg("请输入到账天数！");
+                    $("input[name='TDay11']").focus();
+                    return;
+                }
+                model.TDay1 = parseInt($("input[name='TDay11']").val());
+                if ($("input[name='AmtSingle11']").val() == "") {
+                    layer.msg("请输入到账比列！");
+                    $("input[name='AmtSingle11']").focus();
+                    return;
+                }
+                model.AmtSingle1 = parseInt($("input[name='AmtSingle11']").val());
+                if (model.AmtSingle1>100)
+                {
+                    layer.msg("到账比列不能大于100！");
+                    $("input[name='AmtSingle11']").focus();
+                    return;
+                }
+                model.SchemeType2 = $("input[name='SchemeType11']:checked").val();
+                if ($("input[name='TDay21']").val() == "") {
+                    layer.msg("请输入到账天数！");
+                    $("input[name='TDay11']").focus();
+                    return;
+                }
+                model.TDay2 = parseInt($("input[name='TDay21']").val());
+                model.AmtSingle2 = 100 - model.AmtSingle1;
+                ListModel.push(model);
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Withdraw/SetAccountSchemeDetail", {
+                    data: { AccountSchemeId: '@Request["Id"]', ListModel: ListModel},
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

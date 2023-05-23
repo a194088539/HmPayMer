@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "入账记录";
+    Layout = "~/Views/Shared/_Content.cshtml";   
+}
+
+@section HeadSection{
+    <script src="/Scripts/jquery-1.8.3.min.js?@ViewBag.StaticVersion"></script>
+    <script src="/scripts/Withdraw/orderaccountindex.js?@ViewBag.StaticVersion"></script>
+    <script src="/Scripts/My97DatePicker/WdatePicker.js?@ViewBag.StaticVersion"></script>
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    商户ID：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <input type="text" class="layui-input" id="UserId" name="UserId" placeholder="商户ID" />
+                </div>                
+                <div class="layui-input-inline">
+                    状态：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <select id="AccountState" name="AccountState" lay-verify="" lay-filter="AccountState">
+                        <option value="-1">请选择</option>
+                        <option value="0">待入账</option>
+                        <option value="1">已入账</option>                        
+                    </select>
+                </div>                
+                <div class="layui-input-inline">
+                    添加时间：
+                </div>
+                <div class="layui-input-inline">
+                    <input style="width:150px" class="layui-input" onfocus="WdatePicker({ maxDate: $('#EndTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00:00")" type="text" id="AccountTimeBegin" name="AccountTimeBegin" />
+                </div>
+                <div class="layui-input-inline">
+                    到
+                </div>
+                <div class="layui-input-inline">
+                    <input style="width:150px" class="layui-input" onfocus="WdatePicker({ minDate: $('#BeginTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.ToString("yyyy-MM-dd 23:59:59")" type="text" id="AccountTimeEnd" name="AccountTimeEnd" />
+                </div>
+
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+            </div>
+        </form>
+    </blockquote>
+    <table id="OrderAccountIndexList" lay-filter="OrderAccountIndexList"></table>
+
+</div>

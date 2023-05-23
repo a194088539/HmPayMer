@@ -1,0 +1,49 @@
+﻿
+@model  List<HmPMer.Entity.NoticeInfo>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="span2">序号</th>
+            <th class="span4">标题</th>
+            <th class="span2">是否已读</th>
+            <th class="span3">时间</th>
+            <th class="span2">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr class="@(i==1?"first":"")">
+                <td>@i</td>
+                <td>@item.Title</td>
+                <td>
+                    @if (item.IsRead == 0)
+                    {
+                        <span class="label label-info">未读</span>
+                    }
+
+                    @if (item.IsRead == 1)
+                    {
+                        <span class="label label-success">已读</span>
+                    }
+
+                </td>
+                <td>@(item.Addtime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                <td>
+                    <a href="javascript:GetNoticeInfo('@(item.Id)');">查看</a>
+                </td>
+            </tr>
+            i++;
+        }
+
+    </tbody>
+</table>
+<!-- end orders table -->
+<div class="pagination pull-right">
+    <ul id="page">
+        @Html.Raw(ViewData["page"])
+    </ul>
+    <span>每页@(ViewData["PageSize"])条，总共@(ViewData["TotalCount"])条记录</span>
+</div>
+

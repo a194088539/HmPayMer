@@ -1,0 +1,37 @@
+﻿.am-g {
+    margin: 0 auto;
+    width: 1100px;
+}
+
+.zfb-l {
+    float: left;
+    width: 600px !important;
+    overflow: hidden;
+}
+
+.zfb-r {
+    float: left;
+    width: 450px !important;
+    overflow: hidden;
+}
+
+.con {
+    margin: 0 auto;
+    width: 1100px;
+    text-align: center
+}
+
+    .con p {
+        text-align: center
+    }
+
+.m_cl_f {
+    left: 430px;
+}
+
+.m_cl_m h4 {
+    font-size: 14px;
+}
+
+.col-lg-6 {
+}

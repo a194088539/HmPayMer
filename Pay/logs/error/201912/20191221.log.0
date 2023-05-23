@@ -1,0 +1,28 @@
+2019-12-21 00:43:16,696 [6] ERROR logerror [(null)] <(null)>
+ - notify={"NotityId":"9a2917c7-cb7e-48e3-8d4e-e8f997be676a","OrderId":"19122022034990315710001","NotityState":0,"NotityCount":1,"NotityUrl":"http://185.251.45.104:6066///demo/paytestnotity?out_trade_no=c5aadcd8b6654960a&trade_no=19122022034990315710001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=1000&trade_time=2019-12-21 00:43:14&sign=1d066bdc73c1c8d9972358688c05c238","AddTime":"\/Date(1576860196534+0800)\/","NotityTime":"\/Date(1576860196534+0800)\/","ReturnUrl":"http://185.251.45.104:6066///demo/paytestreturn?out_trade_no=c5aadcd8b6654960a&trade_no=19122022034990315710001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=1000&trade_time=2019-12-21 00:43:14&sign=1d066bdc73c1c8d9972358688c05c238"}
+2019-12-21 11:56:26,433 [29] ERROR logerror [(null)] <(null)>
+ - notify={"NotityId":"be34fe99-83be-4b61-85d8-cc5c894258ca","OrderId":"19122110365788755248001","NotityState":0,"NotityCount":1,"NotityUrl":"http://185.251.45.104:6066///demo/paytestnotity?out_trade_no=5123bb81f3884fe7b&trade_no=19122110365788755248001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=1000&trade_time=2019-12-21 11:56:24&sign=3bd245de3388de94562b349f6c0c443f","AddTime":"\/Date(1576900586315+0800)\/","NotityTime":"\/Date(1576900586315+0800)\/","ReturnUrl":"http://185.251.45.104:6066///demo/paytestreturn?out_trade_no=5123bb81f3884fe7b&trade_no=19122110365788755248001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=1000&trade_time=2019-12-21 11:56:24&sign=3bd245de3388de94562b349f6c0c443f"}
+2019-12-21 13:48:32,564 [61] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-21 13:48:37,825 [61] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.c9aace3f23f74aff8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-21 13:48:43,873 [61] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.c9aace3f23f74aff8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133

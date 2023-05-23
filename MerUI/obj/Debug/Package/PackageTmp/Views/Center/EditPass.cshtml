@@ -1,0 +1,124 @@
+﻿@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "修改密码";
+    ViewBag.PageUri = "/center/safety";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+    <style>
+        .alert-msg {
+            display: none;
+            margin-left: 5px;
+        }
+    </style>
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="form-page">
+
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>密码修改</h4>
+            </div>
+        </div>
+
+        <div class="row-fluid withdraw">
+
+            @*<div class="field-box withdrawApply">
+                <label>代理Id: </label>@Model.UserId
+            </div>
+
+            <div class="field-box withdrawApply">
+                <label>代理名称: </label>@Model.MerName
+            </div>*@
+
+            <div class="field-box withdrawApply">
+                <label>原密码: </label><input class="form-control" type="password" id="PassWord" name="PassWord" placeholder="原密码" value="" />
+                <span class="alert-msg"></span>
+            </div>
+
+            <div class="field-box withdrawApply">
+                <label>新密码: </label><input class="form-control" type="password" id="NewPassWord" name="NewPassWord" placeholder="新密码" value="" />
+                <span class="alert-msg"></span>
+            </div>
+
+            <div class="field-box withdrawApply">
+                <label>确认密码: </label><input class="form-control" type="password" id="NewPassWordTwo" name="NewPassWordTwo" placeholder="新密码确认" value="" />
+                <span class="alert-msg"></span>
+            </div>
+
+            <div class="span11 field-box actions">
+                <label></label>
+                <input type="button" class="btn-glow primary" id="btnSubmit" value="确认提交">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            //提示信息
+            function SetTips(id, meg) {
+                $("#" + id).next("span").html('<i class="icon-remove-sign"></i>' + meg);
+                $("#" + id).next("span").show();
+                $("#" + id).focus();
+
+            }
+            //提交
+            $("#btnSubmit").click(function () {
+                $(".alert-msg").css("display", "none");
+
+                var pwd = $.trim($("#PassWord").val());
+                var newPwd = $.trim($("#NewPassWord").val());
+                var newPwd2 = $.trim($("#NewPassWordTwo").val());
+
+                if (pwd == '') {
+                    SetTips('PassWord', "请输入原密码")
+                    return;
+                }
+                if (newPwd == '') {
+                    SetTips('NewPassWord', "请输入新密码")
+                    return;
+                }
+                if (newPwd.length < 6) {
+                    SetTips('NewPassWord', "密码必须大于等于6位数")
+                    return;
+                }
+                if (newPwd == pwd) {
+                    SetTips('NewPassWord', "新密码不能与旧密码一致")
+                    return;
+                }
+
+                if (newPwd2 == '') {
+                    SetTips('NewPassWordTwo', "请再次输入新密码")
+                    return;
+                }
+                if (newPwd != newPwd2) {
+                    SetTips('NewPassWordTwo', "2次输入密码不一致")
+                    return;
+                }
+
+                $.HM.ajax("Center/UpdatePass", {
+                    data: { 'pwd': pwd, 'newPwd': newPwd },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (d) {
+                        if (d.IsSuccess) {
+                            layer.alert(d.message + ",3s之后请使用新密码重新登录！", { icon: 1 });
+                            setTimeout(function () {
+                                window.location = '/account/login';
+                            }, 3000);
+                        } else {
+                            layer.msg(d.message, { icon: 0 });
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>
+}

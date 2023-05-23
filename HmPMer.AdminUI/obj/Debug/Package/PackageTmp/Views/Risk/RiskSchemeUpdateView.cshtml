@@ -1,0 +1,172 @@
+﻿@model HmPMer.Entity.RiskScheme
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    
+}
+
+<style>
+    .layui-unselect {
+        margin-top: 5px;
+    }
+
+    .tdrigth {
+        text-align: right;
+        border: none;
+    }
+
+    .layui-table td {
+        border: none
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="18%">
+            <col width="32%">
+            <col width="18%">
+            <col width="">
+        </colgroup>
+        <tbody>
+            @Html.Hidden("RiskSchemeId", Model.RiskSchemeId)
+            <tr>
+                <td class="tdrigth">方案名称</td>
+                <td> <input type="text" class="layui-input" id="SchemeName" name="SchemeName" value="@Model.SchemeName" /></td>
+                <td class="tdrigth">方案类型</td>
+                <td> <input type="radio" name="RiskSchemeTaype" value="1" title="接口商" @(Model.RiskSchemeTaype==1?"checked":"")>
+                     <input type="radio" name="RiskSchemeTaype" value="2" title="商户"  @(Model.RiskSchemeTaype==2?"checked":"")>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">单笔最低限额</td>
+                <td>
+                    <input type="text" class="layui-input" id="SingleMinAmt" name="SingleMinAmt" value="@(Model.SingleMinAmt/100)" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                </td>
+
+                <td class="tdrigth">单笔最高限额</td>
+                <td>
+                    <input type="text" class="layui-input" id="SingleMaxAmt" name="SingleMaxAmt" value="@(Model.SingleMaxAmt/100)" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                </td>
+
+            </tr>
+            
+            <tr>
+                <td class="tdrigth">日交易次数</td>
+                <td>
+                    <input type="radio" name="IsDayCount" value="0" title="关闭"  @(Model.IsDayCount==0? "checked" : "") />
+                    <input type="radio" name="IsDayCount" value="1" title="开启"  @(Model.IsDayCount==1? "checked" : "") />
+                </td>
+                <td class="tdrigth">日交易次数</td>
+                <td> <input type="text" class="layui-input" id="DayCount" name="DayCount" value="@Model.DayCount" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" /></td>
+
+            </tr>
+            <tr>
+                <td class="tdrigth">日交易限额</td>
+                <td>
+                    <input type="radio" name="IsDayAmt" value="0" title="关闭" @(Model.IsDayAmt == 0? "checked" : "") />
+                    <input type="radio" name="IsDayAmt" value="1" title="开启" @(Model.IsDayAmt == 1? "checked" : "") />
+                </td>
+                <td class="tdrigth">日交易限额</td>
+                <td> <input type="text" class="layui-input" id="DayAmt" name="DayAmt" value="@(Model.DayAmt/100)" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" /></td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">月交易次数</td>
+                <td>
+                    <input type="radio" name="IsMonthCount" value="0" title="关闭" @(Model.IsMonthCount == 0? "checked" : "") />
+                    <input type="radio" name="IsMonthCount" value="1" title="开启" @(Model.IsMonthCount == 1? "checked" : "") />
+                </td>
+                <td class="tdrigth">日交易次数</td>
+                <td> <input type="text" class="layui-input" id="MonthCount" name="MonthCount" value="@Model.MonthCount" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" /></td>
+
+            </tr>
+            <tr>
+                <td class="tdrigth">月交易限额</td>
+                <td>
+                    <input type="radio" name="IsMonthAmt" value="0" title="关闭" @(Model.IsMonthAmt == 0? "checked" : "") />
+                    <input type="radio" name="IsMonthAmt" value="1" title="开启" @(Model.IsMonthAmt == 1? "checked" : "") />
+                </td>
+                <td class="tdrigth">月交易限额</td>
+                <td> <input type="text" class="layui-input" id="MonthAmt" name="MonthAmt" value="@(Model.MonthAmt/100)"  onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" /></td>
+            </tr>
+
+            <tr>               
+                <td class="tdrigth">排序</td>
+                <td>
+                    <input type="text" class="layui-input" id="Sort" name="Sort" value="@Model.Sort" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;      
+
+        //提交数据
+        $("#btn_submit").click(function () {
+
+            var SchemeName = $("#SchemeName").val();
+            if (!SchemeName || SchemeName == "") {
+                layer.msg("请输入方案名称！", function () {
+                    $("#SchemeName").focus();
+                });
+                return;
+            }
+
+            var SingleMinAmt = $("#SingleMinAmt").val()
+            if (!SingleMinAmt || SingleMinAmt == "") {
+                layer.msg("请输入单笔最低限额！", function () {
+                    $("#SingleMinAmt").focus();
+                });
+                return;
+            }
+
+            var SingleMaxAmt = $("#SingleMaxAmt").val();
+            if (!SingleMaxAmt || SingleMaxAmt == "") {
+                layer.msg("单笔最高限额！", function () {
+                    $("#SingleMaxAmt").focus();
+                });
+                return;
+            }
+       
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("Risk/RiskSchemeUpdate", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+        });
+
+
+    })
+</script>

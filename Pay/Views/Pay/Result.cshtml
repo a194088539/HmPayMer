@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+    bool payState = ViewBag.State == 1;
+    string stateName = ViewBag.StateName;
+    string ico_class = "ico-error";
+    if (payState)
+    {
+        ico_class = "ico-success";
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <title>@stateName</title>
+    <link href="/static/css/pay1/p_style.css" rel="stylesheet" type="text/css" />
+    <script src="/static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="/static/js/clipboard.min.js" type="text/javascript"></script>
+</head>
+
+<body data-clipboard-target="#ail_paycode" data-clipboard-action="copy">
+    <div class="success-area">
+        <div class="success-tit @ico_class"><span></span><p>@stateName</p></div>
+        <div class="success-info">
+            <ul class="info-con">
+                <li class="info-price">
+                    <span>订单金额</span>
+                    <div><em>￥@ViewBag.Amt</em></div>
+                </li>
+                <li>
+                    <span>订单号</span>
+                    <div>@ViewBag.OrderId</div>
+                </li>
+                <li>
+                    <span>订单时间</span>
+                    <div>@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div style="text-align: center;">
+            <textarea id="ail_paycode" readonly="readonly" style="position: absolute;filter:alpha(opacity=0);-moz-opacity:0;opacity:0; left:0px;top: 0px;">支付宝发红包啦！即日起还有机会额外获得余额宝消费红包！长按复制此消息，打开最新版支付宝就能领取！cmbTkE62wG</textarea>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {                
+        var clipboard = new Clipboard('body'); clipboard.on('success', function (e) { console.log("复制成功!") });
+    });
+</script>

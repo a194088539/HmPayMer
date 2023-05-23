@@ -1,0 +1,97 @@
+﻿
+
+@{
+    ViewBag.Title = "商户管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+
+    var agentList = new HmPMer.Business.UserBaseBll().GetUserBaseForType(2);
+    var adminlist = new HmPMer.Business.AccountBll().GetAllHmAdmin();
+}
+
+@section HeadSection{
+    <script src="/scripts/Business/lockbusinesslist.js?@ViewBag.StaticVersion"></script>
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+                @Html.Hidden("UserType", Request["UserType"])
+                <div class="layui-input-inline">
+                    商户ID：
+                </div>
+                <div class="layui-input-inline" style="width:80px">
+                    <input type="text" class="layui-input" id="UserId" name="UserId" placeholder="商户ID" />
+                </div>
+                <div class="layui-input-inline">
+                    商户名称：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="MerName" name="MerName" placeholder="商户名称" />
+                </div>
+                <div class="layui-input-inline">
+                    邮箱：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <input type="text" class="layui-input" id="Email" name="Email" placeholder="邮箱" />
+                </div>
+                <div class="layui-input-inline">
+                    商户手机：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <input type="text" class="layui-input" id="MobilePhone" name="MobilePhone" placeholder="商户手机" />
+                </div>
+                <div class="layui-input-inline">
+                    所属代理：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <select name="AgentId" class="AgentId" lay-filter="AgentId">
+                        <option value="">请选择代理</option>
+                        @foreach (var item in agentList)
+                        {
+                            <option value="@item.UserId">@item.MerName</option>
+                        }
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    所属业务员：
+                </div>
+                <div class="layui-input-inline" style="width:100px">
+                    <select name="PromId" class="PromId" lay-filter="PromId">
+                        <option value="">请选择业务员</option>
+                        @foreach (var item in adminlist)
+                        {
+                            <option value="@item.ID">@item.NickName</option>
+                        }
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    单独费率：
+                </div>
+                <div class="layui-input-inline" style="width:80px">
+                    <select id="AloneRate" name="AloneRate" lay-verify="" lay-filter="AloneRate">
+                        <option value="-1">请选择</option>
+                        <option value="1">开启</option>
+                        <option value="0">关闭</option>
+                    </select>
+                </div>
+
+
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+            </div>
+
+        </form>
+    </blockquote>
+    <table id="BusinessList" lay-filter="BusinessList"></table>
+
+    <script type="text/html" id="BusinessListBar">
+
+
+        {{#  if(d.IsEnabled == "2"){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="btn_defreeze">恢复</a>
+        {{#  }}}
+
+    </script>
+
+</div>
+

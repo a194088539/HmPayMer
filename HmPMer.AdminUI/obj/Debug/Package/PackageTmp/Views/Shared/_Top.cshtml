@@ -1,0 +1,68 @@
+﻿@{
+    var user = HmPMer.WebAdminUI.Models.ModelCommon.GetUserModel();
+    var menulist = new HmPMer.Business.MenuRoleBll().GetUserMenu(user.ID);
+    var menulistIndex = new HmPMer.Business.MenuRoleBll().GetUserMenuIndex(user.ID);
+}
+
+<div class="layui-header header">
+    <div class="layui-main mag0">
+        <p class="logo">后台管理系统</p>
+        <!-- 显示/隐藏菜单 -->
+        <a href="javascript:;" class="seraph hideMenu icon-caidan"></a>
+        <!-- 顶级菜单 -->
+        <ul class="layui-nav mobileTopLevelMenus" mobile>
+            <li class="layui-nav-item" data-menu="contentManagement">
+                @*<dl class="layui-nav-child">
+                        <dd class="layui-this" data-menu="contentManagement"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe63c;">&#xe63c;</i><cite>内容管理</cite></a></dd>
+                        <dd data-menu="memberCenter"><a href="javascript:;"><i class="seraph icon-icon10" data-icon="icon-icon10"></i><cite>用户中心</cite></a></dd>
+                        <dd data-menu="systemeSttings"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe620;">&#xe620;</i><cite>系统设置</cite></a></dd>
+                        <dd data-menu="seraphApi"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>使用文档</cite></a></dd>
+                    </dl>*@
+            </li>
+        </ul>
+        <ul class="layui-nav topLevelMenus" pc>
+            @foreach (var item in menulist)
+            {
+                <li class="layui-nav-item layui-this" data-menu="@item.Id">
+                    <a href="javascript:;"><i class="layui-icon" data-icon="">@Html.Raw(item.icon)</i><cite>@item.menuName</cite></a>
+                </li>
+            }
+        </ul>
+        <!-- 顶部右侧菜单 -->
+        <ul class="layui-nav top_menu">
+            <li class="layui-nav-item" id="userInfo">
+                <a href="javascript:;"><img src="/images/face.jpg" class="layui-nav-img userAvatar" width="35" height="35"><cite class="adminName">@user.AdmUser</cite></a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" data-url="/Account/UserInfo"><i class="seraph icon-ziliao" data-icon="icon-ziliao"></i><cite>个人资料</cite></a></dd>
+                    <dd><a href="javascript:;" data-url="/Account/UpdatePwd"><i class="seraph icon-xiugai" data-icon="icon-xiugai"></i><cite>修改密码</cite></a></dd>
+                    @*<dd pc><a href="javascript:;" class="changeSkin"><i class="layui-icon">&#xe61b;</i><cite>更换皮肤</cite></a></dd>*@
+                    <dd><a href="/Home/LoginOut" class="signOut"><i class="seraph icon-tuichu"></i><cite>退出</cite></a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="layui-side layui-bg-black">
+    <div class="navBar layui-side-scroll" id="navBar">
+        <ul class="layui-nav layui-nav-left layui-nav-tree" style="height: 764px;">
+            <li class="layui-nav-item layui-this"><a href="javascript:;" data-url=""><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a></li>
+            <!-- 首页默认显示菜单 -->
+            @foreach (var item in menulistIndex)
+            {
+                var inexmenulist = new HmPMer.Business.MenuRoleBll().GetUserMenuIndex(user.ID, item.Id);
+                foreach (var item2 in inexmenulist)
+                {
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;" data-url="@item2.href">
+                            <i class="layui-icon" data-icon="">@Html.Raw(item2.icon)</i>
+                            <cite>@item2.title</cite>
+                        </a>
+                    </li>
+                }
+            }
+
+        </ul>
+    </div>
+</div>

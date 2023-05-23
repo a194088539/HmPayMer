@@ -1,0 +1,4 @@
+2019-11-06 00:08:58,763 [7] INFO  loginfo [(null)] <(null)>
+ - 登录日志失败：user=test, pwd=test, ip=192.168.1.2
+2019-11-06 00:09:04,064 [8] INFO  loginfo [(null)] <(null)>
+ - 登录日志失败：user=test, pwd=123456, ip=192.168.1.2

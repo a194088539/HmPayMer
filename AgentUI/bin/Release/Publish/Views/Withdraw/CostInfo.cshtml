@@ -1,0 +1,180 @@
+﻿@model List<HM.Entity.UsersPayBank>
+@{
+    ViewBag.Title = "账户维护";
+    ViewBag.PageUri = "/Withdraw/CostInfo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section header{
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+    <script src="/static/js/popWinjs.js"></script>
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper">
+
+        <!-- orders table -->
+        <div class="table-wrapper orders-table section">
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4>账户维护</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row-fluid filter-block">
+                <div class="pull-right">
+                    <a class="btn-flat success new-product" id="a_add">+ 新增账户</a>
+                </div>
+            </div>
+
+            <div class="row-fluid filter-block">
+                <div class="row-fluid">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span2">序号</th>
+                                <th class="span4">收款人姓名</th>
+                                <th class="span5">收款账号</th>
+                                <th class="span2">收款银行</th>
+                                <th class="span2">账户类型</th>
+                                <th class="span2">状态</th>
+                                <th class="span2">是否默认</th>
+                                <th class="span5">添加时间</th>
+                                <th class="span3">备注</th>
+                                <th class="span5">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1;}
+                            @foreach (var item in Model)
+                            {
+                                <tr class="@(i==1?"first":"")">
+                                    <td>@i</td>
+                                    <td>@item.FactName</td>
+                                    <td>@item.BankCode</td>
+                                    <td>@item.BankName</td>
+                                    <td>@(item.AccountType == 0 ? "个人" : "公有")</td>
+                                    <td>
+                                        @if (item.Status == 0)
+                                        {
+                                            <span class="label label-info">待审核</span>
+                                        }
+
+                                        @if (item.Status == 1)
+                                        {
+                                            <span class="label label-success">审核通过</span>
+                                        }
+
+                                        @if (item.Status == 2)
+                                        {
+                                            <span class="label">审核失败</span>
+                                        }
+
+                                    </td>
+                                    <td>
+                                        @if (item.IsDefault == 1)
+                                        {
+                                            <span style="color:red">默认</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @(item.Addtime.ToString("yyyy-MM-dd HH:mm:ss"))
+
+                                    </td>
+                                    <td>
+                                        @item.AuditDesc
+                                    </td>
+                                    <td>
+                                        <ul class="actions">
+                                            <li class="last"><a href="javascript:delBank('@(item.Id)');">删除</a></li>
+                                            @if (item.Status == 2)
+                                            {
+                                                <li class="last"><a href="javascript:RestBank('@(item.Id)');">重新提交</a></li>
+                                            }
+                                            @if (item.IsDefault == 0 && item.Status == 1)
+                                            {
+                                                <li class="last"><a href="javascript:UpDefaultBank('@(item.Id)');">设为默认</a></li>
+                                            }
+
+                                        </ul>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function delBank(id) {
+        layer.confirm('您是否删除此银行账户？一旦删除无法恢复！', {
+            btn: ['确认删除', '取消'] //按钮
+        }, function () {
+            $.HM.ajax("/Withdraw/RemoveUserBank", {
+                data: { 'id': id },
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.IsSuccess) {
+                        layer.msg(d.message, { icon: 1 });
+                        setTimeout(function () {
+                            window.location.href = window.location.href;
+                        }, 1500);
+                    } else {
+                        layer.msg(d.message, { icon: 0 });
+                    }
+                }
+            });
+        }, function () {
+        });
+    }
+
+
+    function UpDefaultBank(id) {
+        layer.confirm('您是否将此账户设置为默认提现账户？', {
+            btn: ['确认', '取消'] //按钮
+        }, function () {
+            $.HM.ajax("Withdraw/UpDefaultBank", {
+                data: { 'id': id },
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.IsSuccess) {
+                        layer.msg(d.message, { icon: 1 });
+                        setTimeout(function () {
+                            window.location.href = window.location.href;
+                        }, 1500);
+                    } else {
+                        layer.msg(d.message, { icon: 0 });
+                    }
+                }
+            });
+        }, function () {
+        });
+    }
+
+    function RestBank(Id) {
+        popWin.showWin("/Withdraw/RestCostInfo?Id=" + Id, 800, 450, function () {
+
+        });
+    }
+
+    $(function () {
+        $("#a_add").click(function () {
+            popWin.showWin("/Withdraw/AddCostInfo", 800, 450, function () {
+
+            });
+        });
+
+
+    });
+
+</script>

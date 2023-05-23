@@ -1,0 +1,54 @@
+﻿
+
+@{
+    ViewBag.Title = "系统设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+
+    string type = Request["type"];
+    var TableRate = new System.Data.DataTable();
+    if (type == "1")
+    {
+        TableRate = new HmPMer.Business.RateBll().GetInterfaceListRate();
+    }
+
+    if (type == "2")
+    {
+        TableRate = new HmPMer.Business.RateBll().GetUserGradeListRate(Request["UserType"]);
+    }
+
+}
+
+@if (TableRate != null && TableRate.Rows.Count > 0)
+{
+    <table class="layui-table mag0" style="text-align:center">
+        <thead>
+            <tr>
+                @{ int i = 1;}
+                @foreach (var item in TableRate.Columns)
+                {
+
+                    if (i == 1)
+                    {
+                        <td align="center" style="width:@(100/TableRate.Columns.Count)%">@(item.ToString())</td>
+                    }
+                    else
+                    {
+                        <td align="center" style="width:@(100/TableRate.Columns.Count)%">@(item.ToString())<span style="color:red">(%)</span></td>
+                    }
+                    i++;
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (System.Data.DataRow item in TableRate.Rows)
+            {
+                <tr>
+                    @foreach (var item2 in TableRate.Columns)
+                    {
+                        <td class="tdrigth">@(HM.Framework.Utils.DelNum0(item[item2.ToString()].ToString()))</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}

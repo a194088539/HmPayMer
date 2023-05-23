@@ -1,0 +1,153 @@
+﻿@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "Index";
+    ViewBag.PageUri = "/center/index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var PayRateList = ViewBag.RateList as List<HmPMer.Entity.PayRateInfo>;
+    var userdetail = new HmPMer.Business.UserBaseBll().GetUserDetail(Model.UserId);
+}
+
+@section header{
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+}
+
+<div id="pad-wrapper" class="user-profile">
+    <!-- header -->
+    <div class="row-fluid header">
+        <div class="span8">
+            <img src="/static/img/contact-profile.png" class="avatar img-circle">
+            <h3 class="name">@(Model.MerName)</h3>
+            <span class="area">上次登录时间：@Model.LastLoginTime.Value.ToString("yyyy-MM-dd HH:mm:ss")   于 @Model.LastLoginIp </span>
+        </div>
+
+    </div>
+
+    <div class="row-fluid profile">
+        <!-- bio, new note & orders column -->
+        <div class="span9 bio">
+            <div class="profile-box">
+                <!-- biography -->
+                <div class="span12 section">
+                    <h6>基本信息</h6>
+
+                    <table class="table table-hover">
+                        <tbody>
+                            <!-- row -->
+                            <tr class="first">
+                                <td>
+                                    用户名：@Model.MerName
+                                </td>
+                                <td>
+                                    商户等级：@Model.GradeName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    真实姓名：@userdetail.FactName
+                                </td>
+                                <td>
+                                    身份证：@userdetail.IdCard
+                                </td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    手机：@Model.MobilePhone
+                                </td>
+                                <td>
+                                    Email：@Model.Email
+                                </td>
+                                <td>
+                                    QQ：@Model.QQ
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- new comment form -->
+                <div class="span12 section comment">
+                    <h6>结算信息</h6>
+                    @if (Model.WithdrawStatus == 1)
+                    {
+                        <table class="table table-hover">
+                            <tbody>
+                                <!-- row -->
+                                <tr class="first">
+                                    <td>
+                                        开户名：@userdetail.WithdrawFactName
+                                    </td>
+                                    <td>
+                                        账号：@userdetail.WithdrawBankCode
+                                    </td>
+                                    <td>
+                                        开户行：@userdetail.WithdrawBank
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        开户行地址：@userdetail.WithdrawCity @userdetail.WithdrawBankBranch
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <span>未提交</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- side address column -->
+        <div class="span3 address pull-right">
+            <h6>成本费率</h6>
+            <!-- recent orders table -->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="span3">
+                            支付类型
+                        </th>
+                        <th class="span2">
+                            <span class="line"></span>
+                            费率
+                        </th>
+                        <th class="span2">
+                            <span class="line"></span>
+                            计算周期
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- row -->
+                    @{ int i = 0;}
+                    @foreach (var item in PayRateList)
+                    {
+                        <tr class="@(i==0?"first":"")">
+                            <td>
+                                @item.PayName
+                            </td>
+                            <td>
+                                @((item.Rate * 100).ToString("0.00"))%
+                            </td>
+                            <td>
+                                @item.AccountSchemeName
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

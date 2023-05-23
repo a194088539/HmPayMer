@@ -1,0 +1,50 @@
+﻿@model  List<HmPMer.Entity.UsersPayBank>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="span2">序号</th>
+            <th class="span3">账号</th>
+            <th class="span2">类型</th>
+            <th class="span3">开户行</th>
+            <th class="span2">开户名</th>
+            <th class="span2">开户省</th>
+            <th class="span2">开户市</th>
+            <th class="span5">开户支行</th>
+            <th class="span2">预留手机</th>
+            <th class="span3">添加时间</th>
+            <th class="span2">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (var item in Model)
+        {
+        <tr class="@(i==1?"first":"")">
+            <td>@i</td>
+            <td>@item.BankCode</td>
+            <td>@(item.AccountType == 0 ? "个人" : "公司")</td>
+            <td>@item.BankName</td>
+            <td>@item.FactName</td>
+            <td>@item.ProvinceName</td>
+            <td>@item.CityName</td>
+            <td>@item.BankAddress</td>
+            <td>@item.ReservedPhone</td>
+            <td>@(item.Addtime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+            <td>
+                <a href="javascript:delBank('@(item.Id)');">删除</a>
+            </td>
+        </tr>
+            i++;
+        }
+
+    </tbody>
+</table>
+<!-- end orders table -->
+<div class="pagination pull-right">
+    <ul id="page">
+        @Html.Raw(ViewData["page"])
+    </ul>
+    <span>每页@(ViewData["PageSize"])条，总共@(ViewData["TotalCount"])条记录</span>
+</div>
+
+

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewBag.Title - 代理中心</title>
+    <link href="/static/css/Login/admin.css" rel="stylesheet" />
+    <link href="/static/css/Login/login.css" rel="stylesheet" />
+    <link href="/static/css/Login/layui.css" rel="stylesheet" />
+    <script src="/static/js/jquery-1.8.3.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <style>
+        .layui-btn {
+            height: 45px;
+            line-height: 45px;
+            font-size: 16px;
+        }
+
+        .layui-input {
+            height: 45px;
+            line-height: 45px;
+        }
+
+        .layadmin-user-login-box {
+            padding: 20px 0 10px 0;
+        }
+        .logo {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
+        <div class="layadmin-user-login-main">
+            <div class="layadmin-user-login-box layadmin-user-login-header">
+                <!-- <img src="~/static/logo.png" class="logo" /> -->
+                <h2>代理 @ViewBag.Title</h2>
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

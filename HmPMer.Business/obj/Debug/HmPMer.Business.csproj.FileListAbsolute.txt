@@ -1,0 +1,273 @@
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HM.Framework.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\System.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\log4net.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\NPOI.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\RestSharp.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\websocket-sharp.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HM.Framework.pdb
+D:\HmPMer_1\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+D:\HmPMer_1\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+D:\HmPMer_1\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+D:\HmPMer_1\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+D:\HmPMer_1\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+D:\HmPMer_1\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+D:\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+D:\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\System.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\log4net.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\NPOI.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\RestSharp.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\websocket-sharp.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+D:\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+D:\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+D:\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+D:\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.pdb
+D:\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+D:\HmPMer\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+D:\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+D:\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+D:\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+D:\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\System.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\NPOI.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\LitJSON.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\RestSharp.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\websocket-sharp.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HM.Framework.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\System.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\NPOI.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\LitJSON.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\RestSharp.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\websocket-sharp.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HM.Framework.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HM.Framework.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\System.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\NPOI.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\LitJSON.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\RestSharp.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\websocket-sharp.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HM.Framework.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\142\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\142\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+C:\Users\Administrator\Desktop\142\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HM.Framework.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\System.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\log4net.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\NPOI.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\LitJSON.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\RestSharp.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\websocket-sharp.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HM.Framework.pdb
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+D:\workspace\Payment\142\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+D:\workspace\Payment\142\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+D:\workspace\Payment\142\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CoreCompileInputs.cache
+D:\workspace\Payment\142\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+D:\workspace\Payment\142\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+D:\workspace\Payment\142\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\System.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\log4net.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\NPOI.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\LitJSON.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\RestSharp.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\websocket-sharp.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+D:\workspace\Payment\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+D:\workspace\Payment\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+D:\workspace\Payment\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+D:\Workspace\Payment\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CoreCompileInputs.cache
+D:\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+D:\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\LitJSON.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\System.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\log4net.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\NPOI.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\RestSharp.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\websocket-sharp.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+D:\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+D:\yidianfu\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+D:\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+D:\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.pdb
+D:\yidianfu\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+D:\yidianfu\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+D:\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+D:\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+D:\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+D:\yidianfu\HmPMer.Business\obj\Debug\HmPMer.Business.pdb
+D:\HmPayMer\HmPMer.Business\bin\Debug\HmPMer.Business.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\HmPMer.Business.pdb
+D:\HmPayMer\HmPMer.Business\bin\Debug\HM.Framework.Dapper.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\HM.Framework.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\HM.Framework.PayApi.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\HmPMer.Dal.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\HmPMer.Entity.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\LitJSON.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\System.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\log4net.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\BouncyCastle.Crypto.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\StackExchange.Redis.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\NPOI.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\ServiceStack.Text.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\ThoughtWorks.QRCode.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\NPOI.OOXML.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\RestSharp.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\Newtonsoft.Json.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\websocket-sharp.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\NPOI.OpenXml4Net.dll
+D:\HmPayMer\HmPMer.Business\bin\Debug\HmPMer.Dal.pdb
+D:\HmPayMer\HmPMer.Business\bin\Debug\HmPMer.Entity.pdb
+D:\HmPayMer\HmPMer.Business\bin\Debug\HM.Framework.Dapper.pdb
+D:\HmPayMer\HmPMer.Business\bin\Debug\HM.Framework.pdb
+D:\HmPayMer\HmPMer.Business\bin\Debug\HM.Framework.PayApi.pdb
+D:\HmPayMer\HmPMer.Business\bin\Debug\websocket-sharp.pdb
+D:\HmPayMer\HmPMer.Business\obj\Debug\HmPMer.Business.csprojAssemblyReference.cache
+D:\HmPayMer\HmPMer.Business\obj\Debug\HmPMer.Business.csproj.CopyComplete
+D:\HmPayMer\HmPMer.Business\obj\Debug\HmPMer.Business.dll
+D:\HmPayMer\HmPMer.Business\obj\Debug\HmPMer.Business.pdb

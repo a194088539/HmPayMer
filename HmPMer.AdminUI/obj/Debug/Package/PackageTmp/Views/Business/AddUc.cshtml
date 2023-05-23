@@ -1,0 +1,208 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var adminlist = new HmPMer.Business.AccountBll().GetAllHmAdmin();
+    var gradelist = new HmPMer.Business.GradeBll().GetAllUserGrade(0);
+    var wsList = new HmPMer.Business.WithdrawBll().GetAllWithdrawSchemeList(0);
+    var agentList = new HmPMer.Business.UserBaseBll().GetUserBaseForType(2);
+}
+
+<form class="layui-form" id="formData" style="width:90%;">
+    <br />
+    <div class="layui-row">
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">商户名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" lay-verify="required" id="MerName" name="MerName">
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">商户等级</label>
+            <div class="layui-input-block">
+                <select name="GradeId" class="GradeId" lay-filter="GradeId">
+                    <option value="0">请选择等级</option>
+                    @foreach (var item in gradelist)
+                    {
+                        <option value="@item.Id">@item.GradeName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">结算方案</label>
+            <div class="layui-input-block">
+                <select name="WithdrawSchemeId" class="WithdrawSchemeId" lay-filter="WithdrawSchemeId">
+                    <option value="0">请选择结算方案</option>
+                    @foreach (var item in wsList)
+                    {
+                        <option value="@item.Id">@item.SchemeName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">商户类型</label>
+            <div class="layui-input-block">
+                <input type="radio" name="AccountType" value="0" title="个人" />
+                <input type="radio" name="AccountType" value="1" title="企业" checked />
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">所属业务员</label>
+            <div class="layui-input-block">
+                <select name="PromId" class="PromId" lay-filter="PromId">
+                    <option value="">请选择管理员</option>
+                    @foreach (var item in adminlist)
+                    {
+                        <option value="@item.ID">@item.NickName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">所属代理</label>
+            <div class="layui-input-block">
+                <select name="AgentId" class="AgentId" lay-filter="AgentId">
+                    <option value="">请选择代理</option>
+                    @foreach (var item in agentList)
+                    {
+                        <option value="@item.UserId">@item.MerName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-row">
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-block">
+                <input type="password" class="layui-input" lay-verify="required" id="Pass" name="Pass" placeholder="">
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">二级密码</label>
+            <div class="layui-input-block">
+                <input type="password" class="layui-input" lay-verify="required" id="Pass2" name="Pass2" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">手机</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="MobilePhone" name="MobilePhone" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" placeholder="请输入手机">
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">Email</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="Email" placeholder="请输入Email">
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">QQ</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" name="QQ" placeholder="请输入QQ号">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-row layui-col-xs12" style="text-align:center">
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn layui-btn-sm" id="btn_update_sub">保存</button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        //提交数据
+        $("#btn_update_sub").click(function () {
+
+            var MerName = $("#MerName").val();
+
+            if (!MerName || MerName == "") {
+                layer.msg("请输入商户名称！");
+                return;
+            }
+
+            var MobilePhone = $("#MobilePhone").val();
+
+            if (!MobilePhone || MobilePhone == "") {
+                layer.msg("请输入手机！");
+                return;
+            }
+
+            var Pass = $("#Pass").val();
+
+            if (!Pass || Pass == "") {
+                layer.msg("请输入密码！");
+                return;
+            }
+
+            var Pass2 = $("#Pass2").val();
+
+            if (!Pass2 || Pass2 == "") {
+                layer.msg("请输入二级密码！");
+                return;
+            }
+
+            if (Pass == Pass2) {
+                layer.msg("二级密码不能和密码一样！");
+                return;
+            }
+
+
+            var index = layer.msg('新增中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Business/AddBusiness", {
+                    data: {
+                        Model: hm.serializeObject($("#formData"))
+                    },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300, });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>
+
+

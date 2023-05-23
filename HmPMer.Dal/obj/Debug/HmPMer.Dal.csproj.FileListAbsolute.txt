@@ -1,0 +1,196 @@
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HM.Framework.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\System.Configuration.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\log4net.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\NPOI.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+D:\HmPMer_1\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+D:\HmPMer_1\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+D:\HmPMer_1\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+D:\HmPMer_1\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+D:\HmPMer_1\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+D:\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+D:\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\System.Configuration.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\log4net.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\NPOI.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+D:\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+D:\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+D:\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+D:\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+D:\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+D:\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+D:\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\System.Configuration.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\NPOI.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HM.Framework.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\System.Configuration.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\NPOI.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HM.Framework.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\System.Configuration.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\NPOI.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HM.Framework.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\System.Configuration.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\log4net.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\NPOI.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+D:\workspace\Payment\142\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+D:\workspace\Payment\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+D:\workspace\Payment\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CoreCompileInputs.cache
+D:\workspace\Payment\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+D:\workspace\Payment\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+D:\workspace\Payment\142\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\System.Configuration.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\log4net.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\NPOI.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+D:\workspace\Payment\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+D:\workspace\Payment\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+D:\workspace\Payment\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+D:\workspace\Payment\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+D:\Workspace\Payment\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CoreCompileInputs.cache
+D:\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+D:\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\LitJSON.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\System.Configuration.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\log4net.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\NPOI.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+D:\yidianfu\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+D:\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+D:\yidianfu\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+D:\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+D:\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+D:\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+D:\yidianfu\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HmPMer.Dal.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HmPMer.Dal.pdb
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HM.Framework.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HmPMer.Entity.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\LitJSON.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\System.Configuration.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\log4net.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\BouncyCastle.Crypto.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\StackExchange.Redis.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\NPOI.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\ServiceStack.Text.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\ThoughtWorks.QRCode.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\NPOI.OOXML.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\NPOI.OpenXml4Net.dll
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HmPMer.Entity.pdb
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HM.Framework.Dapper.pdb
+D:\HmPayMer\HmPMer.Dal\bin\Debug\HM.Framework.pdb
+D:\HmPayMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.csprojAssemblyReference.cache
+D:\HmPayMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.csproj.CopyComplete
+D:\HmPayMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.dll
+D:\HmPayMer\HmPMer.Dal\obj\Debug\HmPMer.Dal.pdb

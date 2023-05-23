@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "数据备份";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+<br /><br />
+<form class="layui-form" id="formtestdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center" colspan="3">发送测试</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td class="tdrigth">备份路径</td>
+                <td><input type="text" class="layui-input" value="D:\" id="Path" name="Path" placeholder="请输入地址"></td>
+                <td pc>备份文件存放的路径<span style="color:red">(*路径文件夹必须存在)</span></td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">文件名</td>
+                <td><input type="text" class="layui-input server" value="@(DateTime.Now.ToString("yyyyMMddHHmmss")).bak" id="filename" name="filename" placeholder="请输入文件名"></td>
+                <td pc>文件名称<span style="color:red">(*后缀必须是 bak)</span></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_back">开始备份</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        $("#btn_back").click(function () {
+            var Path = $("#Path").val();
+            if (!Path || Path == "") {
+                layer.msg("请输入备份路径！");
+                return;
+            }
+            var filename = $("#filename").val();
+            if (!filename || filename == "") {
+                layer.msg("请输入公告内容！");
+                return;
+            }
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/BackDataBase", {
+                    data: { Path: Path + filename},
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("备份成功！", { icon: 1, time: 300 });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    });
+</script>

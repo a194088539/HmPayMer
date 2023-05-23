@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "我的商户";
+    ViewBag.PageUri = "/Business/Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+    <script src="/static/js/jquery.pagination.js"></script>
+    <script src="/static/js/popWinjs.js"></script>
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper">
+
+        <!-- orders table -->
+        <div class="table-wrapper orders-table section">
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4>我的商户</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row-fluid filter-block">
+                <form id="form_data" style="margin:0;padding:0;">
+                    <span>商户ID：</span><input type="text" class="span2" id="UserId" name="UserId" style="width:150px" placeholder="请输入商户ID" />
+                    <span>商户名称：</span><input type="text" class="span2" id="MerName" name="MerName" style="width:150px" placeholder="请输入名称" />
+                    <span>Email：</span><input type="text" class="span2" id="Email" name="Email" style="width:150px" placeholder="请输入邮箱" />
+                    <span>手机：</span><input type="text" class="span2" id="MobilePhone" name="MobilePhone" style="width:150px" placeholder="请输入手机" />
+                    <span class="btn-flat white" id="span_seatch" style="margin-top:-10px;">查询</span>
+                    <div class="pull-right">
+                        <a class="btn-flat success new-product" id="a_add">+ 新增商户</a>
+                    </div>
+                </form>
+
+                
+            </div>
+
+            <div class="row-fluid filter-block">
+                <div class="row-fluid" id="BusinessList">
+                  
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function showPageSearch(p) {
+        $.ajax({
+            type: "post",
+            url: "/Business/BusinessList",
+            data: { "pageIndex": p, param: validate.serializeObject($("#form_data")) },
+            dataType: 'html',
+            success: function (html) {
+                if (html != null && html != "") {
+                    $("#BusinessList").empty();
+                    $("#BusinessList").html(html);
+                }
+            }
+        });
+    }
+
+    function SetTypeRate(userId) {
+        popWin.showWin("/Business/SetTypeRate?UserId=" + userId, 1100, 400, function () {
+
+        });
+    }
+
+    function SetPayType(userId) {
+        popWin.showWin("/Business/SetPayType?UserId=" + userId, 780, 300, function () {
+
+        });
+    }
+
+    $(function () {
+        showPageSearch(1);
+        $("#span_seatch").click(function () {
+            showPageSearch(1);
+        });
+
+        $("#a_add").click(function () {
+            popWin.showWin("/Business/Add", 800, 450, function () {
+
+            });
+        });
+
+    });
+
+</script>

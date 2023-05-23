@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "商户等级管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+@section HeadSection{
+    <script src="/scripts/Grade/usergrade.js?@ViewBag.StaticVersion"></script>
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form">
+            @Html.Hidden("UserType", Request["UserType"])
+            <div class="layui-inline">
+                <a class="layui-btn layui-btn-normal " id="btn_add">
+                    <i class="layui-icon">&#xe608;</i>添加
+                </a>
+            </div>  
+        </form>
+    </blockquote>
+    <table id="UserGradeList" lay-filter="UserGradeList"></table>
+
+    <!--操作-->
+    <script type="text/html" id="UserGradeListBar">
+        <a class="layui-btn layui-btn-xs" lay-event="btn_edit">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="deldata">删除</a>
+    </script>
+</div>
+

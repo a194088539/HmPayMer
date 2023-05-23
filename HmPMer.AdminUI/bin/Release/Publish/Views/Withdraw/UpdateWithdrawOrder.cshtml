@@ -1,0 +1,112 @@
+﻿@model HmPMer.Entity.WithdrawOrder
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var IBList = new HmPMer.Business.InterfaceBll().GetIBForAgentPay(1);
+}
+
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+
+        @Html.Hidden("OrderId", Model.OrderId)
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付接口</label>
+            <div class="layui-input-block">
+                <select name="InterfaceCode" id="InterfaceCode" lay-verify="" lay-search>
+                    <option value="-1">请选择</option>
+                    <option value="">不走接口</option>
+                    @foreach (var item in IBList)
+                    {
+                        <option value="@item.Code" @(item.Code.Equals(Model.InterfaceCode) ? "selected" : "")>@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea  id="TarnRemark" name="TarnRemark" style="width:260px;height:80px"></textarea>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+        var submitbtn = true;
+        //提交数据
+        $("#btn_Add").click(function () {
+            if ($("#InterfaceCode").val() == "-1") {
+                layer.msg("请选择支付接口！", { icon: 0, time: 1500 });
+                return false;
+            }
+
+            if ($("#InterfaceCode").val() == "" && $("#TarnRemark").val() == "") {
+                layer.msg("请输入备注！", { icon: 0, time: 1500 });
+                return false;
+            }
+            
+
+            //判断是否重复提交
+            if (!submitbtn) {
+                return;
+            }
+            submitbtn = false;
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Withdraw/UpdateInterfaceCode", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            submitbtn = true;
+                            layer.msg(result.Message);
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        submitbtn = true;
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>
+
+

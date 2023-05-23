@@ -1,0 +1,18 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/scripts/layui/css/layui.css?@ViewBag.StaticVersion" media="all">
+    <link rel="stylesheet" href="/Content/home/public.css?@ViewBag.StaticVersion" media="all" />
+    <script src="/scripts/layui/layui.js?@ViewBag.StaticVersion" merge="true"></script>
+    @*头部引入文件 JS CSS 等*@
+    @RenderSection("HeadSection", false)
+</head>
+<body class="childrenBody">
+    @RenderBody()
+</body>
+</html>

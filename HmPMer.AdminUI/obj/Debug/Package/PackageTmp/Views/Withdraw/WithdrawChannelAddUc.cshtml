@@ -1,0 +1,108 @@
+﻿@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var IBList = new HmPMer.Business.InterfaceBll().GetInterfaceBusinessList(1);
+}
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">通道编号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Code" name="Code" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">通道名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Name" name="Name" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        @*<div class="layui-form-item">
+            <label class="layui-form-label">接口商</label>
+            <div class="layui-input-block">
+                <select name="InterfaceCode" lay-verify="" lay-search>
+                    <option value="">请选择</option>
+                    @foreach (var item in IBList)
+                    {
+                        <option value="@item.Code">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>*@
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Sort" name="Sort" value="" lay-verify="required" />
+            </div>
+        </div>
+
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn " lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var Code = $("#Code").val();
+            if (!Code || Code == "") {
+                layer.msg("请输入通道编号！");
+                return;
+            }
+
+            var Name = $("#Name").val();
+            if (!Name || Name == "") {
+                layer.msg("请输入通道名称！");
+                return;
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Withdraw/WithdrawChannelAdd", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

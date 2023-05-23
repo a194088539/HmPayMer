@@ -1,0 +1,31 @@
+﻿@model List<HmPMer.Entity.ProfitAnalysis>
+<table class="layui-table mag0" style="text-align:center">
+    <thead>
+        <tr>
+            <td align="center">支付时间</td>
+            <td align="center">支付类型</td>
+            <td align="center">订单总数（条）</td>
+            <td align="center">订单总额（元）</td>
+            <td align="center">商户金额（元）</td>
+            <td align="center">业务提成（元）</td>
+            <td align="center">代理提成（元）</td>
+            <td align="center">平台利润（元）</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@(item.PayTime.Value.ToString("yyyy-MM-dd"))</td>
+            <td>@(item.PayName)</td>
+            <td>@((item.CountOrder/100).ToString("0.00"))</td>
+            <td>@((item.OrderAmt/100).ToString("0.00"))</td>
+            <td>@((item.MerAmt/100).ToString("0.00"))</td>
+            <td>@((item.PromAmt/100).ToString("0.00"))</td>
+            <td>@((item.AgentAmt/100).ToString("0.00"))</td>
+            <td>@((item.Profits/100).ToString("0.00"))</td>
+        </tr>
+        }
+
+    </tbody>
+</table>

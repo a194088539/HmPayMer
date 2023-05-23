@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "结算记录";
+    if (Request["OrderType"] == "1")
+    {
+
+        ViewBag.PageUri = "/Withdraw/OrderIndex1";
+    }
+    if (Request["OrderType"] == "2")
+    {
+
+        ViewBag.PageUri = "/Withdraw/OrderIndex2";
+    }
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+    <script src="/static/js/jquery.pagination.js"></script>
+    <script src="/static/js/popWinjs.js"></script>
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper">
+
+        <!-- orders table -->
+        <div class="table-wrapper orders-table section">
+            <div class="row-fluid head">
+                <div class="span12">
+                    @if (Request["OrderType"] == "1")
+                    {
+                        <h4>结算记录</h4>
+                    }
+                    @if (Request["OrderType"] == "2")
+                    {
+                        <h4>代付记录</h4>
+                    }
+                </div>
+            </div>
+            <br />
+            <div class="row-fluid filter-block">
+                <form id="form_data" style="margin:0;padding:0;">
+                    @Html.Hidden("OrderType", Request["OrderType"])
+                    <span>支付状态：</span>
+                    <div class="ui-select">
+                        <select id="PayState" name="PayState">
+                            <option value="-1">请选择</option>
+                            <option value="0">处理中</option>
+                            <option value="1">成功</option>
+                            <option value="3">失败</option>
+                            <option value="5">退回</option>
+                        </select>
+                    </div>
+                    <span class="btn-flat white" id="span_seatch">查询</span>
+                    <a class="btn-flat white" id="span_orderimprotexcel">导出</a>
+
+                </form>
+
+
+            </div>
+
+            <div class="row-fluid filter-block">
+                <div class="row-fluid" id="OrderList">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <iframe src="about:blank" id="iframeOut" name="iframeOut"></iframe>
+</div>
+<script>
+    function showPageSearch(p) {
+        $.ajax({
+            type: "post",
+            url: "/Withdraw/OrderList",
+            data: { "pageIndex": p, param: validate.serializeObject($("#form_data")) },
+            dataType: 'html',
+            success: function (html) {
+                if (html != null && html != "") {
+                    $("#OrderList").empty();
+                    $("#OrderList").html(html);
+                }
+            }
+        });
+    }
+
+    $(function () {
+        showPageSearch(1);
+        $("#span_seatch").click(function () {
+            showPageSearch(1);
+        });
+
+        $("#span_orderimprotexcel").click(function () {
+            OrderTarnImprotExcel();
+        });
+
+    });
+
+    // 导出
+    function OrderTarnImprotExcel() {
+        layer.msg("正在导出订单......", { icon: 16, time: 1500 });
+        var url = '/Withdraw/OrderTarnImprotExcel?ts=' + (new Date().getTime());
+        var param = validate.serializeObject($("#form_data"));
+        for (var key in param) {
+            url += '&' + key + '=' + param[key];
+        }
+        console.info(url);
+        $("#iframeOut").attr('src', url);
+    }
+
+</script>
+

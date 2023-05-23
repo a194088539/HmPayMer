@@ -1,0 +1,118 @@
+﻿@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "首页";
+    ViewBag.PageUri = "/index/index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var OrderCountInfo = new HmPMer.Business.OrderBll().CountTodayOrder(Model.UserId,DateTime.Now.ToString("yyyy-MM-dd"));
+    var Notice = new HmPMer.Business.SystemBll().GetNewNoticeInfo(1, Model.UserId);
+}
+@section header{
+    <link href="/static/css/compiled/index.css" rel="stylesheet" />
+    <script src="/static/js/Chart/Chart.bundle.js"></script>
+    <script src="/static/js/Chart/utils.js"></script>
+    <script src="/static/js/popWinjs.js"></script>
+}
+
+
+<div class="container-fluid">
+
+    <!-- upper main stats -->
+    <div id="main-stats">
+        <div class="row-fluid stats-row">
+            <div class="span3 stat">
+                <div class="data">
+                    <span class="number">￥@((Model.Balance / 100).ToString("0.00"))</span>
+                    账户余额
+                </div>
+                <span class="date">Today</span>
+            </div>
+            <div class="span3 stat">
+                <div class="data">
+                    <span class="number">￥@((Model.UnBalance / 100).ToString("0.00"))</span>
+                    在途金额
+                </div>
+                <span class="date">Today</span>
+            </div>
+            <div class="span3 stat">
+                <div class="data">
+                    <span class="number">￥@((OrderCountInfo.TodayOrderAmt / 100).ToString("0.00"))</span>
+                    今日订单金额
+                </div>
+                <span class="date">Today</span>
+            </div>
+            <div class="span3 stat">
+                <div class="data">
+                    <span class="number">@(OrderCountInfo.TodayOrderCount)</span>
+                    今日订单数
+                </div>
+                <span class="date">Today</span>
+            </div>
+
+        </div>
+    </div>
+    <!-- end upper main stats -->
+
+    <div id="pad-wrapper">
+
+        <!-- statistics chart built with jQuery Flot -->
+        <div class="chart-container">
+            <canvas id="dataleft"></canvas>
+        </div>
+        <!-- end statistics chart -->
+
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        $.HM.ajax("/Index/GetPayCountList", {
+            data: {},
+            type: "GET",
+            dataType: 'json',
+            success: function (data) {
+                if (data) {
+                    var color = Chart.helpers.color;
+                    var config = {
+                        type: 'line',
+                        data: {
+                            labels: data.CountDate,
+                            datasets: [
+                                {
+                                    label: "支付订单总额",
+                                    backgroundColor: window.chartColors.blue,
+                                    borderColor: window.chartColors.blue,
+                                    data: data.CountPayOrderAmt,
+                                },
+                                {
+                                label: "订单总额",
+                                backgroundColor: window.chartColors.green,
+                                borderColor: window.chartColors.green,
+                                borderWidth: 1,
+                                data: data.CountOrderAmt
+                            } ]
+                        }
+                        , options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: '最近7日订单总额和支付订单总额'
+                            },
+                        }
+                    };
+
+                    var ctx = document.getElementById("dataleft").getContext('2d');
+                    var config = config;
+                    new Chart(ctx, config)
+
+                }
+
+            }
+        });
+
+        if ('@Notice.Id' != "" && '@Notice.IsRead' == 0) {
+            popWin.showWin("/Feedback/Noticeinfo?Id=" + '@Notice.Id', 700, 350, function () { });
+        }
+    });
+
+</script>

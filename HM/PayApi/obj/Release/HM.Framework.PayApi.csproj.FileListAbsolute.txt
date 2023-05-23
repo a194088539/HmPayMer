@@ -1,0 +1,1 @@
+D:\HmPayMer\HM\PayApi\obj\Release\HM.Framework.PayApi.csprojAssemblyReference.cache

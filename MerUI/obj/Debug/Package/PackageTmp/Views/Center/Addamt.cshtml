@@ -1,0 +1,115 @@
+﻿
+@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "余额充值";
+    ViewBag.PageUri = "/center/addamt";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var PayType = new HmPMer.Business.InterfaceBll().GetInterfaceChannelType(Model.UserId, 2);
+}
+
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="form-page">
+
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>余额充值</h4>
+            </div>
+        </div>
+
+        <form id="formdata" method="get" target="_blank" action="/Center/PayAmt">  
+            <div class="row-fluid withdraw">
+
+                <div class="field-box withdrawApply">
+                    <label>商户ID: </label>@Model.UserId
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>支付类型：</label>
+                    <div class="ui-select" style="width:275px;">
+                        <select id="trade_type" name="trade_type">
+                            <option value="">请选择支付类型</option>
+                            @foreach (var item in PayType)
+                            {
+                                <option value="@item.DefaulInfaceCode">@item.PayName</option>
+                            }
+                        </select>
+                    </div>
+                    <span class="alert-msg" id="msg_trade_type"></span>
+                </div>
+
+                <div class="field-box withdrawApply">
+                    <label>可用余额: </label>
+                    <b>￥@((Model.Balance / 100).ToString("0.00")) </b>
+                </div>
+
+
+                <div class="input-append withdrawApply">
+                    <label>充值金额: </label>
+                    @*<input class="input-large" type="text" id="WithdrawAmt" name="WithdrawAmt" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />*@
+                    <input class="input-large" type="text" id="total_amount" name="total_amount" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                    <span class="add-on">.00元</span>
+                </div>
+
+
+                <div class="span11 field-box actions" style="margin-left:200px">
+
+                    <input type="button" class="btn-glow primary" value="确认提交" id="btn_submit">
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var comt = true;
+
+        //提现申请
+        $("#btn_submit").click(function () {
+
+            var data = validate.serializeObject($("#formdata"));
+            
+            if (data.trade_type == '') {
+                layer.msg('请选择支付类型！', { icon: 5 });
+                $('#trade_type').focus();
+                return false;
+            } 
+
+
+            if (data.total_amount == '') {
+                layer.msg('请输入充值金额！', { icon: 5 });
+                $('#total_amount').focus();
+                return false;
+            }
+
+            if (data.total_amount == 0) {
+                layer.msg('充值金额不能为0！', { icon: 5 });
+                $('#total_amount').focus();
+                return false;
+            }
+            $("#formdata").submit();
+            return true;
+            //if (comt) {
+            //    $.HM.ajax("Center/PayAmt", {
+            //        data: data,
+            //        type: "POST",
+            //        dataType: 'json',
+            //        success: function (d) {
+            //            if (d.IsSuccess) {
+            //                window.open(d.data, "_blank");
+            //            } else {
+                            
+            //                layer.msg(d.message, { icon: 0 });
+            //            }
+            //        }
+            //    });
+            //}
+
+
+        });
+
+    });
+</script>

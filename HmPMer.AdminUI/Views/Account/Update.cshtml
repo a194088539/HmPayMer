@@ -1,0 +1,127 @@
+﻿@model HmPMer.Entity.HmAdmin
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var listrole = new HmPMer.Business.MenuRoleBll().GetRoleList();
+    var listrole1 = new HmPMer.Business.MenuRoleBll().GetRoleList(Model.ID);
+}
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 70px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 85px;
+    }
+</style>
+
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+        @Html.Hidden("ID", Model.ID)
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户账号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" value="@Model.AdmUser" lay-verify="required" readonly />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="NickName" value="@Model.NickName" name="NickName" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">费率(%)</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input masterEmail" value="@((Model.Rate*100).ToString("0.00"))" id="Rate" name="Rate" lay-verify="required" placeholder="请输入费率" />
+            </div>
+        </div>
+        @Html.Hidden("RoleStr")
+    </form>
+
+    <div class="layui-form linksAdd">
+        <div class="layui-form-item">
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色</label>
+                <div class="layui-input-block" id="div_cbk">
+                    @foreach (var item in listrole)
+                    {
+                        <input type="checkbox" value="@item.Id" lay-filter="cbk_qx" name="cbk_qx1" @(listrole1.Where(a => a.Id.Equals(item.Id)).Count() > 0 ? "checked" : "") /><sss>@item.roleName</sss>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="addLink" type="button" id="btn_update_payrate" style="width:100px">提交</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+
+        //提交数据
+        $("#btn_update_payrate").click(function () {
+
+            var Rate = $("#Rate").val();
+
+            if (!Rate || Rate == "") {
+                layer.msg("请输入费率！", function () {
+                    $("#Rate").focus();
+                });
+                return;
+            }
+            var reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            if (!reg.test(Rate)) {
+                layer.msg("费率只能是2位小数！", function () {
+                    $("#Rate").focus();
+                });
+                return;
+            }
+
+            var arr = new Array()
+            $("input[name='cbk_qx1']:checked").each(function (i, v) {
+                arr[i] = v.value;
+            })
+            $("#RoleStr").val(arr.join(','));
+
+            // console.info($("#formdata").serialize()); return;
+
+            var index = layer.msg('提交，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Account/UpdaeRate", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+
+    })
+</script>

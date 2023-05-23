@@ -1,0 +1,20 @@
+﻿@{ 
+    var user = HmPMer.MerUI.Models.ModelCommon.GetUserModel();
+}
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <p class="brand" style="line-height:45px;height:30px;padding-left:20px;font-size:26px">商户中心</p>
+        @*<a class="brand" href="index.html"><img src="/static/images/logo.png" /></a>*@
+        <ul class="nav pull-right">
+            <p class="brand" style="line-height:45px;height:30px;padding-left:20px;font-size:13px;">欢迎 <a href="/center/index" style="color:#FFF"> @user.MerName</a>，上次登录时间：@(user.LastLoginTime.Value.ToString("yyyy-MM-dd HH:mm:ss")) 上次登录IP：@(user.LastLoginIp) </p>
+            <li><a href="/center/editpass">修改密码</a></li>
+            <li class="settings hidden-phone"><a href="/Account/LoginOut" role="button">退出</a></li>
+        </ul>
+     
+    </div>
+</div>

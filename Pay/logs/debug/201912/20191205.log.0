@@ -1,0 +1,10 @@
+2019-12-05 02:10:38,173 [6] DEBUG logdebug [(null)] <(null)>
+ - 信付通GetNotifyParam={}
+2019-12-05 02:10:50,531 [6] DEBUG logdebug [(null)] <(null)>
+ - 信付通GetNotifyParam={"gmt_create":"2019-12-05 02:00:36","order_no":"19120502000582619817001","gmt_payment":"2019-12-05 02:01:11","seller_email":"486193133@qq.com","notify_time":"2019-12-05 02:01:11","quantity":"1","sign":"8604D2F1660AC03D6C67F9C6EAB19049600FC4CF","discount":"0.00","body":"bodys","is_success":"T","title":"test","gmt_logistics_modify":"2019-12-05 02:00:36","notify_id":"0aba5d0f4a6a4768bd282c3f32ed6e47","notify_type":"WAIT_TRIGGER","payment_type":"1","ext_param2":"ALIPAY","price":"100.00","total_fee":"100.00","trade_status":"TRADE_FINISHED","trade_no":"101912054302527","signType":"SHA","seller_actions":"SEND_GOODS","seller_id":"100000000008676","is_total_fee_adjust":"0"}
+2019-12-05 02:11:10,583 [6] DEBUG logdebug [(null)] <(null)>
+ - 接口:xinfutong,订单号：101912054302527，不一致
+2019-12-05 02:11:25,849 [6] DEBUG logdebug [(null)] <(null)>
+ - 信付通GetNotifyParam={"gmt_create":"2019-12-05 02:00:36","order_no":"19120502000582619817001","gmt_payment":"2019-12-05 02:01:11","seller_email":"486193133@qq.com","notify_time":"2019-12-05 02:01:11","quantity":"1","sign":"8604D2F1660AC03D6C67F9C6EAB19049600FC4CF","discount":"0.00","body":"bodys","is_success":"T","title":"test","gmt_logistics_modify":"2019-12-05 02:00:36","notify_id":"0aba5d0f4a6a4768bd282c3f32ed6e47","notify_type":"WAIT_TRIGGER","payment_type":"1","ext_param2":"ALIPAY","price":"100.00","total_fee":"100.00","trade_status":"TRADE_FINISHED","trade_no":"101912054302527","signType":"SHA","seller_actions":"SEND_GOODS","seller_id":"100000000008676","is_total_fee_adjust":"0"}
+2019-12-05 02:11:49,978 [6] DEBUG logdebug [(null)] <(null)>
+ - 信付通GetNotifyParam={}

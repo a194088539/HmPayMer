@@ -1,0 +1,17 @@
+2019-11-25 20:18:22,789 [9] ERROR logerror [(null)] <(null)>
+ - 隆发解密失败.NotifyParamToOrder
+System.Security.Cryptography.CryptographicException: 参数错误。
+
+   在 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   在 System.Security.Cryptography.RSACryptoServiceProvider.DecryptKey(SafeKeyHandle pKeyContext, Byte[] pbEncryptedKey, Int32 cbEncryptedKey, Boolean fOAEP, ObjectHandleOnStack ohRetDecryptedKey)
+   在 System.Security.Cryptography.RSACryptoServiceProvider.Decrypt(Byte[] rgb, Boolean fOAEP)
+   在 PayApi.LongFa.RSAHelper.decrypt(Byte[] data, String privateKey, String input_charset) 位置 C:\Users\Administrator\Desktop\HmPMer\HM\PayApi\PayApi\LongFa\RSAHelper.cs:行号 105
+   在 PayApi.LongFa.RSAHelper.decryptData(String resData, String privateKey, String input_charset) 位置 C:\Users\Administrator\Desktop\HmPMer\HM\PayApi\PayApi\LongFa\RSAHelper.cs:行号 94
+   在 PayApi.LongFa.HMPayApi.NotifyParamToOrder(Dictionary`2 dic) 位置 C:\Users\Administrator\Desktop\HmPMer\HM\PayApi\PayApi\LongFa\HMPayApi.cs:行号 185
+2019-11-25 20:20:54,727 [9] ERROR logerror [(null)] <(null)>
+ - 隆发解密失败.NotifyParamToOrder
+System.InvalidCastException: 无法将类型为“LitJson.JsonData”的对象强制转换为类型“System.IConvertible”。
+   在 System.Convert.ToDecimal(Object value)
+   在 PayApi.LongFa.HMPayApi.NotifyParamToOrder(Dictionary`2 dic) 位置 C:\Users\Administrator\Desktop\HmPMer\HM\PayApi\PayApi\LongFa\HMPayApi.cs:行号 192
+2019-11-25 20:24:09,943 [10] ERROR logerror [(null)] <(null)>
+ - notify={"NotityId":"1500ee80-ef94-4c51-9758-2fceec2f3428","OrderId":"19112520152616615763001","NotityState":0,"NotityCount":1,"NotityUrl":"http://45.248.68.142:6066///demo/paytestnotity?out_trade_no=1217b70c7ac14da78&trade_no=19112520152616615763001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=5100&trade_time=2019-11-25 20:24:09&sign=59c8cb9871f6dcfdec23e29118116cb5","AddTime":"\/Date(1574684649820+0800)\/","NotityTime":"\/Date(1574684649820+0800)\/","ReturnUrl":"http://45.248.68.142:6066///demo/paytestreturn?out_trade_no=1217b70c7ac14da78&trade_no=19112520152616615763001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=5100&trade_time=2019-11-25 20:24:09&sign=59c8cb9871f6dcfdec23e29118116cb5"}

@@ -1,0 +1,37 @@
+﻿@model  List<HmPMer.Entity.Feedback>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="span2">序号</th>
+            <th class="span3">标题</th>
+            <th class="span3">内容</th>
+            <th class="span3">时间</th>
+            <th class="span2">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr class="@(i==1?"first":"")">
+                <td>@i</td>
+                <td>@item.Title</td>
+                <td>@item.Content</td>
+                <td>@(item.AddTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                <td>
+                    <a href="javascript:GetDetail('@(item.Id)');">查看</a>
+                </td>
+            </tr>
+            i++;
+        }
+
+    </tbody>
+</table>
+<!-- end orders table -->
+<div class="pagination pull-right">
+    <ul id="page">
+        @Html.Raw(ViewData["page"])
+    </ul>
+    <span>每页@(ViewData["PageSize"])条，总共@(ViewData["TotalCount"])条记录</span>
+</div>
+

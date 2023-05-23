@@ -1,0 +1,94 @@
+﻿@model List<HmPMer.Entity.SmsModel>
+@{
+    ViewBag.Title = "短信模板设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+<br />
+<form class="layui-form" id="formdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="tdrigth">@item.Title</td>
+                    <td><input type="text" class="layui-input" lay-verify="required"  Title="@item.Title" value="@item.Content" SmsCode="@item.Code" name="@item.Code" placeholder="请输入模板内容"></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交表单
+        $("#btn_submit").click(function () {
+            //循环input 
+            var ListModel = [];
+            
+            //循环获取值
+            $("input").each(function (a, b) {
+                var model = {};               
+                model.Code = $(b).attr("SmsCode");
+                model.Title = $(b).attr("Title");
+                model.Content = $(b).val();
+                ListModel.push(model);
+            });
+            
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/UpdateSmsModel", {
+                    data: { Model: ListModel},
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+    
+
+    });
+</script>

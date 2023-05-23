@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="roleName" value="" lay-verify="required" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">描述</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="describe" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var roleName = $("#roleName").val();
+            var describe = $("#describe").val();
+            if (!roleName || roleName == "") {
+                layer.msg("请输入角色名称！");
+                return;
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/MenuRole/AddRoleInfo", {
+                    data: {
+                        roleName: roleName,
+                        describe: describe
+                    },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

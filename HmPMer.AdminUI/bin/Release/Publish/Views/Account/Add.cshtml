@@ -1,0 +1,184 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var listrole = new HmPMer.Business.MenuRoleBll().GetRoleList();
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 70px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 85px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户账号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="AdmUser" name="AdmUser" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">一级密码</label>
+            <div class="layui-input-block">
+                <input type="password" class="layui-input linkName" id="AdmPass" name="AdmPass" lay-verify="required|oldPwd" placeholder="请输入1级密码" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">二级密码</label>
+            <div class="layui-input-block">
+                <input type="password" class="layui-input linkName" id="AdmPass2" name="AdmPass2" lay-verify="required" placeholder="请输入2级密码" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="NickName" name="NickName" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">费率(%)</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input masterEmail" id="Rate" name="Rate" lay-verify="required"   placeholder="请输入费率" />
+            </div>
+        </div>
+        @Html.Hidden("RoleStr")
+    </form>
+    <div class="layui-form linksAdd">
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色</label>
+            @foreach (var item in listrole)
+            {
+                <input type="checkbox" value="@item.Id" lay-filter="cbk_qx" name="cbk_qx1" /><sss>@item.roleName</sss>
+            }
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="text-align:center">
+        <button class="layui-btn" lay-filter="addLink" type="button" id="btn_update_payrate" style="width:100px">提交</button>
+    </div>
+</body>
+
+<script>
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        //提交数据
+        $("#btn_update_payrate").click(function () {
+
+            var AdmUser = $("#AdmUser").val()
+            if (!AdmUser || AdmUser == "") {
+                layer.msg("请输入用户名！", function () {
+                    $("#AdmUser").focus();
+                });
+                return;
+            }
+
+            if (!hm.isNumLetterLine(AdmUser)) {
+                layer.msg("用户名只能输入数字、字母、下划线！", function () {
+                    $("#AdmUser").focus();
+                });
+                return;
+            }
+
+            var AdmPass = $("#AdmPass").val();
+            if (!AdmPass || AdmPass == "") {
+                layer.msg("请输入1级密码！", function () {
+                    $("#AdmPass").focus();
+                });
+                return;
+            }
+
+            if (AdmPass.length > 18 || AdmPass.length < 6) {
+                layer.msg("密码长度只能6-18位！", function () {
+                    $("#AdmPass").focus();
+                });
+                return;
+            }
+
+            var AdmPass2 = $("#AdmPass2").val()
+            if (!AdmPass2 || AdmPass2 == "") {
+                layer.msg("请输入2级密码！", function () {
+                    $("#AdmPass2").focus();
+                });
+                return;
+            }
+
+            if (AdmPass2.length > 18 || AdmPass2.length < 6) {
+                layer.msg("密码长度只能6-18位！", function () {
+                    $("#AdmPass2").focus();
+                });
+                return;
+            }
+
+            if (AdmPass == AdmPass2) {
+                layer.msg("二级密码不能和1级密码一样！", function () {
+                    $("#AdmPass2").focus();
+                });
+                return;
+            }
+
+            var Rate = $("#Rate").val();
+
+            if (!Rate || Rate == "") {
+                layer.msg("请输入费率！", function () {
+                    $("#Rate").focus();
+                });
+                return;
+            }
+
+
+            var reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            if (!reg.test(Rate)) {
+                layer.msg("费率只能是2位小数！", function () {
+                    $("#Rate").focus();
+                });
+                return;
+            }
+
+
+            var arr = new Array()
+            $("input[name='cbk_qx1']:checked").each(function (i, v) {
+                arr[i] = v.value;
+            })
+            $("#RoleStr").val(arr.join(','));
+
+
+            var index = layer.msg('提交，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Account/Add", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

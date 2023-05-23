@@ -1,0 +1,68 @@
+﻿@model  List<HmPMer.Entity.WithdrawOrderInfo>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="span2">序号</th>
+            <th class="span4">订单号</th>
+            <th class="span2">提现金额</th>
+            <th class="span2">手续费</th>
+            <th class="span2">结算金额</th>
+            <th class="span4">银行名称</th>
+            <th class="span4">银行卡号</th>
+            <th class="span2">收款人</th>
+            <th class="span3">支付状态</th>
+            <th class="span5">提交时间</th>
+            <th class="span5">备注</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr class="@(i==1?"first":"")">
+                <td>@i</td>
+                <td>@item.OrderId</td>
+                <td>￥@((item.WithdrawAmt / 100).ToString("0.00"))</td>
+                <td>￥@((item.Handing / 100).ToString("0.00"))</td>
+                <td>￥@((item.Amt / 100).ToString("0.00"))</td>
+                <td>@item.BankName</td>
+                <td>@item.BankCode</td>
+                <td>@item.FactName</td>
+                <td>
+                    @if (item.PayState == 0 || item.PayState == 2 || item.PayState == 4)
+                    {
+                        <span class="label label-info">处理中</span>
+                    }
+
+                    @if (item.PayState == 1)
+                    {
+                        <span class="label label-success">成功</span>
+                    }
+
+                    @if (item.PayState == 3)
+                    {
+                        <span class="label">失败</span>
+                    }
+                    @if (item.PayState == 5)
+                    {
+                        <span class="label">退回</span>
+                    }
+                </td>
+                <td>@(item.AddTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                <td>@(item.Attach)</td>
+
+            </tr>
+            i++;
+        }
+
+    </tbody>
+</table>
+<!-- end orders table -->
+<div class="pagination pull-right">
+    <ul id="page">
+        @Html.Raw(ViewData["page"])
+    </ul>
+    <span>每页@(ViewData["PageSize"])条，总共@(ViewData["TotalCount"])条记录</span>
+</div>
+
+

@@ -1,0 +1,125 @@
+﻿@model HmPMer.Entity.PayChannel
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var typeList = new HmPMer.Business.PayBll().GetPayTypeList();
+    var IBList = new HmPMer.Business.InterfaceBll().GetInterfaceBusinessList(1);
+}
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">编号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Code" name="Code" value="@Model.Code" readonly lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">通道名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="ChannelName" name="ChannelName" value="@Model.ChannelName" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付类型</label>
+            <div class="layui-input-block">
+                <select id="PayCode" name="PayCode" lay-verify="" lay-filter="PayCode">
+                    <option value="">请选择</option>
+                    @foreach (var item in typeList)
+                    {
+                        <option value="@item.PayCode" @(!string.IsNullOrEmpty(Model.PayCode)&& Model.PayCode.Equals(item.PayCode) ? "selected" : "")>@item.PayName</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">默认接口商</label>
+            <div class="layui-input-block">
+                <select id="InterfaceCode" name="InterfaceCode" lay-verify="" lay-filter="InterfaceCode">
+                    <option value="">请选择</option>
+                    @foreach (var item in IBList)
+                    {
+                        <option value="@item.Code" @(Model.InterfaceCode != null && Model.InterfaceCode.Equals(item.Code) ? "selected" : "")>@item.Name</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="ChannelSort" name="ChannelSort" value="@Model.ChannelSort" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var Code = $("#Code").val();
+            if (!Code || Code == "") {
+                layer.msg("请输入编号！");
+                return;
+            }
+
+            var ChannelName = $("#ChannelName").val();
+            if (!ChannelName || ChannelName == "") {
+                layer.msg("请输入类型名称！");
+                return;
+            }
+
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Pay/PayChannelUpdateinfo", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

@@ -1,0 +1,117 @@
+﻿@using HmPMer.Business;
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var menu1 = new MenuRoleBll().GetMuListPid("0");
+}
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">菜单名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="menuName" name="menuName" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">菜单地址</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="menuUrl" name="menuUrl" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">父级菜单</label>
+            <div class="layui-input-block">
+                <select name="parentID" lay-verify="" lay-search>
+                    <option value="0">顶级菜单</option>
+                    @foreach (var item in menu1)
+                    {
+                        <option value="@item.Id">@item.menuName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限值</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="FlagStr" name="FlagStr" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="orderNo" name="orderNo" value="" lay-verify="required" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">图标</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="icon" name="icon" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn " lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var menuName = $("#menuName").val();
+            if (!menuName || menuName == "") {
+                layer.msg("请输入菜单名称！");
+                return;
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/MenuRole/AddMenuInfo", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

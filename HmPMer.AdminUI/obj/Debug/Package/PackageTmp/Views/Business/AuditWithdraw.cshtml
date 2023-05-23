@@ -1,0 +1,114 @@
+﻿@model HmPMer.Entity.UserBaseInfo
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var userdetail = new HmPMer.Business.UserBaseBll().GetUserDetail(Model.UserId);
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">商户Id</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" id="UserId" name="UserId" value="@(Model.UserId)" readonly />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">开户名</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" value="@(userdetail.WithdrawFactName)" readonly />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">银行账户</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" value="@(userdetail.WithdrawBankCode)" readonly />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">开户行信息</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" value="@(userdetail.WithdrawBankBranch)" readonly />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">审核说明</label>
+            <div class="layui-input-block">
+                <textarea class="" id="AuditDesc" rows="10" cols="55"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center;">
+            <button class="layui-btn" lay-filter="addLink" type="button" id="btn_update_pass" style="width:120px">通过</button>
+            <button class="layui-btn layui-btn-danger" lay-filter="addLink" type="button" id="btn_update_fail" style="width:120px">不通过</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //通过
+        $("#btn_update_pass").click(function () {
+            Audit(1);
+        });
+
+        //不通过通过
+        $("#btn_update_fail").click(function () {
+            var AuditDesc = $("#AuditDesc").val();
+            if (AuditDesc == "") {
+                layer.msg("请输入不通过原因！");
+                return;
+            }
+            Audit(2);
+        });
+
+        function Audit(status) {
+            var index = layer.msg('审核中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Business/AuditUserWithdraw", {
+                    data: {
+                        WithdrawStatus: status,
+                        WithdrawAuditDes: $("#AuditDesc").val(),
+                        UserId: $("#UserId").val()
+                    },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+        }
+
+    })
+</script>

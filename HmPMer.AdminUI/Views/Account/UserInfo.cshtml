@@ -1,0 +1,67 @@
+﻿@model HmPMer.Entity.HmAdminAmt
+@{
+    ViewBag.Title = "个人资料";
+    Layout = "~/Views/Shared/_Content.cshtml";
+    HmPMer.Entity.HmAdmin user = ViewBag.Admin;
+    //var systeminfo = new HmPMer.Business.SystemBll().GetModelForId();
+}
+
+<form class="layui-form layui-row">
+    <div class="layui-col-md3 layui-col-xs12 user_right">
+        <div class="layui-upload-list">
+            <img class="layui-upload-img layui-circle userFaceBtn userAvatar" id="userFace" src="/images/face.jpg" />
+        </div>
+        @*<button type="button" class="layui-btn layui-btn-primary userFaceBtn"><i class="layui-icon">&#xe67c;</i> 掐指一算，我要换一个头像了</button>
+        <p>由于是纯静态页面，所以只能显示一张随机的图片</p>*@
+    </div>
+    <div class="layui-col-md6 layui-col-xs12">
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-block">
+                <input type="text" value="@user.AdmUser" disabled class="layui-input">
+            </div>
+        </div>       
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input type="text" value="@user.NickName" disabled class="layui-input">                
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">提成费率</label>
+            <div class="layui-input-block">
+                <input type="text" value="@user.Rate.ToString("p1")" disabled class="layui-input" style="width:120px;display:inline;" />          
+            </div>                
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邀请码</label>
+            <div class="layui-input-block">
+                <input type="text" value="@user.RegCode"  class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邀请链接</label>
+            <div class="layui-input-block">
+                @*<input type="text" value="@(systeminfo.WebUrl+"account/reg/"+user.RegCode)" readonly="readonly" class="layui-input">*@                
+            </div>
+        </div>        
+        <div class="layui-form-item">
+            <label class="layui-form-label">总收益</label>
+            <div class="layui-input-block">
+                <input type="text" value="@(Model.Balance/100)" readonly="readonly" class="layui-input" style="width:180px;display:inline;">￥
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">总订单数</label>
+            <div class="layui-input-block">
+                <input type="text" value="@Model.OrderNum" readonly="readonly" class="layui-input" style="width:180px;display:inline;">￥
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">收益余额</label>
+            <div class="layui-input-block">
+                <input type="text" value="@(Model.TotalBalance/100)" readonly="readonly" class="layui-input" style="width:180px;display:inline;">￥
+            </div>
+        </div>
+    </div>
+</form>

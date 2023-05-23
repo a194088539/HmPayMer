@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "重置密码";
+    Layout = "~/Views/Shared/_UnLoginLayout.cshtml";
+}
+
+<div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+    <div class="layui-form-item">
+        <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+        <input type="password" name="pwd1" id="pwd1" lay-verify="pass" placeholder="新密码" class="layui-input">
+    </div>
+    <div class="layui-form-item">
+        <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-repass"></label>
+        <input type="password" name="pwd2" id="pwd2" lay-verify="required" placeholder="确认密码" class="layui-input">
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn layui-btn-fluid" lay-filter="btnSubmit" id="btnSubmit">重置新密码</button>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        $("#btnSubmit").click(function () {
+            Submint();
+        });
+
+        document.onkeydown = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+
+            if (e && e.keyCode == 13) { // enter 键
+                //要做的事情
+                Submint();
+            }
+        };
+
+    });
+
+    function Submint() {
+        var pwd1 = $("#pwd1").val();
+
+        if (pwd1 == '') {
+            layer.msg('请输入密码', { icon: 5 });
+            $('#pwd1').focus();
+            return;
+        }
+
+        if (pwd1.length < 6 || pwd1.length > 18) {
+            layer.msg('密码只能6-18位', { icon: 5 });
+            $('#pwd1').focus();
+            return;
+        }
+
+        var pwd2 = $("#pwd2").val();
+
+        if (pwd2 == '') {
+            layer.msg('请确认密码', { icon: 5 });
+            $('#pwd2').focus();
+            return;
+        }
+
+        if (pwd1 != pwd2) {
+            layer.msg('两次密码不一致', { icon: 5 });
+            $('#pwd2').focus();
+            return;
+        }
+
+        $.post("/Account/RestPwdPhone", { 'yzCode': '@Request["yzCode"]', Pass: pwd1, }, function (d) {
+            if (d.IsSuccess) {
+                layer.msg('重置成功', { icon: 5 });
+                setTimeout(function () {
+                    window.location = "/Account/Login"
+                }, 1200);
+                return;
+            } else {
+                layer.msg(d.message, { icon: 5 });
+                return;
+            }
+        });
+
+    }
+</script>

@@ -1,0 +1,80 @@
+﻿@model  List<HmPMer.Entity.UserBaseInfo>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="span2">序号</th>
+            <th class="span4">商户Id</th>
+            <th class="span4">商户名称</th>
+            <th class="span3">签约类型</th>
+            <th class="span5">商户手机</th>
+         
+            <th class="span2">状态</th>
+            <th class="span2">费率</th>
+            <th class="span5">添加时间</th>
+            <th class="span5">最后登录时间</th>
+            <th class="span5">最后登录Ip</th>
+            <th class="span5">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr class="@(i==1?"first":"")">
+                <td>@i</td>
+                <td>@item.UserId</td>
+                <td>@item.MerName</td>
+                <td>
+                    @if (item.UserType == 0)
+                    {
+                        <span>普通商户</span>
+                    }
+
+                    @if (item.UserType == 1)
+                    {
+                        <span>托管商户</span>
+                    }
+                </td>
+                <td>@item.MobilePhone</td>
+               
+                <td>
+                    @if (item.IsEnabled == 0)
+                    {
+                        <span class="label label-info">待审核</span>
+                    }
+
+                    @if (item.IsEnabled == 1)
+                    {
+                        <span class="label label-success">正常</span>
+                    }
+
+                    @if (item.IsEnabled == 2)
+                    {
+                        <span class="label">冻结</span>
+                    }
+
+                </td>
+                <td><a href="javascript:SetTypeRate('@(item.UserId)');">费率</a></td>
+                <td>@(item.RegTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                <td>@(item.LastLoginTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                <td>@(item.LastLoginIp)</td>
+                <td>
+                    <ul class="actions">
+                        <li class="last"><a href="javascript:SetPayType('@(item.UserId)');">支付类型</a></li>
+                    </ul>
+                </td>
+            </tr>
+            i++;
+        }
+
+    </tbody>
+</table>
+<!-- end orders table -->
+<div class="pagination pull-right">
+    <ul id="page">
+        @Html.Raw(ViewData["page"])
+    </ul>
+    <span>每页@(ViewData["PageSize"])条，总共@(ViewData["TotalCount"])条记录</span>
+</div>
+
+

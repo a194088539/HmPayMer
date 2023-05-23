@@ -1,0 +1,175 @@
+﻿@model HmPMer.Entity.OrderDetail
+
+@{
+    ViewBag.Title = "商户管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+@if (Model != null)
+{
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="18%">
+            <col width="32%">
+            <col width="18%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center" colspan="4"> 【@(Model.OrderId)】 详情</td>
+            </tr>
+        </thead>
+        <tbody>           
+            <tr>
+                <td class="tdrigth">
+                    商户订单号
+                </td>
+                <td>@Model.MerOrderNo</td>
+                <td class="tdrigth">
+                    接口商订单号
+                </td>
+                <td>@Model.ChannelOrderNo</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    商户号
+                </td>
+                <td>@Model.UserId</td>
+                <td class="tdrigth">
+                    通道类型
+                </td>
+                <td>@Model.PayName - @Model.ChannelName</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    通道厂商
+                </td>
+                <td>@Model.InterfaceName</td>
+                <td class="tdrigth">
+                    订单状态
+                </td>
+                <td>@Model.PayStateName</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    用户提交金额
+                </td>
+                <td>@string.Format("{0:0.00}", Model.MerOrderAmt / 100)</td>
+                <td class="tdrigth">
+                    实际支付金额
+                </td>
+                <td>@string.Format("{0:0.00}", Model.OrderAmt / 100)</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    商家费率
+                </td>
+                <td>@string.Format("{0:0.00}", Model.PayRate * 100)%</td>
+                <td class="tdrigth">
+                    手续费
+                </td>
+                <td>@string.Format("{0:0.00}", Model.PayFlow / 100)</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    通道费率
+                </td>
+                <td>@string.Format("{0:0.00}", Model.CostRate * 100)%</td>
+                <td class="tdrigth">
+                    通道金额
+                </td>
+                <td>@string.Format("{0:0.00}", Model.CostAmt / 100)</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    提成费率
+                </td>
+                <td>@string.Format("{0:0.00}", Model.PromRate * 100)%</td>
+                <td class="tdrigth">
+                    提成金额
+                </td>
+                <td>@string.Format("{0:0.00}", Model.PromAmt / 100)</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    平台利润
+                </td>
+                <td colspan="3">@string.Format("{0:0.00}", Model.Profits / 100)</td>                
+            </tr>
+            <tr>
+                <td class="tdrigth">
+                    备注消息
+                </td>
+                <td colspan="3">@(Model.Attach)</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    支付者IP
+                </td>
+                <td colspan="3">@(Model.ClientIp)</td>                
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    下单时间
+                </td>
+                <td>@(Model.OrderTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                <td class="tdrigth">
+                    完成时间
+                </td>
+                <td>@(Model.PayState==1?  Model.PayTime.Value.ToString("yyyy-MM-dd HH:mm:ss"):"")</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    异步通知总次数
+                </td>
+                <td>@(Model.NotityCount)</td>
+                <td class="tdrigth">
+                    通知状态
+                </td>
+                <td>
+                    @(Model.NotityStateNmae)
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td class="tdrigth">
+                    异步通知地址
+                </td>
+                <td colspan="3">
+                    <div style="word-break:break-all;word-wrap:break-word;overflow: hidden; ">@(Model.NotityAddress)</div> 
+                </td>               
+            </tr>
+
+            <tr>
+                <td class="tdrigth">
+                    异步通知结果
+                </td>
+                <td colspan="3">
+                    @(Model.NotityContext)
+                </td>
+            </tr>              
+        </tbody>
+    </table>
+
+}

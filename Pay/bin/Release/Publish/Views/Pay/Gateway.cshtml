@@ -1,0 +1,254 @@
+﻿@using HmPMer.Entity
+
+@{
+    Layout = null;
+    OrderPayCode order = ViewBag.Order;
+    var typeName = string.Empty;
+    var logoClass = "logo";
+
+    var orderAmt = (order.OrderAmt / 100).ToString("0.00");
+    var time = DateTime.Now;
+    var timeSpan = order.ExpiredTime - time;
+    var totalSeconds = (int)timeSpan.TotalSeconds;// 总秒数
+    var cTotal = (int)(timeSpan.TotalSeconds * 4);
+
+    switch (order.ChannelCode)
+    {
+        case ChannelCode.AlipayQrCode:
+        case ChannelCode.ALIPAY_NATIVE:
+            typeName = "支付宝扫码";
+            logoClass = "ico-zfb";
+            break;
+        case ChannelCode.ALIPAY_HB_NATIVE:
+            typeName = "支付宝红包扫码";
+            logoClass = "ico-zfb";
+            break;
+        case ChannelCode.ALIPAY_MICROPAY:
+            typeName = "支付宝付款码";
+            logoClass = "ico-zfb";
+            break;
+        case ChannelCode.ALIPAY_HB_H5:
+            typeName = "支付宝红包H5";
+            logoClass = "ico-zfb";
+            break;
+        case ChannelCode.WeiXinQrCode:
+        case ChannelCode.WEIXIN_NATIVE:
+        case ChannelCode.WEIXIN_APP:
+        case ChannelCode.WEIXIN_JSAPI:
+            typeName = "微信扫码";
+            logoClass = "ico-wechat";
+            break;
+        case ChannelCode.WEIXIN_MICROPAY:
+            typeName = "微信付款码";
+            logoClass = "ico-wechat";
+            break;
+        case ChannelCode.QQPAY_NATIVE:
+            typeName = "QQ扫码";
+            logoClass = "ico-qq";
+            break;
+        case ChannelCode.JD_NATIVE:
+            typeName = "京东扫码";
+            logoClass = "ico-jd";
+            break;
+        case ChannelCode.GATEWAY_QUICK:
+            typeName = "银联快捷";
+            logoClass = "ico-un";
+            break;      
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <title>@typeName</title>
+    <link href="/static/css/pay1/p_style.css" rel="stylesheet" type="text/css" />
+    <script src="/static/js/jquery-1.8.3.min.js" type="text/javascript"></script>    
+</head>
+
+<body data-clipboard-target="#ail_paycode" data-clipboard-action="copy">
+    <div class="mod-title"><span class="@logoClass"></span><span class="text">@typeName</span></div>
+    <div class="mod-body">
+        <div class="mod-ct">
+
+            <div class="amount"><span>￥</span>@orderAmt</div>
+            @if (ChannelCode.GATEWAY_QUICK.Equals(order.ChannelCode))
+            {
+                <form action="@order.Codes" method="post">
+                    <div class="form_list">
+                        <span class="list_title">银行卡号：</span>
+                        <span class="list_val">
+                            <input name="code" value="" maxlength="32" size="32" placeholder="请输入银行卡号" />
+                        </span>
+                    </div>
+                    <div class="form_list">
+                        <span class="list_title"></span>
+                        <button class="list_val submit btn" type="submit">确定</button>
+                    </div>
+                </form>
+            }
+            else if (ChannelCode.ALIPAY_MICROPAY.Equals(order.ChannelCode) || ChannelCode.WEIXIN_MICROPAY.Equals(order.ChannelCode))
+            {
+                <input id="h_micropay_posturl" type="hidden" value="@order.Codes" />
+                <div class="qr-image"><img id="qrImg" src="/static/images/pay1/28.gif" alt="支付二维码" /></div>
+                <div id="d_micropay">
+                    <div class="form_list">
+                        <span class="list_title">付款码：</span>
+                        <span class="list_val">
+                            <input id="autu_code" name="code" value="" maxlength="32" size="32" placeholder="请输入18位付款码" />
+                        </span>
+                    </div>
+                    <div class="form_list">
+                        <span class="list_title"></span>
+                        <span class="list_val submit btn btn_blue" onclick="payMicropay()">确定</span>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="qr-image"><img id="qrImg" src="/DrawingApi/QrCode?d=@HttpUtility.UrlEncode(order.Codes)" alt="支付二维码" /></div>
+            }
+            <div class="detail">
+                <ul class="detail-ct">
+                    <li>
+                        <span>交易单号</span>
+                        <div id="billId">@order.OrderId</div>
+                    </li>
+                    <li>
+                        <span>创建时间</span>
+                        <div id="createTime">@order.OrderTime.ToString("yyyy-MM-dd HH:mm:ss")</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="tip">
+                <span class="dec dec-left"></span>
+                <span class="dec dec-right"></span>
+                <div class="ico-scan"></div>
+                <div class="tip-text"><p>请使用@(typeName)</p></div>
+            </div>
+        </div>
+    </div> 
+    <div class="foot">
+        <div class="inner">
+            <p>Copyright  工业和信息化部备案号: 湘ICP备16003823号</p>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+        function dilogCopy() {
+            if (window.navigator.userAgent.indexOf("Android") < 0) {
+                $('#dilog-money-b').html('付款金额请保持一致！');
+                $('#btnOK2').html('打开 @typeName 付款');
+            }
+            $(".dialog-copy-bg").show();
+            $(".dialog-copy").show();
+            $('#dilog-money').select();
+            $(".dialogCopyRemove").click(function () {
+                $(".dialog-copy").hide();
+                $(".dialog-copy-bg").hide();
+            });
+        }
+        var idToClear;
+        var cTotal = @cTotal;
+        function end(msg, isok, state, return_url) {
+            document.getElementById("qrImg").src = '/static/images/shade-img.png?t=' + Math.random();
+            window.clearInterval(idToClear);
+
+            var obj = { 'amt': '@orderAmt', 'oid': '@order.OrderId' };
+
+            setTimeout(function () {
+                alert(msg);
+                if (return_url && return_url != '')
+                    window.location.href = return_url;
+                else
+                    window.location.href = "/pay/result?amt=" + obj.amt + "&oid=" + obj.oid + "&state=" + state;
+            }, 1200);
+        }
+        function ck() {
+            if (cTotal == 0) { end("订单失效，请重新创建！", false, 2); }
+            cTotal--;
+            $.ajax({
+                url: "/pay/IsPayState/@order.OrderId",
+                type: "get",
+                data: { screenW: window.screen.availWidth, screenH: window.screen.availHeight, ts: (new Date().getTime()) },
+                dataType: "json",
+                success: function (data) {
+                    if (!data.IsSuccess) {
+                        end(data.message, false, 0);
+                        return;
+                    }
+                    if (data.code == 1) {
+                        end("支付成功！", true, 1, data.data);
+                    }
+                }, error: function (ex) { }
+            });
+        }
+
+    function payMicropay() {
+        var post_url = $.trim($("#h_micropay_posturl").val());
+        var autu_code = $.trim($("#autu_code").val());
+        if (autu_code == '') {
+            alert("请输入付款码");
+            return;
+        }
+        if (autu_code.length < 18) {
+            alert("付款码不正确");
+            return;
+        }
+
+        $("#d_micropay").html('<div class="form_list"> <img src="static\images\payloading.gif" style="width: inherit;" /><span class="list_title">正在付款中，请等待......</span></div>');
+        $.ajax({
+            url: post_url,
+            type: "POST",
+            data: { 'code': autu_code },
+            dataType: "json",
+            success: function (data) {
+                if (data.Code == 'Fail' || data.Code == 'Error' ) {
+                    end(data.Message, false, 0);
+                    return;
+                }
+
+            }, error: function (ex) { }
+        });
+    }
+    $(document).ready(function () {        
+        setTimeout("ck()", 300);
+        idToClear = setInterval("ck()", 4000);
+        var sTotal = @totalSeconds;
+
+        window.setInterval(function () {
+            var minute = 0, second = 0;//时间默认值
+            if (sTotal > 0) {
+                day = Math.floor(sTotal / (60 * 60 * 24));
+                hour = Math.floor(sTotal / (60 * 60)) - (day * 24);
+                minute = Math.floor(sTotal / 60) - (day * 24 * 60) - (hour * 60);
+                second = Math.floor(sTotal) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+            }
+            if (minute <= 9) minute = '0' + minute;
+            if (second <= 9) second = '0' + second;
+            //$('#minute_show').html('<s></s>' + minute + '分');
+            //$('#second_show').html('<s></s>' + second + '秒');
+            sTotal--;
+            //if (sTotal < 1) { $("#qrImg").attr('src', '/static/images/shade-img.png'); }
+        }, 1000);
+
+        var btnWx = $("#btnWx");
+        if (btnWx.length > 0) {
+            var ua = navigator.userAgent.toLowerCase();
+            if (/mobile|android|iphone|ipad|phone/i.test(ua) && ua.match(/MicroMessenger/i) != 'micromessenger') {
+                if (window.navigator.userAgent.indexOf("Android") < 0) { btnWx.html('↑长按二维码保存↑<br /><a href="weixin://scanqrcode">【点此 打开微信】</a>'); }
+                else { btnWx.html('↑长按二维码保存↑<br /><a href="weixin://">【点此 打开微信】</a>'); }
+                alert("请保存二维码，然后去微信扫一扫付款！");
+            }
+        }        
+    });
+</script>

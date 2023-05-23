@@ -1,0 +1,177 @@
+﻿@model List<HmPMer.Entity.SysConfig>
+@{
+    ViewBag.Title = "注册设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+
+    var IBList = new HmPMer.Business.InterfaceBll().GetInterfaceBusinessList(1);
+    string GetConfiVaule(string Key)
+    {
+        var item = Model.FirstOrDefault(a => a.Key == Key);
+        if (item != null)
+        {
+            return item.Value;
+        }
+        return "";
+    }
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center">参数说明</td>
+                <td align="center">参数值</td>
+                <td align="center">变量名</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tdrigth">单笔最低提现金额</td>
+                <td><input type="text" class="layui-input version" Desc="单笔最低提现金额" value="@(GetConfiVaule("WithdrawMinAmtSingle"))" name="WithdrawMinAmtSingle" id="WithdrawMinAmtSingle" placeholder="请输入最低提现金额" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')"></td>
+                <td pc>WithdrawMinAmtSingle</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">单笔最大提现金额</td>
+                <td><input type="text" class="layui-input version" Desc="单笔最大提现金额" value="@(GetConfiVaule("WithdrawMaxAmtSingle"))" name="WithdrawMaxAmtSingle" id="WithdrawMaxAmtSingle" placeholder="请输入最大提现金额" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')"></td>
+                <td pc>WithdrawMaxAmtSingle</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">单笔提现手续费</td>
+                <td><input type="text" class="layui-input version" Desc="单笔提现手续费" value="@(GetConfiVaule("WithdrawHandingSingle"))" name="WithdrawHandingSingle" id="WithdrawHandingSingle" placeholder="请输入单笔提现手续费" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')"></td>
+                <td pc>WithdrawHandingSingle</td>
+            </tr>
+            <tr>
+                <td class="tdrigth"> 默认接口商</td>
+                <td>
+                    <select name="WithdrawInterfaceCode" class="layui-input version" id="WithdrawInterfaceCode" Desc="默认接口商" lay-verify="" lay-search>
+                        <option value="">请选择</option>
+                        @foreach (var item in IBList)
+                        {
+                            <option value="@item.Code" @(GetConfiVaule("WithdrawInterfaceCode") == item.Code ? "selected" : "")>@item.Name</option>
+                        }
+                    </select>
+                </td>
+                <td pc>WithdrawInterfaceCode</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" type="button" id="btn_submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        //提交表单
+        $("#btn_submit").click(function () {
+            var WithdrawMinAmtSingle = $("#WithdrawMinAmtSingle").val();
+            var WithdrawMaxAmtSingle = $("#WithdrawMaxAmtSingle").val();
+            var WithdrawHandingSingle = $("#WithdrawHandingSingle").val();
+            if (WithdrawMinAmtSingle == "") {
+                layer.msg("请输入最低提现金额！");
+                return;
+            }
+
+            //if (parseInt(WithdrawMinAmtSingle) == 0) {
+            //    layer.msg("最低提现金额不能为0！");
+            //    return;
+            //}
+
+            if (WithdrawMaxAmtSingle == "") {
+                layer.msg("请输入最高提现金额！");
+                return;
+            }
+
+            //if (parseInt(WithdrawMaxAmtSingle) == 0) {
+            //    layer.msg("最大提现金额不能为0！");
+            //    return;
+            //}
+
+            if (parseInt(WithdrawMaxAmtSingle) < parseInt(WithdrawMinAmtSingle)) {
+                layer.msg("最大提现金额不能为小于最低提现金额！");
+                return;
+            }
+
+            if (WithdrawHandingSingle == "") {
+                layer.msg("请输入单笔提现手续费！");
+                return;
+            }
+
+            //循环input
+            var bool = true;
+            var ListModel = [];
+            var Type = 3;
+            //循环获取值
+            $(".version").each(function (a, b) {
+                var model = {};
+                var Key = $(this).attr("name");
+                var Value = $(this).val();
+                var Desc = $(this).attr("Desc");
+                model.Key = Key;
+                model.Type = Type;
+                model.Value = Value;
+                model.Desc = Desc;
+                ListModel.push(model);
+            });
+
+            if (bool) {
+                var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+                setTimeout(function () {
+                    layer.close(index);
+                    hm.ajax("/System/SetSysConfig", {
+                        data: { ListModel: ListModel, Type: Type },
+                        type: "POST",
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result.Success) {
+                                layer.msg("操作成功！", { icon: 1, time: 300 });
+                            } else {
+                                layer.msg(result.Message);
+                            }
+                        },
+                        error: function (x, t, e) {
+                            layer.closeAll();
+                        }
+                    });
+
+                }, 500);
+            }
+
+        });
+
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+    });
+</script>
+

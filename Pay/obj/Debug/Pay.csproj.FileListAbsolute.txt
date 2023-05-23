@@ -1,0 +1,794 @@
+D:\HmPMer_1\Pay\bin\Pay.dll.config
+D:\HmPMer_1\Pay\bin\Pay.dll
+D:\HmPMer_1\Pay\bin\Pay.pdb
+D:\HmPMer_1\Pay\bin\roslyn\csc.exe
+D:\HmPMer_1\Pay\bin\roslyn\csc.exe.config
+D:\HmPMer_1\Pay\bin\roslyn\csc.rsp
+D:\HmPMer_1\Pay\bin\roslyn\csi.exe
+D:\HmPMer_1\Pay\bin\roslyn\csi.exe.config
+D:\HmPMer_1\Pay\bin\roslyn\csi.rsp
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+D:\HmPMer_1\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\HmPMer_1\Pay\bin\roslyn\System.AppContext.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Collections.Immutable.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Console.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.IO.Compression.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.IO.FileSystem.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.IO.Pipes.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Reflection.Metadata.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Security.AccessControl.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Security.Claims.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.ValueTuple.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Xml.XPath.dll
+D:\HmPMer_1\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\HmPMer_1\Pay\bin\roslyn\vbc.exe
+D:\HmPMer_1\Pay\bin\roslyn\vbc.exe.config
+D:\HmPMer_1\Pay\bin\roslyn\vbc.rsp
+D:\HmPMer_1\Pay\bin\roslyn\VBCSCompiler.exe
+D:\HmPMer_1\Pay\bin\roslyn\VBCSCompiler.exe.config
+D:\HmPMer_1\Pay\bin\HM.Framework.dll
+D:\HmPMer_1\Pay\bin\HM.Framework.PayApi.dll
+D:\HmPMer_1\Pay\bin\HmPMer.Business.dll
+D:\HmPMer_1\Pay\bin\HmPMer.Entity.dll
+D:\HmPMer_1\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\HmPMer_1\Pay\bin\Microsoft.Web.Infrastructure.dll
+D:\HmPMer_1\Pay\bin\System.Web.Helpers.dll
+D:\HmPMer_1\Pay\bin\System.Web.Mvc.dll
+D:\HmPMer_1\Pay\bin\System.Web.Razor.dll
+D:\HmPMer_1\Pay\bin\System.Web.Webpages.Deployment.dll
+D:\HmPMer_1\Pay\bin\System.Web.Webpages.dll
+D:\HmPMer_1\Pay\bin\System.Web.Webpages.Razor.dll
+D:\HmPMer_1\Pay\bin\HmPMer.Dal.dll
+D:\HmPMer_1\Pay\bin\log4net.dll
+D:\HmPMer_1\Pay\bin\BouncyCastle.Crypto.dll
+D:\HmPMer_1\Pay\bin\StackExchange.Redis.dll
+D:\HmPMer_1\Pay\bin\NPOI.dll
+D:\HmPMer_1\Pay\bin\ServiceStack.Text.dll
+D:\HmPMer_1\Pay\bin\ThoughtWorks.QRCode.dll
+D:\HmPMer_1\Pay\bin\NPOI.OOXML.dll
+D:\HmPMer_1\Pay\bin\RestSharp.dll
+D:\HmPMer_1\Pay\bin\Newtonsoft.Json.dll
+D:\HmPMer_1\Pay\bin\websocket-sharp.dll
+D:\HmPMer_1\Pay\bin\HM.Framework.Dapper.dll
+D:\HmPMer_1\Pay\bin\NPOI.OpenXml4Net.dll
+D:\HmPMer_1\Pay\bin\HmPMer.Business.pdb
+D:\HmPMer_1\Pay\bin\HmPMer.Entity.pdb
+D:\HmPMer_1\Pay\bin\HM.Framework.pdb
+D:\HmPMer_1\Pay\bin\HM.Framework.PayApi.pdb
+D:\HmPMer_1\Pay\bin\System.Web.Razor.xml
+D:\HmPMer_1\Pay\bin\System.Web.Webpages.xml
+D:\HmPMer_1\Pay\bin\System.Web.Webpages.Deployment.xml
+D:\HmPMer_1\Pay\bin\System.Web.Webpages.Razor.xml
+D:\HmPMer_1\Pay\bin\System.Web.Helpers.xml
+D:\HmPMer_1\Pay\bin\System.Web.Mvc.xml
+D:\HmPMer_1\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\HmPMer_1\Pay\bin\HmPMer.Dal.pdb
+D:\HmPMer_1\Pay\bin\websocket-sharp.pdb
+D:\HmPMer_1\Pay\bin\HM.Framework.Dapper.pdb
+D:\HmPMer_1\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+D:\HmPMer_1\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+D:\HmPMer_1\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+D:\HmPMer_1\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+D:\HmPMer_1\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+D:\HmPMer_1\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\HmPMer_1\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+D:\HmPMer_1\Pay\obj\Debug\Pay.csproj.CopyComplete
+D:\HmPMer_1\Pay\obj\Debug\Pay.dll
+D:\HmPMer_1\Pay\obj\Debug\Pay.pdb
+D:\HmPMer\Pay\bin\Pay.dll.config
+D:\HmPMer\Pay\bin\Pay.dll
+D:\HmPMer\Pay\bin\Pay.pdb
+D:\HmPMer\Pay\bin\roslyn\csc.exe
+D:\HmPMer\Pay\bin\roslyn\csc.exe.config
+D:\HmPMer\Pay\bin\roslyn\csc.rsp
+D:\HmPMer\Pay\bin\roslyn\csi.exe
+D:\HmPMer\Pay\bin\roslyn\csi.exe.config
+D:\HmPMer\Pay\bin\roslyn\csi.rsp
+D:\HmPMer\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\HmPMer\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\HmPMer\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+D:\HmPMer\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\HmPMer\Pay\bin\roslyn\System.AppContext.dll
+D:\HmPMer\Pay\bin\roslyn\System.Collections.Immutable.dll
+D:\HmPMer\Pay\bin\roslyn\System.Console.dll
+D:\HmPMer\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\HmPMer\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\HmPMer\Pay\bin\roslyn\System.IO.Compression.dll
+D:\HmPMer\Pay\bin\roslyn\System.IO.FileSystem.dll
+D:\HmPMer\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\HmPMer\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\HmPMer\Pay\bin\roslyn\System.IO.Pipes.dll
+D:\HmPMer\Pay\bin\roslyn\System.Reflection.Metadata.dll
+D:\HmPMer\Pay\bin\roslyn\System.Security.AccessControl.dll
+D:\HmPMer\Pay\bin\roslyn\System.Security.Claims.dll
+D:\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\HmPMer\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+D:\HmPMer\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\HmPMer\Pay\bin\roslyn\System.ValueTuple.dll
+D:\HmPMer\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\HmPMer\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+D:\HmPMer\Pay\bin\roslyn\System.Xml.XPath.dll
+D:\HmPMer\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\HmPMer\Pay\bin\roslyn\vbc.exe
+D:\HmPMer\Pay\bin\roslyn\vbc.exe.config
+D:\HmPMer\Pay\bin\roslyn\vbc.rsp
+D:\HmPMer\Pay\bin\roslyn\VBCSCompiler.exe
+D:\HmPMer\Pay\bin\roslyn\VBCSCompiler.exe.config
+D:\HmPMer\Pay\bin\HM.Framework.dll
+D:\HmPMer\Pay\bin\HM.Framework.PayApi.dll
+D:\HmPMer\Pay\bin\HmPMer.Business.dll
+D:\HmPMer\Pay\bin\HmPMer.Entity.dll
+D:\HmPMer\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\HmPMer\Pay\bin\Microsoft.Web.Infrastructure.dll
+D:\HmPMer\Pay\bin\System.Web.Helpers.dll
+D:\HmPMer\Pay\bin\System.Web.Mvc.dll
+D:\HmPMer\Pay\bin\System.Web.Razor.dll
+D:\HmPMer\Pay\bin\System.Web.Webpages.Deployment.dll
+D:\HmPMer\Pay\bin\System.Web.Webpages.dll
+D:\HmPMer\Pay\bin\System.Web.Webpages.Razor.dll
+D:\HmPMer\Pay\bin\HmPMer.Dal.dll
+D:\HmPMer\Pay\bin\log4net.dll
+D:\HmPMer\Pay\bin\BouncyCastle.Crypto.dll
+D:\HmPMer\Pay\bin\StackExchange.Redis.dll
+D:\HmPMer\Pay\bin\NPOI.dll
+D:\HmPMer\Pay\bin\ServiceStack.Text.dll
+D:\HmPMer\Pay\bin\ThoughtWorks.QRCode.dll
+D:\HmPMer\Pay\bin\NPOI.OOXML.dll
+D:\HmPMer\Pay\bin\RestSharp.dll
+D:\HmPMer\Pay\bin\Newtonsoft.Json.dll
+D:\HmPMer\Pay\bin\websocket-sharp.dll
+D:\HmPMer\Pay\bin\HM.Framework.Dapper.dll
+D:\HmPMer\Pay\bin\NPOI.OpenXml4Net.dll
+D:\HmPMer\Pay\bin\HmPMer.Business.pdb
+D:\HmPMer\Pay\bin\HmPMer.Entity.pdb
+D:\HmPMer\Pay\bin\HM.Framework.pdb
+D:\HmPMer\Pay\bin\HM.Framework.PayApi.pdb
+D:\HmPMer\Pay\bin\System.Web.Razor.xml
+D:\HmPMer\Pay\bin\System.Web.Webpages.xml
+D:\HmPMer\Pay\bin\System.Web.Webpages.Deployment.xml
+D:\HmPMer\Pay\bin\System.Web.Webpages.Razor.xml
+D:\HmPMer\Pay\bin\System.Web.Helpers.xml
+D:\HmPMer\Pay\bin\System.Web.Mvc.xml
+D:\HmPMer\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\HmPMer\Pay\bin\HmPMer.Dal.pdb
+D:\HmPMer\Pay\bin\websocket-sharp.pdb
+D:\HmPMer\Pay\bin\HM.Framework.Dapper.pdb
+D:\HmPMer\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+D:\HmPMer\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+D:\HmPMer\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+D:\HmPMer\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+D:\HmPMer\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+D:\HmPMer\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\HmPMer\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+D:\HmPMer\Pay\obj\Debug\Pay.csproj.CopyComplete
+D:\HmPMer\Pay\obj\Debug\Pay.dll
+D:\HmPMer\Pay\obj\Debug\Pay.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\Pay.dll.config
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\Pay.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\Pay.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\csc.exe
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\csc.exe.config
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\csc.rsp
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\csi.exe
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\csi.exe.config
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\csi.rsp
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.AppContext.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Console.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.IO.Compression.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Security.Claims.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.ValueTuple.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\vbc.exe
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\vbc.exe.config
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\vbc.rsp
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HM.Framework.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HM.Framework.PayApi.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Webpages.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Webpages.Razor.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\log4net.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\NPOI.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\LitJSON.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\RestSharp.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\websocket-sharp.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HM.Framework.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HM.Framework.PayApi.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Webpages.xml
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Webpages.Razor.xml
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\websocket-sharp.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\HmPMer\Pay\obj\Debug\Pay.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\HmPMer\Pay\obj\Debug\Pay.csproj.CopyComplete
+C:\Users\Administrator\Desktop\HmPMer\Pay\obj\Debug\Pay.dll
+C:\Users\Administrator\Desktop\HmPMer\Pay\obj\Debug\Pay.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\Pay.dll.config
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\Pay.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\Pay.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\csc.exe
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\csc.exe.config
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\csc.rsp
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\csi.exe
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\csi.exe.config
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\csi.rsp
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.AppContext.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Console.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.IO.Compression.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Security.Claims.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.ValueTuple.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\vbc.exe
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\vbc.exe.config
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\vbc.rsp
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HM.Framework.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HM.Framework.PayApi.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Webpages.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Webpages.Razor.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\log4net.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\NPOI.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\LitJSON.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\RestSharp.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\websocket-sharp.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HM.Framework.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HM.Framework.PayApi.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Webpages.xml
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Webpages.Razor.xml
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\websocket-sharp.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\obj\Debug\Pay.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\obj\Debug\Pay.csproj.CopyComplete
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\obj\Debug\Pay.dll
+C:\Users\Administrator\Desktop\HmPMer - 副本\Pay\obj\Debug\Pay.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\Pay.dll.config
+C:\Users\Administrator\Desktop\142\Pay\bin\Pay.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\Pay.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\csc.exe
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\csc.exe.config
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\csc.rsp
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\csi.exe
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\csi.exe.config
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\csi.rsp
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.AppContext.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Console.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.IO.Compression.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Security.Claims.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.ValueTuple.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\vbc.exe
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\vbc.exe.config
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\vbc.rsp
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrator\Desktop\142\Pay\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrator\Desktop\142\Pay\bin\HM.Framework.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\HM.Framework.PayApi.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\HmPMer.Business.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\HmPMer.Entity.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Webpages.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Webpages.Razor.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\HmPMer.Dal.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\log4net.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\StackExchange.Redis.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\NPOI.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\ServiceStack.Text.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\ThoughtWorks.QRCode.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\NPOI.OOXML.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\LitJSON.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\RestSharp.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\websocket-sharp.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\HM.Framework.Dapper.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\HmPMer.Business.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\HmPMer.Entity.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\HM.Framework.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\HM.Framework.PayApi.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Webpages.xml
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Webpages.Razor.xml
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\142\Pay\bin\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\142\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrator\Desktop\142\Pay\bin\HmPMer.Dal.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\websocket-sharp.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\HM.Framework.Dapper.pdb
+C:\Users\Administrator\Desktop\142\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+C:\Users\Administrator\Desktop\142\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+C:\Users\Administrator\Desktop\142\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\142\Pay\obj\Debug\Pay.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\142\Pay\obj\Debug\Pay.csproj.CopyComplete
+C:\Users\Administrator\Desktop\142\Pay\obj\Debug\Pay.dll
+C:\Users\Administrator\Desktop\142\Pay\obj\Debug\Pay.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\Pay.dll.config
+D:\workspace\Payment\yidianfu\Pay\bin\Pay.dll
+D:\workspace\Payment\yidianfu\Pay\bin\Pay.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\csc.exe
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\csc.exe.config
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\csc.rsp
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\csi.exe
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\csi.exe.config
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\csi.rsp
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.AppContext.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Collections.Immutable.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Console.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.IO.Compression.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.IO.FileSystem.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.IO.Pipes.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Reflection.Metadata.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Security.AccessControl.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Security.Claims.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.ValueTuple.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Xml.XPath.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\vbc.exe
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\vbc.exe.config
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\vbc.rsp
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\VBCSCompiler.exe
+D:\workspace\Payment\yidianfu\Pay\bin\roslyn\VBCSCompiler.exe.config
+D:\workspace\Payment\yidianfu\Pay\bin\HM.Framework.dll
+D:\workspace\Payment\yidianfu\Pay\bin\HM.Framework.PayApi.dll
+D:\workspace\Payment\yidianfu\Pay\bin\HmPMer.Business.dll
+D:\workspace\Payment\yidianfu\Pay\bin\HmPMer.Entity.dll
+D:\workspace\Payment\yidianfu\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\workspace\Payment\yidianfu\Pay\bin\Microsoft.Web.Infrastructure.dll
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Helpers.dll
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Mvc.dll
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Razor.dll
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Webpages.Deployment.dll
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Webpages.dll
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Webpages.Razor.dll
+D:\workspace\Payment\yidianfu\Pay\bin\HmPMer.Dal.dll
+D:\workspace\Payment\yidianfu\Pay\bin\log4net.dll
+D:\workspace\Payment\yidianfu\Pay\bin\BouncyCastle.Crypto.dll
+D:\workspace\Payment\yidianfu\Pay\bin\StackExchange.Redis.dll
+D:\workspace\Payment\yidianfu\Pay\bin\NPOI.dll
+D:\workspace\Payment\yidianfu\Pay\bin\ServiceStack.Text.dll
+D:\workspace\Payment\yidianfu\Pay\bin\ThoughtWorks.QRCode.dll
+D:\workspace\Payment\yidianfu\Pay\bin\NPOI.OOXML.dll
+D:\workspace\Payment\yidianfu\Pay\bin\LitJSON.dll
+D:\workspace\Payment\yidianfu\Pay\bin\RestSharp.dll
+D:\workspace\Payment\yidianfu\Pay\bin\Newtonsoft.Json.dll
+D:\workspace\Payment\yidianfu\Pay\bin\websocket-sharp.dll
+D:\workspace\Payment\yidianfu\Pay\bin\HM.Framework.Dapper.dll
+D:\workspace\Payment\yidianfu\Pay\bin\NPOI.OpenXml4Net.dll
+D:\workspace\Payment\yidianfu\Pay\bin\HmPMer.Business.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\HmPMer.Entity.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\HM.Framework.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\HM.Framework.PayApi.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Razor.xml
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Webpages.xml
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Webpages.Deployment.xml
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Webpages.Razor.xml
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Helpers.xml
+D:\workspace\Payment\yidianfu\Pay\bin\System.Web.Mvc.xml
+D:\workspace\Payment\yidianfu\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\workspace\Payment\yidianfu\Pay\bin\HmPMer.Dal.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\websocket-sharp.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\HM.Framework.Dapper.pdb
+D:\workspace\Payment\yidianfu\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+D:\workspace\Payment\yidianfu\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+D:\workspace\Payment\yidianfu\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+D:\workspace\Payment\yidianfu\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+D:\workspace\Payment\yidianfu\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+D:\workspace\Payment\yidianfu\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\workspace\Payment\yidianfu\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+D:\workspace\Payment\yidianfu\Pay\obj\Debug\Pay.csproj.CopyComplete
+D:\workspace\Payment\yidianfu\Pay\obj\Debug\Pay.dll
+D:\workspace\Payment\yidianfu\Pay\obj\Debug\Pay.pdb
+D:\Workspace\Payment\yidianfu\Pay\obj\Debug\Pay.csproj.CoreCompileInputs.cache
+D:\yidianfu\Pay\bin\Pay.dll.config
+D:\yidianfu\Pay\bin\Pay.dll
+D:\yidianfu\Pay\bin\Pay.pdb
+D:\yidianfu\Pay\bin\roslyn\csc.exe
+D:\yidianfu\Pay\bin\roslyn\csc.exe.config
+D:\yidianfu\Pay\bin\roslyn\csc.rsp
+D:\yidianfu\Pay\bin\roslyn\csi.exe
+D:\yidianfu\Pay\bin\roslyn\csi.exe.config
+D:\yidianfu\Pay\bin\roslyn\csi.rsp
+D:\yidianfu\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\yidianfu\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\yidianfu\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+D:\yidianfu\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\yidianfu\Pay\bin\roslyn\System.AppContext.dll
+D:\yidianfu\Pay\bin\roslyn\System.Collections.Immutable.dll
+D:\yidianfu\Pay\bin\roslyn\System.Console.dll
+D:\yidianfu\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\yidianfu\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\yidianfu\Pay\bin\roslyn\System.IO.Compression.dll
+D:\yidianfu\Pay\bin\roslyn\System.IO.FileSystem.dll
+D:\yidianfu\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\yidianfu\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\yidianfu\Pay\bin\roslyn\System.IO.Pipes.dll
+D:\yidianfu\Pay\bin\roslyn\System.Reflection.Metadata.dll
+D:\yidianfu\Pay\bin\roslyn\System.Security.AccessControl.dll
+D:\yidianfu\Pay\bin\roslyn\System.Security.Claims.dll
+D:\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\yidianfu\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\yidianfu\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+D:\yidianfu\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\yidianfu\Pay\bin\roslyn\System.ValueTuple.dll
+D:\yidianfu\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\yidianfu\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+D:\yidianfu\Pay\bin\roslyn\System.Xml.XPath.dll
+D:\yidianfu\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\yidianfu\Pay\bin\roslyn\vbc.exe
+D:\yidianfu\Pay\bin\roslyn\vbc.exe.config
+D:\yidianfu\Pay\bin\roslyn\vbc.rsp
+D:\yidianfu\Pay\bin\roslyn\VBCSCompiler.exe
+D:\yidianfu\Pay\bin\roslyn\VBCSCompiler.exe.config
+D:\yidianfu\Pay\bin\HM.Framework.dll
+D:\yidianfu\Pay\bin\HM.Framework.PayApi.dll
+D:\yidianfu\Pay\bin\HmPMer.Business.dll
+D:\yidianfu\Pay\bin\HmPMer.Entity.dll
+D:\yidianfu\Pay\bin\LitJSON.dll
+D:\yidianfu\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\yidianfu\Pay\bin\Microsoft.Web.Infrastructure.dll
+D:\yidianfu\Pay\bin\System.Web.Helpers.dll
+D:\yidianfu\Pay\bin\System.Web.Mvc.dll
+D:\yidianfu\Pay\bin\System.Web.Razor.dll
+D:\yidianfu\Pay\bin\System.Web.Webpages.Deployment.dll
+D:\yidianfu\Pay\bin\System.Web.Webpages.dll
+D:\yidianfu\Pay\bin\System.Web.Webpages.Razor.dll
+D:\yidianfu\Pay\bin\HmPMer.Dal.dll
+D:\yidianfu\Pay\bin\log4net.dll
+D:\yidianfu\Pay\bin\BouncyCastle.Crypto.dll
+D:\yidianfu\Pay\bin\StackExchange.Redis.dll
+D:\yidianfu\Pay\bin\NPOI.dll
+D:\yidianfu\Pay\bin\ServiceStack.Text.dll
+D:\yidianfu\Pay\bin\ThoughtWorks.QRCode.dll
+D:\yidianfu\Pay\bin\NPOI.OOXML.dll
+D:\yidianfu\Pay\bin\RestSharp.dll
+D:\yidianfu\Pay\bin\Newtonsoft.Json.dll
+D:\yidianfu\Pay\bin\websocket-sharp.dll
+D:\yidianfu\Pay\bin\HM.Framework.Dapper.dll
+D:\yidianfu\Pay\bin\NPOI.OpenXml4Net.dll
+D:\yidianfu\Pay\bin\HmPMer.Business.pdb
+D:\yidianfu\Pay\bin\HmPMer.Entity.pdb
+D:\yidianfu\Pay\bin\HM.Framework.pdb
+D:\yidianfu\Pay\bin\HM.Framework.PayApi.pdb
+D:\yidianfu\Pay\bin\System.Web.Razor.xml
+D:\yidianfu\Pay\bin\System.Web.Webpages.xml
+D:\yidianfu\Pay\bin\System.Web.Webpages.Deployment.xml
+D:\yidianfu\Pay\bin\System.Web.Webpages.Razor.xml
+D:\yidianfu\Pay\bin\System.Web.Helpers.xml
+D:\yidianfu\Pay\bin\System.Web.Mvc.xml
+D:\yidianfu\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\yidianfu\Pay\bin\HmPMer.Dal.pdb
+D:\yidianfu\Pay\bin\websocket-sharp.pdb
+D:\yidianfu\Pay\bin\HM.Framework.Dapper.pdb
+D:\yidianfu\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+D:\yidianfu\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+D:\yidianfu\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+D:\yidianfu\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+D:\yidianfu\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+D:\yidianfu\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\yidianfu\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+D:\yidianfu\Pay\obj\Debug\Pay.csproj.CopyComplete
+D:\yidianfu\Pay\obj\Debug\Pay.dll
+D:\yidianfu\Pay\obj\Debug\Pay.pdb
+D:\HmPayMer\Pay\bin\Pay.dll.config
+D:\HmPayMer\Pay\bin\Pay.dll
+D:\HmPayMer\Pay\bin\Pay.pdb
+D:\HmPayMer\Pay\bin\roslyn\csc.exe
+D:\HmPayMer\Pay\bin\roslyn\csc.exe.config
+D:\HmPayMer\Pay\bin\roslyn\csc.rsp
+D:\HmPayMer\Pay\bin\roslyn\csi.exe
+D:\HmPayMer\Pay\bin\roslyn\csi.exe.config
+D:\HmPayMer\Pay\bin\roslyn\csi.rsp
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.Managed.Core.targets
+D:\HmPayMer\Pay\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\HmPayMer\Pay\bin\roslyn\System.AppContext.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Collections.Immutable.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Console.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\HmPayMer\Pay\bin\roslyn\System.IO.Compression.dll
+D:\HmPayMer\Pay\bin\roslyn\System.IO.FileSystem.dll
+D:\HmPayMer\Pay\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\HmPayMer\Pay\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\HmPayMer\Pay\bin\roslyn\System.IO.Pipes.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Reflection.Metadata.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Security.AccessControl.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Security.Claims.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Security.Principal.Windows.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\HmPayMer\Pay\bin\roslyn\System.ValueTuple.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Xml.XmlDocument.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Xml.XPath.dll
+D:\HmPayMer\Pay\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\HmPayMer\Pay\bin\roslyn\vbc.exe
+D:\HmPayMer\Pay\bin\roslyn\vbc.exe.config
+D:\HmPayMer\Pay\bin\roslyn\vbc.rsp
+D:\HmPayMer\Pay\bin\roslyn\VBCSCompiler.exe
+D:\HmPayMer\Pay\bin\roslyn\VBCSCompiler.exe.config
+D:\HmPayMer\Pay\bin\HM.Framework.dll
+D:\HmPayMer\Pay\bin\HM.Framework.PayApi.dll
+D:\HmPayMer\Pay\bin\HmPMer.Business.dll
+D:\HmPayMer\Pay\bin\HmPMer.Entity.dll
+D:\HmPayMer\Pay\bin\LitJSON.dll
+D:\HmPayMer\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\HmPayMer\Pay\bin\Microsoft.Web.Infrastructure.dll
+D:\HmPayMer\Pay\bin\System.Web.Helpers.dll
+D:\HmPayMer\Pay\bin\System.Web.Mvc.dll
+D:\HmPayMer\Pay\bin\System.Web.Razor.dll
+D:\HmPayMer\Pay\bin\System.Web.Webpages.Deployment.dll
+D:\HmPayMer\Pay\bin\System.Web.Webpages.dll
+D:\HmPayMer\Pay\bin\System.Web.Webpages.Razor.dll
+D:\HmPayMer\Pay\bin\HmPMer.Dal.dll
+D:\HmPayMer\Pay\bin\log4net.dll
+D:\HmPayMer\Pay\bin\BouncyCastle.Crypto.dll
+D:\HmPayMer\Pay\bin\StackExchange.Redis.dll
+D:\HmPayMer\Pay\bin\NPOI.dll
+D:\HmPayMer\Pay\bin\ServiceStack.Text.dll
+D:\HmPayMer\Pay\bin\ThoughtWorks.QRCode.dll
+D:\HmPayMer\Pay\bin\NPOI.OOXML.dll
+D:\HmPayMer\Pay\bin\RestSharp.dll
+D:\HmPayMer\Pay\bin\Newtonsoft.Json.dll
+D:\HmPayMer\Pay\bin\websocket-sharp.dll
+D:\HmPayMer\Pay\bin\HM.Framework.Dapper.dll
+D:\HmPayMer\Pay\bin\NPOI.OpenXml4Net.dll
+D:\HmPayMer\Pay\bin\HmPMer.Business.pdb
+D:\HmPayMer\Pay\bin\HmPMer.Entity.pdb
+D:\HmPayMer\Pay\bin\HM.Framework.pdb
+D:\HmPayMer\Pay\bin\HM.Framework.PayApi.pdb
+D:\HmPayMer\Pay\bin\System.Web.Razor.xml
+D:\HmPayMer\Pay\bin\System.Web.Webpages.xml
+D:\HmPayMer\Pay\bin\System.Web.Webpages.Deployment.xml
+D:\HmPayMer\Pay\bin\System.Web.Webpages.Razor.xml
+D:\HmPayMer\Pay\bin\System.Web.Helpers.xml
+D:\HmPayMer\Pay\bin\System.Web.Mvc.xml
+D:\HmPayMer\Pay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\HmPayMer\Pay\bin\HmPMer.Dal.pdb
+D:\HmPayMer\Pay\bin\websocket-sharp.pdb
+D:\HmPayMer\Pay\bin\HM.Framework.Dapper.pdb
+D:\HmPayMer\Pay\bin\zh-Hans\System.Web.Razor.resources.dll
+D:\HmPayMer\Pay\bin\zh-Hans\System.Web.Webpages.resources.dll
+D:\HmPayMer\Pay\bin\zh-Hans\System.Web.Webpages.Deployment.resources.dll
+D:\HmPayMer\Pay\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
+D:\HmPayMer\Pay\bin\zh-Hans\System.Web.Helpers.resources.dll
+D:\HmPayMer\Pay\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\HmPayMer\Pay\obj\Debug\Pay.csprojAssemblyReference.cache
+D:\HmPayMer\Pay\obj\Debug\Pay.csproj.CopyComplete
+D:\HmPayMer\Pay\obj\Debug\Pay.dll
+D:\HmPayMer\Pay\obj\Debug\Pay.pdb

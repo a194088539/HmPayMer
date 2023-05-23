@@ -1,0 +1,145 @@
+﻿@model HmPMer.Entity.SysConfig
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <title>在线充值Demo</title>
+    <link href="/static/css/demo/pintuer.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/demo/base.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="header layout bg-blue">
+        <div class="line text-center">
+            <div class="x1 padding-small-top padding-small-bottom"></div>
+            <div class="x9 padding-top padding-bottom text-big text-white">在线充值</div>
+            <div class="x2 padding-small-top padding-small-bottom text-right"></div>
+        </div>
+    </div>
+    <div class="padding">
+        <form class="margin-big-top form-big" method="get" id="pay" target="_blank" action="/Demo/PayTest">  
+            <div class="form-group margin-top">
+                <div class="label"><label>提交地址</label></div>
+                <div class="field">
+                    <input type="text" class="input" name="post_url" id="post_url" size="30" maxlength="100" value="@(Model.Value)/pay/gateway" />
+                </div>
+            </div>
+            <div class="form-group margin-top">
+                <div class="label"><label>商户号</label></div>
+                <div class="field">
+                    <input type="text" class="input" name="app_id" id="app_id" size="30" maxlength="10" value="1911090025" />                    
+                </div>
+            </div>
+            <div class="form-group margin-top">
+                <div class="label"><label>支付密钥</label></div>
+                <div class="field">
+                    <input type="text" class="input" name="apiKey" id="apiKey" size="30" maxlength="64" value="8058fae4d8f17c6b92ed96103a9aae1f" />                    
+                </div>
+            </div>
+            <div class="form-group margin-top">
+                <div class="label"><label>充值金额</label></div>
+                <div class="field">
+                    <input type="text" class="input" name="total_amount" id="total_amount" size="30" maxlength="6"  />
+                    <div class="input-note text-big margin-top">最低充值金额为<span class="text-yellow">1</span>元</div>
+                </div>
+            </div>
+            <div class="form-group margin-top">
+                <div class="label"><label>支付类型</label></div>
+                <div class="field">
+                    <select id="trade_type" name="trade_type" class="input">
+                        <option value="ALIPAY_NATIVE">支付宝扫码</option>
+                        <option value="ALIPAY_H5">支付宝H5</option>
+                        <option value="ALIPAY_HB_NATIVE">支付宝红包扫码</option>
+                        <option value="ALIPAY_HB_H5">支付宝红包H5</option>
+                        <option value="ALIPAY_F2F">支付宝当面付</option>
+                        <option value="PAYSAPI_ALIPAY">PAYSAPI支付宝</option>
+                        <option value="PAYSAPI_WEIXIN">PAYSAPI微信</option>
+                        <option value="U669_SALIPAY">老牛支付宝扫码服务</option>
+                        <option value="U669_ALIPAY">老牛支付宝扫码</option>
+                        <option value="ALIPAY_H5_URL">支付宝H5Url</option>
+                        <option value="WEIXIN_NATIVE">微信扫码</option>
+                        <option value="WEIXIN_JSAPI">微信公众号</option>
+                        <option value="WEIXIN_H5" selected>微信H5</option>
+                        <option value="QQPAY_NATIVE">QQ钱包扫码</option>
+                        <option value="QQPAY_JSAPI">QQ钱包公众号</option>
+                        <option value="QQPAY_H5">QQ钱包H5</option>
+                        <option value="JD_NATIVE">京东扫码</option>
+                        <option value="JD_H5">京东H5</option>
+                        <option value="SPDB">浦发银行</option>
+                        <option value="HXB">华夏银行</option>
+                        <option value="SPABANK">平安银行</option>
+                        <option value="ECITIC">中信银行</option>
+                        <option value="CIB">兴业银行</option>
+                        <option value="CEBB">光大银行</option>
+                        <option value="CMBC">民生银行</option>
+                        <option value="CMB">招商银行</option>
+                        <option value="BOC">中国银行</option>
+                        <option value="BCOM">交通银行</option>
+                        <option value="CCB">建设银行</option>
+                        <option value="ICBC">工商银行</option>
+                        <option value="ABC">农业银行</option>
+                        <option value="GATEWAY_QUICK">快捷网关</option>
+                    </select>                    
+                </div>
+            </div>
+            <div class="form-group margin-top">
+                <div class="label"><label>支付备注</label></div>
+                <div class="field">
+                    <input type="text" class="input" name="extra_return_param" id="extra_return_param" size="30" maxlength="25" value="DebugPayMents" />
+                    <div class="input-note text-big margin-top">原样返回</div>
+                </div>
+            </div>
+            <div class="form-group margin-top">
+                <div class="label"><label>异步回调地址</label></div>
+                <div class="field">
+                    <input type="text" class="input" name="notify_url" id="notify_url" size="30" maxlength="100"  value="@(Model.Value)demo/paytestnotity" />
+                    <div class="input-note text-big margin-top"></div>
+                </div>
+            </div>
+            <div class="form-group margin-top">
+                <div class="label"><label>同步回调地址</label></div>
+                <div class="field">
+                    <input type="text" class="input" name="return_url" id="return_url" size="30" maxlength="100" value="@(Model.Value)demo/paytestreturn" />
+                    <div class="input-note text-big margin-top"></div>
+                </div>
+            </div>
+            <div class="form-button">
+                <button class="button button-block bg-blue margin-top" type="button" id="toConfirm" onClick="return btnOK_zf_onclick();">确认支付</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function btnOK_zf_onclick() {
+        var total_amount = $("#total_amount").val();
+        var trade_type = $("#trade_type");
+
+        if (isNaN(total_amount)) {
+            alert("温馨提示：存款额度必须是数字");
+            return false;
+        }
+       
+        if (trade_type == null || trade_type == "") {
+            alert("温馨提示：支付方式不能为空！");
+            return false;
+        }
+        $("#pay").submit();
+        return true;
+    }
+</script>
+<p align="center"><font color="#FFFFFF"></font></p>

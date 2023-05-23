@@ -1,0 +1,232 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">接口商编号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Code" name="Code" value="" lay-verify="required" placeholder="请输入编号" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">接口商名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Name" name="Name" value="" lay-verify="required" placeholder="请输入名称" />
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">账户模式</label>
+            <div class="layui-input-block">
+                <input type="radio" name="AccType" value="0" title="单账户" checked>
+                <input type="radio" name="AccType" value="1" title="多账户">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">代付功能</label>
+            <div class="layui-input-block">
+                @Html.Hidden("AgentPay", 0)
+                <input type="checkbox" name="cbkAgentPay" lay-filter="cbkAgentPay" lay-skin="switch" lay-text="开启|关闭">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">提交地址</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="SubMitUrl" name="SubMitUrl" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">代付地址</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="AgentPayUrl" name="AgentPayUrl" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">查询地址</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="QueryUrl" name="QueryUrl" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">接口商商户号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Account" name="Account" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">子商户号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="ChildAccount" name="ChildAccount" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">MD5秘钥</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="MD5Pwd" name="MD5Pwd" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">RSA公钥</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="RSAOpen" name="RSAOpen" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">RSA私钥</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="RSAPrivate" name="RSAPrivate" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">Open密钥</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="OpenPwd" name="OpenPwd" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">Appid</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Appid" name="Appid" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">提交域名</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="SubDomain" name="SubDomain" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">绑定域名</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="BindDomain" name="BindDomain" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">回调域名</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="CallbackDomain" name="CallbackDomain" value="" lay-verify="required" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="OrderNo" name="OrderNo" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        form.on('checkbox(cbkOrdinaryMode)', function (data) {
+            if (data.elem.checked) {
+                $("#OrdinaryMode").val(1);
+            } else {
+                $("#OrdinaryMode").val(0);
+            }
+
+        });
+
+        form.on('checkbox(cbkTrusteeshipMode)', function (data) {
+            if (data.elem.checked) {
+                $("#TrusteeshipMode").val(1);
+            } else {
+                $("#TrusteeshipMode").val(0);
+            }
+
+        });
+
+        //是否开启
+        form.on('switch(cbkAgentPay)', function (data) {
+            if (data.elem.checked) {
+                $("#AgentPay").val(1);
+            } else {
+                $("#AgentPay").val(0);
+            }
+        });
+
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var Code = $("#Code").val();
+            if (!Code || Code == "") {
+                layer.msg("请输入编号！");
+                $("#Code").focus();
+                return;
+            }
+
+            var Name = $("#Name").val();
+            if (!Name || Name == "") {
+                layer.msg("请输入接口商名称！");
+                $("#Name").focus();
+                return;
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/Interface/InterfaceBusinessAddInfo", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "短信记录";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+@section HeadSection{
+    <script src="/scripts/System/SmsTrans.js?@ViewBag.StaticVersion"></script>
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input searchVal" placeholder="请输入搜索名称" />
+                </div>
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+            </div>
+        </form>
+    </blockquote>
+    <table id="SmsTransList" lay-filter="SmsTransList"></table>
+
+</div>

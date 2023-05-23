@@ -1,0 +1,47 @@
+﻿.scene-body {
+    height: 420px;
+}
+
+.scene-up .col-md-25 {
+    float: left;
+    margin-left: 60px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+.side-right-box {
+    right: 22px;
+}
+
+.arrow-right {
+    display: none !important;
+}
+
+.am-g-fixed {
+    width: 1200px;
+}
+
+.zfb-l {
+    float: left;
+    width: 570px;
+    overflow: hidden;
+}
+
+.zfb-r {
+    float: right;
+    width: 570px;
+    overflow: hidden
+}
+
+.am-show-sm-only {
+    display: none;
+}
+
+.con {
+    text-align: center;
+}
+
+    .con p {
+        font-size: 12px;
+    }

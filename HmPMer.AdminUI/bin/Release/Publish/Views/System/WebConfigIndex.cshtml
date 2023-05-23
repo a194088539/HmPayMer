@@ -1,0 +1,178 @@
+﻿@model List<HmPMer.Entity.SysConfig>
+@{
+    ViewBag.Title = "站点设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+    string GetConfiVaule(string Key)
+    {
+        var item = Model.FirstOrDefault(a => a.Key == Key);
+        if (item!=null)
+        {
+            return item.Value;
+        }
+        return "";
+    }
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center">参数说明</td>
+                <td align="center">参数值</td>
+                <td align="center">变量名</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tdrigth">网站名称</td>
+                <td><input type="text" class="layui-input cmsName" Desc="网站名称" value="@(GetConfiVaule("WebName"))" name="WebName" placeholder="请输入网站名称"></td>
+                <td pc>WebName</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">商户中心网址</td>
+                <td><input type="text" class="layui-input version" Desc="商户中心网址" value="@(GetConfiVaule("WebUrl"))" name="WebUrl" placeholder="请输入网址,http://****"></td>
+                <td pc>WebUrl</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">后台网址</td>
+                <td><input type="text" class="layui-input version" Desc="后台网址" value="@(GetConfiVaule("AdminUrl"))" name="AdminUrl" placeholder="请输入网址,http://****"></td>
+                <td pc>AdminUrl</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">API网址</td>
+                <td><input type="text" class="layui-input version" Desc="API网址" value="@(GetConfiVaule("ApiUrl"))" name="ApiUrl" placeholder="请输入网址,http://****"></td>
+                <td pc>ApiUrl</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">公司名称</td>
+                <td><input type="text" class="layui-input server" Desc="公司名称" value="@(GetConfiVaule("CompanyName"))" name="CompanyName" placeholder="请输入公司名称"></td>
+                <td pc>CompanyName</td>
+            </tr>
+
+
+            <tr>
+                <td class="tdrigth">提醒手机</td>
+                <td><input type="text" class="layui-input userRights" Desc="提醒手机" name="ServiceMoblie" value="@(GetConfiVaule("ServiceMoblie"))" placeholder="请输入手机号码"></td>
+                <td pc>ServiceMoblie</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">被锁登录提示信息</td>
+                <td><input type="text" class="layui-input userRights" Desc="被锁商户登录提示" name="LockAccoutText" value="@(GetConfiVaule("LockAccoutText"))" placeholder="请输入提示信息"></td>
+                <td pc>LockAccoutText</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">客服电话</td>
+                <td><input type="text" class="layui-input userRights" Desc="客服电话" name="ServicePhone" value="@(GetConfiVaule("ServicePhone"))" placeholder="请输入客服电话"></td>
+                <td pc>ServicePhone</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">客服QQ</td>
+                <td><input type="text" class="layui-input keywords" Desc="客服QQ" name="ServiceQq" value="@(GetConfiVaule("ServiceQq"))" placeholder="请输入客服QQ"></td>
+                <td pc>ServiceQq</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">网站备案号</td>
+                <td><input type="text" class="layui-input record" Desc="网站备案号" name="IcpCode" value="@(GetConfiVaule("IcpCode"))" placeholder="请输入网站备案号"></td>
+                <td pc>IcpCode</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">版权信息</td>
+                <td><input type="text" class="layui-input server" Desc="版权信息" value="@(GetConfiVaule("Copyright"))" name="Copyright" placeholder="请输入版权信息"></td>
+                <td pc>Copyright</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" type="button" id="btn_submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        form.on('checkbox(DefaultRegEnabled)', function (data) {
+            if (data.elem.checked) {
+                $("#DefaultRegEnabled").val(1);
+            } else {
+                $("#DefaultRegEnabled").val(0);
+            }
+        });
+
+        //提交表单
+        $("#btn_submit").click(function () {
+
+            //循环input
+            var bool = true;
+            var ListModel = [];
+            var Type = 1;
+            //循环获取值
+            $(".layui-input").each(function (a, b) {
+                var model = {};
+                var Key = $(this).attr("name");
+                var Value = $(this).val();
+                var Desc = $(this).attr("Desc");
+                model.Key = Key;
+                model.Type = Type;
+                model.Value = Value;
+                model.Desc = Desc;
+                ListModel.push(model);
+            });
+
+            if (bool) {
+                var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+                setTimeout(function () {
+                    layer.close(index);
+                    hm.ajax("/System/SetSysConfig", {
+                        data: { ListModel: ListModel, Type: Type },
+                        type: "POST",
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result.Success) {
+                                layer.msg("操作成功！", { icon: 1, time: 300 });
+                            } else {
+                                layer.msg(result.Message);
+                            }
+                        },
+                        error: function (x, t, e) {
+                            layer.closeAll();
+                        }
+                    });
+
+                }, 500);
+            }
+
+        });
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+    });
+</script>

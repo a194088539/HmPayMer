@@ -1,0 +1,146 @@
+﻿
+
+@{
+    ViewBag.Title = "商户订单";
+    ViewBag.PageUri = "/Order/Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    var paytypelist = new HmPMer.Business.PayBll().GetPayTypeList();
+}
+
+@section header{
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+    <script src="/static/js/jquery.pagination.js"></script>
+    <script src="/static/js/popWinjs.js"></script>
+    <script src="/static/js/My97DatePicker/WdatePicker.js"></script>
+}
+
+    <div class="container-fluid">
+        <div id="pad-wrapper">
+
+            <!-- orders table -->
+            <div class="table-wrapper orders-table section">
+                <div class="row-fluid head">
+                    <div class="span12">
+                        <h4>商户订单</h4>
+                    </div>
+                </div>
+                <br />
+                <div class="row-fluid filter-block">
+                    <form id="form_data" style="margin:0;padding:0;">
+                        <span>系统订单号：</span><input type="text" class="span2" id="OrderId" name="OrderId" style="width:150px" placeholder="请输入订单号" />
+                        <span>商户订单号：</span> <input type="text" class="span2" id="MerOrderNo" name="MerOrderNo" style="width:150px" placeholder="请输入商户订单号" />
+                        <span>接口商订单号：</span><input type="text" class="span2" id="ChannelOrderNo" name="ChannelOrderNo" style="width:150px" placeholder="请输入接口订单号" />
+                        <span>下单时间:</span><input onfocus="WdatePicker({ maxDate: $('#OrderEndTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00:00")" type="text" id="OrderBeginTime" name="OrderBeginTime" style="width:150px" />-<input onfocus="WdatePicker({ minDate: $('#OrderBeginTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.ToString("yyyy-MM-dd 23:59:59")" type="text" id="OrderEndTime" name="OrderEndTime" style="width:150px" />
+                        <br />
+                        @Html.Hidden("UserType", 1)
+                        <span>支付状态：</span>
+                        <div class="ui-select">
+                            <select id="PayState" name="PayState">
+                                <option value="-1">请选择</option>
+                                <option value="0">处理中</option>
+                                <option value="1" selected>已成功</option>
+                                <option value="2">失败</option>
+                                <option value="3">已过期</option>
+                            </select>
+                        </div>
+                        <span>通知状态：</span>
+                        <div class="ui-select">
+                            <select id="OrderState" name="OrderState">
+                                <option value="-1">请选择</option>
+                                <option value="0">处理中</option>
+                                <option value="1">成功</option>
+                                <option value="2">失败</option>
+                            </select>
+                        </div>
+                        <span>支付类型：</span>
+                        <div class="ui-select">
+                            <select id="PayCode" name="PayCode">
+                                <option value="">请选择</option>
+                                @foreach (var item in paytypelist)
+                                {
+                                    <option value="@item.PayCode">@item.PayName</option>
+                                }
+                            </select>
+                        </div>
+                        <span class="btn-flat white" id="span_seatch">查询</span>
+
+                        <span class="btn-flat white" id="span_orderimprotexcel">导出</span>
+                    </form>
+                </div>
+                <div class="row-fluid filter-block">
+                    <div class="row-fluid" id="OrderList">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <iframe src="about:blank" id="iframeOut" name="iframeOut"></iframe>
+    </div>
+<script>
+
+    $(function () {
+        showPageSearch(1);
+
+        $("#span_seatch").click(function () {
+            showPageSearch(1);
+        });
+        $("#span_orderimprotexcel").click(function () {
+            OrderImprotExcel();
+        });
+    });
+
+    function showPageSearch(p) {
+        $.ajax({
+            type: "post",
+            url: "/Order/OrderList",
+            data: { "pageIndex": p, param: validate.serializeObject($("#form_data")) },
+            dataType: 'html',            
+            success: function (html) {
+                if (html != null && html != "") {
+                    $("#OrderList").empty();
+                    $("#OrderList").html(html);
+                }
+            }
+        });
+    }
+
+    //补发
+    function Reissue(OrderId) {
+
+        $.HM.ajax("/Order/Reissue", {
+            data: {
+                OrderId: OrderId
+            },
+            type: "POST",
+            dataType: 'json',
+            success: function (d) {
+                if (d.IsSuccess) {
+                    layer.msg("操作成功", { icon: 1 });
+                    //setTimeout(function () {
+                    //    window.location.reload();
+                    //}, 1500);
+
+                } else {
+                    layer.msg(d.message, { icon: 0 });
+                }
+            }
+        });
+    }
+
+    // 导出
+    function OrderImprotExcel() {
+        layer.msg("正在导出订单......", { icon: 16, time: 1500 });
+        var url = '/Order/OrderImprotExcel?ts=' + (new Date().getTime());
+        var param = validate.serializeObject($("#form_data"));
+        for (var key in param) {
+            url += '&' + key + '=' + param[key];
+        }
+
+        $("#iframeOut").attr('src', url);
+    }
+
+
+</script>

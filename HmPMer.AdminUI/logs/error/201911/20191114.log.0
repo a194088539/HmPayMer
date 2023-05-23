@@ -1,0 +1,23 @@
+2019-11-14 00:43:43,245 [34] ERROR logerror [(null)] <(null)>
+ - 生成通知失败
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 HmPMer.Business.Pay.ApiNotity.NotifyOrder(OrderBase order) 位置 D:\HmPMer_1\HmPMer.Business\HmPMer.Business.Pay\ApiNotity.cs:行号 24
+2019-11-14 16:22:45,377 [44] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= backup database HmPayMerchant to disk=@Path 
+System.Data.SqlClient.SqlException (0x80131904): 数据库 'HmPayMerchant' 不存在。请确保正确地输入了该名称。
+BACKUP DATABASE 正在异常终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5015
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:b3a22254-44e4-4237-866c-2b2fed827c73
+Error Number:911,State:11,Class:16

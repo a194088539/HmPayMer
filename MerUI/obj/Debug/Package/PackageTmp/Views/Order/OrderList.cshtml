@@ -1,0 +1,74 @@
+﻿
+@model  List<HmPMer.Entity.OrderInfo>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="span2">序号</th>
+            <th class="span3">订单号</th>
+            <th class="span3">支付方式</th>
+            <th class="span3">通道</th>
+            <th class="span2">金额</th>
+            <th class="span2">手续费</th>
+            <th class="span2">状态</th>
+            <th class="span4">提交时间</th>
+            <th class="span4">完成时间</th>
+            <th class="span2">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr class="@(i==1?"first":"")">
+                <td>@i</td>
+                <td>@item.OrderId</td>
+                <td>@item.PayName</td>
+                <td>@item.ChannelName</td>
+                <td>￥@((item.OrderAmt / 100).ToString("0.00"))</td>
+                <td>￥@((item.PayFlow / 100).ToString("0.00"))</td>
+                <td>
+                    @if (item.PayState == 0)
+                    {
+                        <span class="label label-info">待支付</span>
+                    }
+
+                    @if (item.PayState == 1)
+                    {
+                        <span class="label label-success">支付成功</span>
+                    }
+
+                    @if (item.PayState == 2)
+                    {
+                        <span class="label">支付失败</span>
+                    }
+
+                    @if (item.PayState == 3)
+                    {
+                        <span class="label">支付过期</span>
+                    }
+
+                </td>
+                <td>@(item.OrderTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                <td>@(item.PayTime.Value != null ? item.PayTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "")</td>
+
+                <td>
+                    @if (item.PayState == 1)
+                    {
+                        <a href="javascript:Reissue('@(item.OrderId)');">补发</a>
+                    }
+                </td>
+            </tr>
+            i++;
+        }
+
+    </tbody>
+</table>
+<!-- end orders table -->
+<div class="pagination pull-right">
+    <ul id="page">
+        @Html.Raw(ViewData["page"])
+    </ul>
+    <span>每页@(ViewData["PageSize"])条，总共@(ViewData["TotalCount"])条记录</span>
+</div>
+
+

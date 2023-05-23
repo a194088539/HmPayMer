@@ -1,0 +1,7 @@
+2019-11-06 00:03:41,801 [8] ERROR logerror [(null)] <(null)>
+ - HmSession.SetSession(user,{"ID":"5D8905CE-4EC1-416B-A4D2-49D80D63D941","AdmUser":"admin","AdmPass":"e10adc3949ba59abbe56e057f20f883e","AdmPass2":"21218cca77804d2ba1922c33e0151105","NickName":"超级管理员","Flag":-1,"IsEnable":1,"AddTime":"\/Date(1517638127153-0000)\/","LastLoginTime":"\/Date(1572875299110-0000)\/","LastLoginIp":"113.225.161.105","Rate":0.1000,"RegCode":"76894fc22cdbb7a48bdafd52dea41978"})出错！
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.HmSession.getRedis() 位置 D:\HmPMer\HM\Framework\HmSession.cs:行号 50
+   在 HM.Framework.HmSession.SetSession(String key, String val, Boolean isSingle, String singleVal, Int32 min) 位置 D:\HmPMer\HM\Framework\HmSession.cs:行号 95

@@ -1,0 +1,120 @@
+﻿
+
+@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "实名认证";
+    ViewBag.PageUri = "/center/safety";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var userdetail = new HmPMer.Business.UserBaseBll().GetUserDetail(Model.UserId);
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="form-page">
+
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>实名认证</h4>
+            </div>
+        </div>
+        @if (Model.IdCardStatus != 1)
+        {
+            <form id="formdata">
+                <div class="row-fluid withdraw">
+                    <div class="field-box withdrawApply">
+                        <label>审核状态</label>
+                        @if (Model.IdCardStatus == 0)
+                        {
+                            <span style="color:green"> 待提交</span>
+                        }
+                        @if (Model.IdCardStatus == 3)
+                        {
+                            <span style="color:green"> 待审核</span>
+                        }
+                        @if (Model.IdCardStatus == 2)
+                        {
+                            <span style="color:red"> 审核不通过（原因：@(Model.IdCardAuditDes)）</span>
+                        }
+                    </div>
+                    <div class="field-box withdrawApply">
+                        <label>商户ID </label>@Model.UserId
+                    </div>
+
+                    <div class="field-box withdrawApply">
+                        <label>真实姓名</label>
+                        <input class="span2" type="text" id="FactName" name="FactName" value="@userdetail.FactName" />
+                    </div>
+
+                    <div class="field-box withdrawApply">
+                        <label>身份证号</label>
+                        <input class="span4" type="text" id="IdCard" name="IdCard" value="@userdetail.IdCard" />
+                    </div>
+
+                    <div class="field-box withdrawApply">
+                        <label>身份证正面照片</label>
+                    </div>
+
+                    <div class="field-box withdrawApply">
+                        <label>身份证反面照片</label>
+                    </div>
+
+                    @if (Model.IdCardStatus != 3)
+                    {
+                        <div class="span11 field-box actions">
+                            <br />
+                            <label></label>
+                            <input type="button" class="btn-glow primary" value="@(Model.IdCardStatus == 0 ? "确认提交" : "重新提交")" id="btn_submit">
+                        </div>
+                    }
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+<script>
+
+
+    $(function () {
+        
+        $("#btn_submit").click(function () {
+
+            var data = validate.serializeObject($("#formdata"));
+
+            if (data.FactName == '') {
+                layer.msg('请填写真实姓名！', { icon: 5 });
+                $('#FactName').focus();
+                return false;
+            }
+
+            if (data.IdCard == '') {
+                layer.msg('请填写身份证！', { icon: 5 });
+                $('#IdCard').focus();
+                return false;
+            }
+
+            if (!$.HM.isIdCard(data.IdCard)) {
+                layer.msg('身份证号格式不正确！', { icon: 5 });
+                $("#IdCard").focus();
+                return;
+            }
+          
+            $.HM.ajax("Center/UpIdcardInfo", {
+                data: data,
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.IsSuccess) {
+                        layer.msg(d.message, { icon: 1 });
+                        window.location = window.location.href;
+                    } else {
+
+                        layer.msg(d.message, { icon: 0 });
+                    }
+                }
+            });
+
+        });
+
+    });
+
+</script>

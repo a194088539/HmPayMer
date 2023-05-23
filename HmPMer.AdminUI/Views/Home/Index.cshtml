@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminWeb.cshtml";
+    var user = HmPMer.WebAdminUI.Models.ModelCommon.GetUserModel();
+    var CountData = new HmPMer.Business.OrderBll().GetAdminOrderCount();
+}
+
+<link rel="stylesheet" href="/Content//home/public.css" media="all" />
+<script type="text/javascript" src="/Scripts/main.js?@ViewBag.StaticVersion"></script>
+<script src="/Scripts/chart/utils.js"></script>
+<script src="/Scripts/chart/Chart.bundle.js"></script>
+<body class="childrenBody">
+    <blockquote class="layui-elem-quote layui-bg-green">
+        <div id="">亲爱的 @(user.AdmUser)，@(DateTime.Now.Hour > 12 ? "下午" : (DateTime.Now.Hour > 18 ? "晚上" : "上午"))好！ 欢迎使用后台管理系统。<nowtime id="nowTime"></nowtime></div>
+    </blockquote>
+    <div class="layui-row layui-col-space10 panel_box">
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-cyan">
+                    <i class="layui-anim seraph icon-icon10" data-icon="icon-icon10"></i>
+                </div>
+                <div class="panel_word userAll">
+                    <span>@CountData.CountBusiness</span>
+                    <em>商户总数</em>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-blue">
+                    <i class="layui-anim seraph icon-icon10" data-icon="icon-icon10"></i>
+                </div>
+                <div class="panel_word userAll">
+                    <span>@((CountData.SumBusinessAmt / 100).ToString("0.00"))</span>
+                    <em>商户总余额</em>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-cyan">
+                    <i class="layui-anim seraph icon-icon10" data-icon="icon-icon10"></i>
+                </div>
+                <div class="panel_word userAll">
+                    <span>@CountData.CountAgent</span>
+                    <em>渠道商总数</em>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-blue">
+                    <i class="layui-anim layui-icon" data-icon=""></i>
+                </div>
+                <div class="panel_word outIcons">
+                    <span>@((CountData.SumAgentamt / 100).ToString("0.00"))</span>
+                    <em>今日渠道商总分润</em>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-cyan">
+                    <i class="layui-anim seraph icon-github"></i>
+                </div>
+                <div class="panel_word">
+                    <span>@CountData.CountProm</span>
+                    <cite>业务员总数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-blue">
+                    <i class="layui-anim seraph icon-github"></i>
+                </div>
+                <div class="panel_word">
+                    <span>@((CountData.SumPromAmt / 100).ToString("0.00"))</span>
+                    <cite>今日业务总分润</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-cyan">
+                    <i class="layui-anim seraph icon-good"></i>
+                </div>
+                <div class="panel_word">
+                    <span>@CountData.CountOrder</span>
+                    <cite>今日提交订单数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-blue">
+                    <i class="layui-anim seraph icon-good"></i>
+                </div>
+                <div class="panel_word">
+                    <span>@CountData.CountOrderPay</span>
+                    <cite>今日成功订单数</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-cyan">
+                    <i class="layui-anim seraph icon-github"></i>
+                </div>
+                <div class="panel_word">
+                    <span>@((CountData.SumOrderAmt / 100).ToString("0.00"))</span>
+                    <cite>今日提交订单额</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-blue">
+                    <i class="layui-anim seraph icon-github"></i>
+                </div>
+                <div class="panel_word">
+                    <span>@((CountData.SumOrderPayAmt / 100).ToString("0.00"))</span>
+                    <cite>今日成功订单额</cite>
+                </div>
+            </a>
+        </div>
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-cyan">
+                    <i class="layui-anim seraph icon-oschina"></i>
+                </div>
+                <div class="panel_word">
+                    <span>@((CountData.SumProfits / 100).ToString("0.00"))</span>
+                    <cite>今日平台利润</cite>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="panel layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+            <a href="javascript:;">
+                <div class="panel_icon layui-bg-blue">
+                    <i class="layui-anim seraph icon-clock"></i>
+                </div>
+                <div class="panel_word">
+                    <span class="loginTime">@(user.LastLoginTime.Value.ToString("yyyy年MM月dd日"))<br>@(user.LastLoginTime.Value.ToString("HH:mm:ss"))</span>
+                    <cite>上次登录时间</cite>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <div style="width:100%;height:600px;text-align:center">
+        <div id="divPayScale" style="width:43%;margin:10px 10px;float:left">
+            <canvas id="canvasPayScale"></canvas>
+        </div>
+
+        <div id="divPayScale" style="width:43%;margin:10px 10px;float:left">
+            <canvas id="canvasPaytime"></canvas>
+        </div>
+
+    </div>
+</body>
+<script>
+    $(function () {
+
+        $.get("/Home/GetOrderPayScale", function (data) {
+            var chartColors = window.chartColors;
+            var color = Chart.helpers.color;
+            var config = {
+                data: {
+                    datasets: [{
+                        data: data.PayScale,
+                        backgroundColor: [
+                            color(chartColors.red).alpha(0.5).rgbString(),
+                            color(chartColors.orange).alpha(0.5).rgbString(),
+                            color(chartColors.yellow).alpha(0.5).rgbString(),
+                            color(chartColors.green).alpha(0.5).rgbString(),
+                            color(chartColors.blue).alpha(0.5).rgbString(),
+                            color(chartColors.purple).alpha(0.5).rgbString(),
+                            color(chartColors.red).alpha(0.3).rgbString(),
+                            color(chartColors.orange).alpha(0.3).rgbString(),
+                            color(chartColors.yellow).alpha(0.3).rgbString(),
+                            color(chartColors.green).alpha(0.3).rgbString(),
+                            color(chartColors.blue).alpha(0.3).rgbString(),
+                            color(chartColors.purple).alpha(0.3).rgbString(),
+                            color(chartColors.red).alpha(0.8).rgbString(),
+                            color(chartColors.orange).alpha(0.8).rgbString(),
+                            color(chartColors.yellow).alpha(0.8).rgbString(),
+                            color(chartColors.green).alpha(0.8).rgbString(),
+                            color(chartColors.blue).alpha(0.8).rgbString(),
+                            color(chartColors.purple).alpha(0.8).rgbString(),
+                        ],
+                        //label: 'My dataset' // for legend
+                    }],
+                    labels: data.PayName
+                },
+
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'left',
+                    },
+                    title: {
+                        display: true,
+                        text: '今日支付类型统计'
+                    },
+                    scale: {
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        reverse: false
+                    },
+                    animation: {
+                        animateRotate: false,
+                        animateScale: true
+                    }
+                }
+            };
+
+            var ctx = document.getElementById("canvasPayScale");
+            window.myPolarArea = Chart.PolarArea(ctx, config);
+
+        });
+
+
+        $.get("/Home/GetOrderPayTime", function (data) {
+            if (data) {
+                var color = Chart.helpers.color;               
+                var config = {
+                    type: 'line',
+                    data: {
+                        labels: data.CountDate,
+                        datasets: [
+                            {
+                                label: "支付订单总数:" + data.paycountorder,
+                                backgroundColor: color(window.chartColors["blue"]).alpha(0.8).rgbString(),
+                                borderColor: window.chartColors.blue,
+                                data: data.TodayPayOrderCount,
+                            },
+                            {
+                                label: "提交订单总数:" + data.countorder,
+                                backgroundColor: window.chartColors.green,
+                                borderColor: color(window.chartColors["green"]).alpha(0.3).rgbString(), 
+                                borderWidth: 1,
+                                data: data.TodayOrderCount
+                            },
+                        ]
+                    }
+                    , options: {
+                        responsive: true,
+                        title: {
+                            display: true,
+                            text: '最近7日提交订单和支付订单总数'
+                        },
+                    }
+                };
+                var ctx = document.getElementById("canvasPaytime").getContext('2d');
+                var config = config;
+                new Chart(ctx, config)
+
+            }
+
+        });
+
+    });
+</script>
+
+
+
+
+

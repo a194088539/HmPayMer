@@ -1,0 +1,158 @@
+﻿@model HM.Entity.UserBaseInfo
+
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var gradelist = new HM.Business.UserBaseBll().GetAllUserGrade(1);
+    var wsList = new HM.Business.WithdrawBll().GetAllWithdrawSchemeList(1);
+}
+
+
+
+<form class="layui-form" id="formData">
+    <br />
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">代理名称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly lay-verify="required" id="AgentUser" name="AgentUser" value="@Model.MerName">
+            </div>
+        </div>
+         
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">代理等级</label>
+            <div class="layui-input-block">
+
+                @foreach (var item in gradelist)
+                {
+                    if (Model.GradeId.Equals(item.Id))
+                    {
+                        <input type="text" class="layui-input inputreadonly" readonly lay-verify="required" id="NickName" name="NickName" value="@item.GradeName">
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">可用金额</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly lay-verify="required" id="AgentUser" name="AgentUser" value="@(Model.Balance/100)">
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">冻结金额</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly lay-verify="required" id="NickName" name="NickName" value="@(Model.Freeze/100)">
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">真实姓名</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="FactName" value="@Model.FactName">
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">身份证号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="IdCard" value="@Model.IdCard">
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">结算方案</label>
+            <div class="layui-input-block">
+
+                @foreach (var item in wsList)
+                {
+                    if (Model.WithdrawSchemeId.Equals(item.Id))
+                    {
+                        <input type="text" class="layui-input inputreadonly" readonly lay-verify="required" id="NickName" name="NickName" value="@item.SchemeName">
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">手机</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="MobilePhone" value="@Model.MobilePhone">
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">Email</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="Email" value="@Model.Email">
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">QQ</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="QQ" value="@Model.QQ">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item layui-row layui-col-xs12">
+        <label class="layui-form-label">代理邀请码</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input inputreadonly" name="ApiKey" value="@Model.AgentCode" style="border:none" readonly>
+        </div>
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">注册时间</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="FactName" value="@Model.RegTime">
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">注册ip</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="IdCard" value="@Model.RegIp">
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">注册人</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly lay-verify="required" id="NickName" name="NickName" value="@Model.PromId">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">最后登录</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="FactName" value="@Model.LastLoginTime">
+            </div>
+        </div>
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">最后登录ip</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input inputreadonly" readonly name="IdCard" value="@Model.LastLoginIp">
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+

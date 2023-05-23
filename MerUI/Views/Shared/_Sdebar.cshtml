@@ -1,0 +1,130 @@
+﻿@model string
+@{
+    var user = HmPMer.MerUI.Models.ModelCommon.GetUserModel();
+    var usermodel = new HmPMer.Business.UserBaseBll().GetModelForId(user.UserId);
+    bool GetLiClass(string page, string current)
+    {
+        return current.ToLower().StartsWith(page);
+    }
+
+    bool GetAClass(string page, string current)
+    {
+        return page.ToLower().Contains(current.ToLower());
+    }
+}
+<!-- sidebar -->
+
+<div id="sidebar-nav">
+    <ul id="dashboard-menu">
+        <li @Html.Raw(GetLiClass("/index", Model) ? " class=\"active\"" : "")>
+            @if (GetLiClass("/index", Model))
+            {
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+            }
+            <a href="/index/index">
+                <i class="icon-home"></i>
+                <span>账户首页</span>
+            </a>
+        </li>
+
+        <li @Html.Raw(GetLiClass("/center", Model) ? " class=\"active\"" : "")>
+            @if (GetLiClass("/center", Model))
+            {
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+            }
+            <a class="dropdown-toggle" href="#">
+                <i class="icon-group"></i>
+                <span>我的账户</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+
+            <ul class="@Html.Raw(GetLiClass("/center", Model)? "active" : "") submenu">
+                <li><a @Html.Raw(GetAClass("/center/index", Model) ? " class=\"active\" " : "") href="/center/index">账户信息</a></li>
+                <li><a @Html.Raw(GetAClass("/center/addamt", Model) ? " class=\"active\" " : "") href="/center/addamt">余额充值</a></li>
+                <li><a @Html.Raw(GetAClass("/center/safety", Model) ? " class=\"active\" " : "") href="/center/safety">安全中心</a></li>
+                <li><a @Html.Raw(GetAClass("/center/apidown", Model) ? " class=\"active\" " : "") href="/center/apidown">接入信息</a></li>
+                <li><a @Html.Raw(GetAClass("/center/userwithdrawindex", Model) ? " class=\"active\" " : "") href="/center/userwithdrawindex">结算账户</a></li>
+            </ul>
+        </li>
+
+        <li @Html.Raw(GetLiClass("order", Model) ? " class=\"active\"" : "")>
+            @if (GetLiClass("/order", Model))
+            {
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+            }
+            <a href="/Order/Index">
+                <i class="icon-reorder"></i>
+                <span>订单列表</span>
+            </a>
+        </li>
+
+        <li @Html.Raw(GetLiClass("/withdraw", Model) ? " class=\"active\"" : "")>
+            @if (GetLiClass("/withdraw", Model))
+            {
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+            }
+            <a class="dropdown-toggle" href="javascript:;">
+                <i class="icon-money"></i>
+                <span>结算管理</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+            <ul class="@Html.Raw(GetLiClass("/withdraw", Model) ? "active" : "") submenu">
+                @if (usermodel.AgentPay == 1)
+                {
+                    <li><a @Html.Raw(GetAClass("/withdraw/withdrawapply", Model) ? " class=\"active\" " : "") href="/withdraw/withdrawapply">代付申请</a></li>
+                    <li><a @Html.Raw(GetAClass("/withdraw/orderindex2", Model) ? " class=\"active\" " : "") href="/withdraw/orderindex?OrderType=2">代付记录</a></li>
+                    <li><a @Html.Raw(GetAClass("/withdraw/userbankindex", Model) ? " class=\"active\" " : "") href="/withdraw/userbankindex">代付账号</a></li>
+                }
+                else
+                {
+                    <li><a @Html.Raw(GetAClass("/withdraw/SettleApply", Model) ? " class=\"active\" " : "") href="/withdraw/SettleApply">结算申请</a></li>
+                    <li><a @Html.Raw(GetAClass("/withdraw/orderindex1", Model) ? " class=\"active\" " : "") href="/withdraw/orderindex?OrderType=1">结算记录</a></li>
+                }
+                @*<li><a @Html.Raw(GetAClass("/withdraw/costinfo", Model) ? " class=\"active\" " : "") href="/withdraw/costinfo">账户维护</a></li>*@
+            </ul>
+        </li>
+
+
+        <li @Html.Raw(GetLiClass("/feedback/notice", Model) ? " class=\"active\"" : "")>
+            @if (GetLiClass("/feedback/notice", Model))
+            {
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+            }
+            <a href="/feedback/notice">
+                <i class="icon-reorder"></i>
+                <span>通知公告</span>
+            </a>
+        </li>
+
+        <li @Html.Raw(GetLiClass("/feedback/index", Model) ? " class=\"active\"" : "")>
+            @if (GetLiClass("/feedback/index", Model))
+            {
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+            }
+            <a href="/feedback/index">
+                <i class="icon-reorder"></i>
+                <span>建议反馈</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+<!-- end sidebar -->

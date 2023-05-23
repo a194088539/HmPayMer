@@ -1,0 +1,134 @@
+﻿@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">操作类型</label>
+            <div class="layui-input-block">
+                <input type="radio" name="Type" value="1" title="加余额" checked>
+                <input type="radio" name="Type" value="0" title="减余额">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">商户Id</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="UserId" name="UserId" value="" lay-verify="required" placeholder="请输入商户ID" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">账户余额</label>
+            <div class="layui-input-block" id="">
+                <input type="text" class="layui-input inputreadonly" id="divbalance" name="divbalance" value="" lay-verify="required" readonly />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">异动金额</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" id="Balance" name="Balance" value="" lay-verify="required" />
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+<script>
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        $("#UserId").blur(function () {
+
+            $.post("/Business/GetModelUserInfo", { UserId: $(this).val() }, function (result) {
+                if (result.Success) {
+                    $("#divbalance").val(result.Data.Balance / 100);
+                } else {
+                    $("#divbalance").val("商户Id不存在！");
+                }
+            });
+
+        });
+
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var UserId = $("#UserId").val();
+            if (!UserId || UserId == "") {
+                layer.msg("请输入商户Id！");
+                $("#UserId").focus();
+                return;
+            }
+
+            var Balance = $("#Balance").val();
+            if (!Balance || Balance == "") {
+                layer.msg("请输入异动金额！");
+                $("#Balance").focus();
+                return;
+            }
+
+            var reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+
+            if (parseFloat(Balance) != 0) {
+
+                if (!reg.test(Balance)) {
+                    layer.msg("异动金额只能是2位小数！");
+                    $("#Balance").focus();
+                    return;
+                }
+            } else {
+                if (!reg.test(Balance)) {
+                    layer.msg("异动金额不能为0！");
+                    $("#Balance").focus();
+                    return;
+                }
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/DataManage/AddBalanceUser", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    })
+</script>
+
+

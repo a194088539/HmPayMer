@@ -1,0 +1,42 @@
+﻿
+
+@{
+    ViewBag.Title = "接口商子账号列表";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+@section HeadSection{
+    <script src="/scripts/Interface/interfaceaccount.js?@ViewBag.StaticVersion"></script>
+
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    @Html.Hidden("Code", Request["Code"])
+                    <input type="text" class="layui-input searchVal" placeholder="请输入搜索名称" />
+                </div>
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+            </div>
+            <div class="layui-inline">
+                <a class="layui-btn layui-btn-normal add_btn"><i class="layui-icon">&#xe608;</i>添加</a>
+                @*<a class="layui-btn layui-btn-normal add_delbat">批量删除</a>
+                    <a class="layui-btn layui-btn-normal" href="/Excel/Template/接口子账户导入模版.xlsx?ts=@DateTime.Now.Ticks">下载导入模版</a>
+                     <a class="layui-btn layui-btn-normal add_import"><i class="layui-icon">&#xe67c;</i>导入接口账户</a>*@
+                <a class="layui-btn layui-btn-normal add_cancel"><i class="layui-icon">&#xe603;</i>返回</a>
+            </div>
+        </form>
+    </blockquote>
+    <table id="interfaceAccountList" lay-filter="interfaceAccountList"></table>
+
+    <!--操作-->
+    <script type="text/html" id="interfaceAccountListBar">
+        <a class="layui-btn layui-btn-xs" lay-event="btn_edit">编辑</a>
+        <a class="layui-btn layui-btn-xs" lay-event="btn_deail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="btn_del">删除</a>
+    </script>
+
+</div>
+

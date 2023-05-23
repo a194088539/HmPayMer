@@ -1,0 +1,119 @@
+﻿
+@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "api接入信息";
+    ViewBag.PageUri = "/center/apidown";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var apiurl = new HmPMer.Business.SysConfigBll().GetConfigVaule("ApiUrl");
+}
+
+@section header{
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+}
+
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="user-profile">
+        <div class="table-wrapper orders-table section">
+            <!-- header -->
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4>接入信息</h4>
+                </div>
+            </div>
+
+            <div class="row-fluid profile">
+
+                <div class="profile-box">
+
+                    <!-- biography -->
+                    <div class="span12 section">
+                        <table class="tables table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="span2">
+
+                                    </th>
+
+                                    <th class="span4">
+
+                                    </th>
+                                    <th class="span8">
+
+                                    </th>
+                                    <th class="span2">
+
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr class="first">
+                                    <td>
+                                        <i class="icon-link"></i> api请求网址
+                                    </td>
+                                    <td>
+                                        @(apiurl+ "pay/gateway")
+                                    </td>
+                                    <td class="fontmin">此标识用于API接入中对应的支付请求地址</td>
+
+                                </tr>
+                                <!-- row -->
+                                <tr>
+                                    <td>
+                                        <i class="icon-user"></i>  APP ID(应用ID)
+                                    </td>
+                                    <td>
+                                        @Model.UserId
+                                    </td>
+                                    <td class="fontmin">此标识用于API接入中对应的应用ID号</td>
+
+                                </tr>
+                                <tr>
+                                    <td><i class="icon-key"></i> 应用密钥(KEY)</td>
+                                    <td>@Model.ApiKey</td>
+                                    <td class="fontmin">此标识用于API接入中对应的应用密钥</td>
+
+                                </tr>
+
+                                <div class="alert">
+                                    <i class="icon-warning-sign"></i>
+                                    请妥善保管好您的应用密钥，如发现密钥泄露请第一时间联系客服重置密钥。
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="row-fluid head">
+                        <div class="span12">
+                            <h4>文件下载</h4>
+                        </div>
+                    </div>
+
+                    <br>
+                    <a href="/download/demo.zip" target="_blank" class="btn-glow icon-download">文档(含DEMO)</a>
+                    @*<a href="/download/QyWeChat2.18.22.rar" target="_blank" class="btn-glow icon-download">微信监听</a>
+                    <a href="/download/QyGateway2.18.22.rar" target="_blank" class="btn-glow icon-download">支付宝监听</a>*@
+
+
+                    <br>	<br>
+                    <div class="alert alert-info">
+                        <i class="icon-exclamation-sign"></i>
+                        <li>在对接和使用过程中，如遇到 Bug 或者使用问题，可以通过以下途径反馈给我们： 建议与反馈</li>
+
+                        <li>解决：XP、2003系统无法打开支付宝网站</li>
+
+                        <li>解决：IE8浏览器支付宝登录页显示不完整</li>
+
+                        <li><a href="https://www.microsoft.com/net/targeting?utm_source=getdotnetsdk&amp;utm_medium=referral" target="_blank">下载：.NET Framework</a></li>
+
+                        <li><a href="https://support.microsoft.com/help/17621/internet-explorer-downloads" target="_blank">下载：IE浏览器</a></li>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

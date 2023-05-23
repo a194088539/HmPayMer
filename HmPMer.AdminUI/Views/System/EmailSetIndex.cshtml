@@ -1,0 +1,174 @@
+﻿
+@model HmPMer.Entity.EmailSet
+@{
+    ViewBag.Title = "邮箱设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+
+        <tbody>
+            <tr>
+                <td class="tdrigth">邮件服务商</td>
+                <td><input type="text" class="layui-input inputreadonly" lay-verify="required" value="@Model.EmialCode" id="EmialCode" name="EmialCode" placeholder="请输入邮箱服务器" readonly></td>
+                <td pc>暂且只有QQ</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">邮件服务器</td>
+                <td><input type="text" class="layui-input cmsName" lay-verify="required" value="@Model.Sendserver" id="Sendserver" name="Sendserver" placeholder="请输入邮箱服务器"></td>
+                <td pc>如：smtp.exmail.qq.com</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">端口</td>
+                <td><input type="text" class="layui-input version" value="@Model.port" name="port" placeholder="请输入端口"></td>
+                <td pc>如：25</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">邮箱账号</td>
+                <td><input type="text" class="layui-input version" value="@Model.Account" name="Account" placeholder="请输入账号"></td>
+                <td pc>发送邮件的账号</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">密码</td>
+                <td><input type="password" class="layui-input version" value="@Model.Pwd" name="Pwd"></td>
+                <td pc>发送邮件的账号密码</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">显示名称</td>
+                <td><input type="text" class="layui-input server" value="@Model.displayName" name="displayName" placeholder="请输入显示名称"></td>
+                <td pc>发送人显示名称</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
+        </div>
+    </div>
+</form>
+
+<br /><br />
+<form class="layui-form" id="formtestdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center" colspan="2">发送测试</td>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td class="tdrigth">收件邮箱</td>
+                <td><input type="text" class="layui-input version" value="" name="ReceiveAddress" placeholder="请输入收件地址"></td>
+               
+            </tr>
+
+            <tr>
+                <td class="tdrigth">标题</td>
+                <td><input type="text" class="layui-input server" value="" name="Title" placeholder="请输入标题"></td>
+
+            </tr>
+
+            <tr>
+                <td class="tdrigth">内容</td>
+                <td><input type="text" class="layui-input server" value="" name="Body" placeholder="请输入内容"></td>
+              
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_send">发送</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交表单
+        $("#btn_submit").click(function () {
+            console.info($("#formdata").serialize());
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/UpdateEmailSet", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+        $("#btn_send").click(function () {
+
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/TestSendEmail", {
+                    data: $("#formtestdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("发送成功！", { icon: 1, time: 300 });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+    });
+</script>

@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "意见反馈";
+    ViewBag.PageUri = "/withdraw/userbankindex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+    <script src="/static/js/jquery.pagination.js"></script>
+    <script src="/static/js/popWinjs.js"></script>
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper">
+
+        <!-- orders table -->
+        <div class="table-wrapper orders-table section">
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4>代付账户</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row-fluid filter-block">
+                <form id="form_data" style="margin:0;padding:0;">
+                    <div class="pull-right">
+                        @*<a class="btn-flat success new-product" id="a_add">+ 新增账户</a>*@
+                    </div>
+                </form>
+            </div>
+
+            <div class="row-fluid filter-block">
+                <div class="row-fluid" id="UserBankList">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function showPageSearch(p) {
+        $.ajax({
+            type: "post",
+            url: "/Withdraw/UserBankList",
+            data: { "pageIndex": p, param: validate.serializeObject($("#form_data")) },
+            dataType: 'html',
+            success: function (html) {
+                if (html != null && html != "") {
+                    $("#UserBankList").empty();
+                    $("#UserBankList").html(html);
+                }
+            }
+        });
+    }
+
+    function delBank(id) {
+        layer.confirm('您是否删除此银行账户？一旦删除无法恢复！', {
+            btn: ['确认删除', '取消'] //按钮
+        }, function () {
+            $.HM.ajax("/Withdraw/RemoveUserBank", {
+                data: { 'id': id },
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.IsSuccess) {
+                        layer.msg(d.message, { icon: 1 });
+                        setTimeout(function () {
+                            window.location.href = window.location.href;
+                        }, 1500);
+                    } else {
+                        layer.msg(d.message, { icon: 0 });
+                    }
+                }
+            });
+        }, function () {
+        });
+    }
+
+
+    $(function () {
+        showPageSearch(1);
+        $("#span_seatch").click(function () {
+            showPageSearch(1);
+        });
+
+
+
+        //$("#a_add").click(function () {
+        //    popWin.showWin("/Feedback/AddFeedBack", 700, 350, function () {
+
+        //    });
+        //});
+
+
+
+    });
+</script>
+
+
+

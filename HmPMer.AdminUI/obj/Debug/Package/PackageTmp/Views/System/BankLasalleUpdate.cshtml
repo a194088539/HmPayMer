@@ -1,0 +1,129 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var dicList = new HmPMer.Business.DistrictBll().LoadParentId(0);
+}
+
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata">
+        @Html.Hidden("BankLasalleCode",Request["BankLasalleCode"])
+        <div class="layui-form-item">
+            <label class="layui-form-label">省</label>
+            <div class="layui-input-block">
+                <select id="ProvinceId" name="ProvinceId" lay-filter="ProvinceId">
+                    <option value="">请选择</option>
+                    @foreach (var item in dicList)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">市</label>
+            <div class="layui-input-block">
+                <select id="CityId" name="CityId" lay-filter="CityId">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn " lay-filter="" style="width:100px" type="button" id="btn_Add">提交</button>
+        </div>
+    </form>
+</body>
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var ProvinceId = $("#ProvinceId").val();
+            if (!ProvinceId || ProvinceId == "") {
+                layer.msg("请选择省份！");
+                return;
+            }
+            
+            var CityId = $("#CityId").val();
+            if (!CityId || CityId == "") {
+                layer.msg("请选择城市！");
+                return;
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/UpdateBankLasalle", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+        function loadCity(pid) {
+            hm.ajax("/System/loadcitylist", {
+                data: { id: pid },
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.length == 0) {
+                        $("#CityId").empty().append('<option value="">请选择</option>');
+                        form.render('select');
+                        return;
+                    }
+                    var _html = '';
+                    _html += '<option value="">请选择</option>';
+                    $.each(d.data, function (i, v) {
+                        _html += '<option value="' + v.Id + '">' + v.Name + '</option>';
+                    });
+                    $("#CityId").empty().append(_html);
+                    form.render('select');
+                }
+            });
+        }
+
+        form.on('select(ProvinceId)', function (data) {
+            var pid = $.trim(data.value);
+            if (pid == '') {
+                $("#CityId").empty().append('<option value="">请选择</option>');
+                form.render('select');
+                return;
+            }
+            loadCity(pid);
+
+        });
+
+    })
+</script>
+

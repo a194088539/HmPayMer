@@ -1,0 +1,51 @@
+﻿
+
+@{
+    ViewBag.Title = "商户管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+
+@section HeadSection{
+    <script src="/scripts/business/auditidcardindex.js?@ViewBag.StaticVersion"></script>
+
+}
+
+<div class="layui-form">
+
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+                @Html.Hidden("UserType", Request["UserType"])
+                <div class="layui-input-inline">
+                    @(Request["UserType"] == "1" ? "商户号" : "代理Id") ：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="UserId" name="UserId" />
+                </div>
+
+                <div class="layui-input-inline">
+                    审核状态：
+                </div>
+                <div class="layui-input-inline">
+                    <select id="IdCardStatus" name="IdCardStatus" lay-verify="" lay-filter="IdCardStatus">
+                        <option value="-1">请选择</option>
+                        <option value="3" selected>待审核</option>
+                        <option value="1">通过</option>
+                        <option value="2">不通过</option>
+                    </select>
+                </div>
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>
+            </div>
+
+        </form>
+    </blockquote>
+    <table id="AuditidcardIndexList" lay-filter="AuditidcardIndexList"></table>
+    <!--操作-->
+    <script type="text/html" id="AuditidcardIndexListBar">
+        {{#  if(d.IdCardStatus == "3"){ }}
+        <a class="layui-btn-xs layui-btn-mycss" lay-event="btn_audit">审核</a>
+        {{#  }}}
+    </script>
+</div>
+
+

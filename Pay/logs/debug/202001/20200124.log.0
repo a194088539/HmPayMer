@@ -1,0 +1,8 @@
+2020-01-24 03:25:41,216 [7] DEBUG logdebug [(null)] <(null)>
+ - 易支付请求参数.GetNotifyParam=partner=1045&banktype=WEIXIN&paymoney=1000&ordernumber=20012403254070467754001&callbackurl = http://pay.hengxpay.com/OrderReturn/_epay/20012403254070467754001
+2020-01-24 03:36:04,846 [7] DEBUG logdebug [(null)] <(null)>
+ - 易支付请求参数.GetNotifyParam=partner=1045&banktype=WEIXIN&paymoney=10.00&ordernumber=20012403360421959565001&callbackurl = http://pay.hengxpay.com/OrderReturn/_epay/20012403360421959565001
+2020-01-24 03:39:48,744 [9] DEBUG logdebug [(null)] <(null)>
+ - 易支付请求参数.GetNotifyParam=partner=1045&banktype=ALIPAY&paymoney=10.00&ordernumber=20012403394803665755001&callbackurl = http://pay.hengxpay.com/OrderReturn/_epay/20012403394803665755001
+2020-01-24 03:41:10,664 [6] DEBUG logdebug [(null)] <(null)>
+ - 易支付请求参数.GetNotifyParam=partner=1045&banktype=ALIPAY&paymoney=300.00&ordernumber=20012403411062413321001&callbackurl = http://pay.hengxpay.com/OrderReturn/_epay/20012403411062413321001

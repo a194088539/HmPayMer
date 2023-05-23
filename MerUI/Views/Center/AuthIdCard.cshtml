@@ -1,0 +1,254 @@
+﻿
+
+@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "实名认证";
+    ViewBag.PageUri = "/center/safety";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var userdetail = new HmPMer.Business.UserBaseBll().GetUserDetail(Model.UserId); 
+    var prolist = new HmPMer.Business.DistrictBll().LoadParentId(0);
+    var citylist = new HmPMer.Business.DistrictBll().LoadParentId(userdetail.CompanyProId == 0 ? -1 : userdetail.CompanyProId);
+    var diclist = new HmPMer.Business.DistrictBll().LoadParentId(userdetail.CompanyCityId == 0 ? -1 : userdetail.CompanyCityId);
+
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="form-page">
+
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>实名认证</h4>
+            </div>
+        </div>
+        @if (Model.IdCardStatus != 1)
+        {
+            <form id="formdata">
+                <div class="row-fluid withdraw">
+                    <div class="field-box withdrawApply">
+                        <label>审核状态</label>
+                        @if (Model.IdCardStatus == 0)
+                        {
+                            <span style="color:green"> 待提交</span>
+                        }
+                        @if (Model.IdCardStatus == 3)
+                        {
+                            <span style="color:green"> 待审核</span>
+                        }
+                        @if (Model.IdCardStatus == 2)
+                        {
+                            <span style="color:red"> 审核不通过（原因：@(Model.IdCardAuditDes)）</span>
+                        }
+                    </div>
+                    <div class="field-box withdrawApply">
+                        <label>商户ID </label>@Model.UserId
+                    </div>
+
+                    <div class="field-box withdrawApply">
+                        <label>真实姓名</label>
+                        <input class="span2" type="text" id="FactName" name="FactName" value="@userdetail.FactName" />
+                    </div>
+
+                    <div class="field-box withdrawApply">
+                        <label>身份证号</label>
+                        <input class="span4" type="text" id="IdCard" name="IdCard" value="@userdetail.IdCard" />
+                    </div>
+
+                    @*<div class="field-box withdrawApply">
+                            <label>身份证正面照片</label>
+                        </div>
+
+                        <div class="field-box withdrawApply">
+                            <label>身份证反面照片</label>
+                        </div>*@
+
+                    <div class="field-box withdrawApply">
+                        <label>身份证地址</label>
+                        <div class="ui-select" style="width:135px;">
+                            <select id="CompanyProId" name="CompanyProId">
+                                <option value="">请选择</option>
+                                @foreach (var item in prolist)
+                                {
+                                    <option value="@item.Id" @(userdetail.CompanyProId.Equals(item.Id) ? "selected" : "")>@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="ui-select" style="width:135px;">
+                            <select id="CompanyCityId" name="CompanyCityId">
+                                <option value="">请选择</option>
+                                @foreach (var item in citylist)
+                                {
+                                    <option value="@item.Id" @(userdetail.CompanyCityId.Equals(item.Id) ? "selected" : "")>@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="ui-select" style="width:135px;">
+                            <select id="CompanyDicId" name="CompanyDicId">
+                                <option value="">请选择</option>
+                                @foreach (var item in diclist)
+                                {
+                                    <option value="@item.Id" @(userdetail.CompanyDicId.Equals(item.Id) ? "selected" : "")>@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-box withdrawApply">
+                        <label>详细地址</label>
+                        <input class="span4" type="text" id="Address" name="Address" value="@userdetail.Address" />
+                    </div>
+
+                    @if (Model.IdCardStatus != 3)
+                    {
+                        <div class="span11 field-box actions">
+                            <br />
+                            <label></label>
+                            <input type="button" class="btn-glow primary" value="@(Model.IdCardStatus == 0 ? "确认提交" : "重新提交")" id="btn_submit">
+                        </div>
+                    }
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+<script>
+
+
+    function loadCity(pid) {
+        $.HM.ajax("base/loadcitylist/" + pid,
+            {
+                data: { 'ts': (new Date().getTime()) },
+                type: "GET",
+                dataType: 'json',
+                load: false,
+                success: function (d) {
+                    if (d.length == 0) {
+                        $("#CompanyCityId").empty().append('<option value="">请选择</option>');
+                        return;
+                    }
+                    var _html = '';
+                    _html += '<option value="">请选择</option>';
+                    $("#CompanyDicId").empty().append(_html);
+                    $.each(d.data, function (i, v) {
+                        _html += '<option value="' + v.Id + '">' + v.Name + '</option>';
+                    });
+                    $("#CompanyCityId").empty().append(_html);
+                }
+            });
+    }
+
+    function loadDic(pid) {
+        $.HM.ajax("base/loadcitylist/" + pid,
+            {
+                data: { 'ts': (new Date().getTime()) },
+                type: "GET",
+                dataType: 'json',
+                load: false,
+                success: function (d) {
+                    if (d.length == 0) {
+                        $("#CompanyDicId").empty().append('<option value="">请选择</option>');
+                        return;
+                    }
+                    var _html = '';
+                    _html += '<option value="">请选择</option>';
+                    $.each(d.data, function (i, v) {
+                        _html += '<option value="' + v.Id + '">' + v.Name + '</option>';
+                    });
+                    $("#CompanyDicId").empty().append(_html);
+                }
+            });
+    }
+
+    $(function () {
+
+
+        $("#CompanyProId").change(function () {
+            var pid = $.trim(this.value);
+            if (pid == '') {
+                $("#CompanyCityId").empty().append('<option value="">请选择</option>');
+                return;
+            }
+            loadCity(pid);
+        });
+
+        $("#CompanyCityId").change(function () {
+            var pid = $.trim(this.value);
+            if (pid == '') {
+                $("#CompanyDicId").empty().append('<option value="">请选择</option>');
+                return;
+            }
+            loadDic(pid);
+        });
+
+
+        $("#btn_submit").click(function () {
+
+            var data = validate.serializeObject($("#formdata"));
+
+            if (data.FactName == '') {
+                layer.msg('请填写真实姓名！', { icon: 5 });
+                $('#FactName').focus();
+                return false;
+            }
+
+            if (data.IdCard == '') {
+                layer.msg('请填写身份证！', { icon: 5 });
+                $('#IdCard').focus();
+                return false;
+            }
+
+            if (!$.HM.isIdCard(data.IdCard)) {
+                layer.msg('身份证号格式不正确！', { icon: 5 });
+                $("#IdCard").focus();
+                return false;
+            }
+
+            if (data.CompanyProId == '') {
+                layer.msg('请填选择所在省！', { icon: 5 });
+                $('#CompanyProId').focus();
+                return false;
+            } else {
+                data.CompanyProName = $.trim($("#CompanyProId").find("option:selected").text());
+            }
+
+            if (data.CompanyCityId == '') {
+                layer.msg('请填选择所在市！', { icon: 5 });
+                $('#CompanyCityId').focus();
+                return false;
+            } else {
+                data.CompanyCityName = $.trim($("#CompanyCityId").find("option:selected").text());
+            }
+
+
+            if (data.CompanyDicId == '') {
+                layer.msg('请填选择所在区！', { icon: 5 });
+                $('#CompanyDicId').focus();
+                return false;
+            } else {
+                data.CompanyDicName = $.trim($("#CompanyDicId").find("option:selected").text());
+            }
+
+            if (data.Address == '') {
+                layer.msg('请填写详细地址！', { icon: 5 });
+                $('#Address').focus();
+                return false;
+            }
+
+
+            $.HM.ajax("Center/UpIdcardInfo", {
+                data: data,
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.IsSuccess) {
+                        layer.msg(d.message, { icon: 1 }, 1500);
+                        window.location = window.location.href;
+                    } else {
+                        layer.msg(d.message, { icon: 1 }, 1500);
+                    }
+                }
+            });
+        });
+    });
+
+</script>

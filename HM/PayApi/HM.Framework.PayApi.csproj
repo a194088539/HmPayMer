@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{486492E3-925C-48AC-AD51-155A9F1FD848}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>HM.Framework.PayApi</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON, Version=0.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LitJson.0.16.0\lib\net45\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\libs\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml">
+      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <HintPath>C:\WINDOWS\Microsoft.NET\assembly\GAC_MSIL\System.Web.Extensions\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\..\libs\websocket-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PayApi\669U\CryptoBase.cs" />
+    <Compile Include="PayApi\669U\HMPayApi.cs" />
+    <Compile Include="PayApi\669U\RC4.cs" />
+    <Compile Include="PayApi\Alipay\AlipayMD5.cs" />
+    <Compile Include="PayApi\Alipay\AlipaySignature.cs" />
+    <Compile Include="PayApi\Alipay\Core.cs" />
+    <Compile Include="PayApi\Alipay\HMF2FPayApi.cs" />
+    <Compile Include="PayApi\Alipay\HMPayApi.cs" />
+    <Compile Include="PayApi\Alipay\Notify.cs" />
+    <Compile Include="PayApi\Alipay\RSACryptoServiceProviderExtension.cs" />
+    <Compile Include="PayApi\AoYou\HMPayApi.cs" />
+    <Compile Include="PayApi\AoYou\HttpPost.cs" />
+    <Compile Include="PayApi\BaiFu\HMPayApi.cs" />
+    <Compile Include="PayApi\BaiFu\HttpPost.cs" />
+    <Compile Include="PayApi\BaiFu\MD5Encrypt.cs" />
+    <Compile Include="PayApi\BankPay\Command.cs" />
+    <Compile Include="PayApi\BankPay\HMPayApiV1.cs" />
+    <Compile Include="PayApi\Careypay\HMPayApi.cs" />
+    <Compile Include="PayApi\DaiFu\HMPayApi.cs" />
+    <Compile Include="PayApi\DaiFu\RSACryption.cs" />
+    <Compile Include="PayApi\DaiFu\RSAKeyConvert.cs" />
+    <Compile Include="PayApi\Epay\HMPayApi.cs" />
+    <Compile Include="PayApi\GaoSheng\HMPayApi.cs" />
+    <Compile Include="PayApi\GaoSheng\HttpPost.cs" />
+    <Compile Include="PayApi\GaoSheng\MD5Encrypt.cs" />
+    <Compile Include="PayApi\HMAccount.cs" />
+    <Compile Include="PayApi\HMChannel.cs" />
+    <Compile Include="PayApi\HMInterface.cs" />
+    <Compile Include="PayApi\HMMode.cs" />
+    <Compile Include="PayApi\HMNotifyResult.cs" />
+    <Compile Include="PayApi\HMNotifyState.cs" />
+    <Compile Include="PayApi\HMOrder.cs" />
+    <Compile Include="PayApi\HMPayApiBase.cs" />
+    <Compile Include="PayApi\HMPayFactory.cs" />
+    <Compile Include="PayApi\HMPayResult.cs" />
+    <Compile Include="PayApi\HMPayState.cs" />
+    <Compile Include="PayApi\HMSupplier.cs" />
+    <Compile Include="PayApi\HMTransfer\HMPayApi.cs" />
+    <Compile Include="PayApi\HMWithdraw.cs" />
+    <Compile Include="PayApi\HMWithdrawChannel.cs" />
+    <Compile Include="PayApi\JinZuan\HMPayApi.cs" />
+    <Compile Include="PayApi\JinZuan\HttpPost.cs" />
+    <Compile Include="PayApi\KrdPay\HMCrPayApi.cs" />
+    <Compile Include="PayApi\Leniuniu\DfResult.cs" />
+    <Compile Include="PayApi\Leniuniu\DfsResult.cs" />
+    <Compile Include="PayApi\Leniuniu\HMPayApi.cs" />
+    <Compile Include="PayApi\Leniuniu\LPayResult.cs" />
+    <Compile Include="PayApi\LongFa\HMPayApi.cs" />
+    <Compile Include="PayApi\LongFa\HttpPost.cs" />
+    <Compile Include="PayApi\LongFa\MD5Encrypt.cs" />
+    <Compile Include="PayApi\LongFa\RSAEncodHelper.cs" />
+    <Compile Include="PayApi\LongFa\RSAHelper.cs" />
+    <Compile Include="PayApi\NewCarepay\HMCrPayApi.cs" />
+    <Compile Include="PayApi\NewCarepay\HMPayApi.cs" />
+    <Compile Include="PayApi\PaysApi\HMPayApi.cs" />
+    <Compile Include="PayApi\PingAnLm\DfResult.cs" />
+    <Compile Include="PayApi\PingAnLm\DfSResult.cs" />
+    <Compile Include="PayApi\PingAnLm\HMPayApi.cs" />
+    <Compile Include="PayApi\PingAnLm\HMPayYEApi.cs" />
+    <Compile Include="PayApi\PingAnLm\PaNotify.cs" />
+    <Compile Include="PayApi\PingAnLm\PaResult.cs" />
+    <Compile Include="PayApi\PingAnYe.Lib\HttpService.cs" />
+    <Compile Include="PayApi\PingAnYe.Lib\RequestBody.cs" />
+    <Compile Include="PayApi\PingAnYe.Lib\ResponseBody.cs" />
+    <Compile Include="PayApi\PingAnYe\CustomPayApi.cs" />
+    <Compile Include="PayApi\PingAnYe\HMPayApi.cs" />
+    <Compile Include="PayApi\Sdupay\HMPayApi.cs" />
+    <Compile Include="PayApi\ShangDe.Lib\MessageCryptWorker.cs" />
+    <Compile Include="PayApi\ShangDeDeFeng\CredentialDic.cs" />
+    <Compile Include="PayApi\ShangDeDeFeng\HMPayApi.cs" />
+    <Compile Include="PayApi\ShangDeDeFeng\WithdrawResult.cs" />
+    <Compile Include="PayApi\ShangDeZhiHuiPay\HMPayApi.cs" />
+    <Compile Include="PayApi\ShangDeZhiHuiPay\ZhPayData.cs" />
+    <Compile Include="PayApi\ShangDeZhiHuiPay\ZhPayResult.cs" />
+    <Compile Include="PayApi\ShangDe\CredentialDic.cs" />
+    <Compile Include="PayApi\ShangDe\CryptUtils.cs" />
+    <Compile Include="PayApi\ShangDe\HMPayApi.cs" />
+    <Compile Include="PayApi\ShangDe\HttpUtils.cs" />
+    <Compile Include="PayApi\ShangDe\MessageWorker.cs" />
+    <Compile Include="PayApi\ShangDe\WithdrawResult.cs" />
+    <Compile Include="PayApi\ShouFuPay\CryptUtils.cs" />
+    <Compile Include="PayApi\ShouFuPay\HMPayApi.cs" />
+    <Compile Include="PayApi\ShouFuPay\SFPayResult.cs" />
+    <Compile Include="PayApi\SuPay\Encrypt.cs" />
+    <Compile Include="PayApi\SuPay\HMPayApi.cs" />
+    <Compile Include="PayApi\Swiftpass.Lib\HttpService.cs" />
+    <Compile Include="PayApi\Swiftpass.Lib\Tools.cs" />
+    <Compile Include="PayApi\Swiftpass\CiticBankPay.cs" />
+    <Compile Include="PayApi\Swiftpass\HMPayApi.cs" />
+    <Compile Include="PayApi\WangFa.Lib\MD5Utils.cs" />
+    <Compile Include="PayApi\WangFa\HMPayApi.cs" />
+    <Compile Include="PayApi\WeiXin\HMMaidanPayApi.cs" />
+    <Compile Include="PayApi\XFT\HMPayApi.cs" />
+    <Compile Include="PayApi\XFT\Utils.cs" />
+    <Compile Include="PayApi\XinFa\HMPayApi.cs" />
+    <Compile Include="PayApi\XinFa\HttpPost.cs" />
+    <Compile Include="PayApi\XinFa\MD5Encrypt.cs" />
+    <Compile Include="PayApi\XinFa\RSAEncodHelper.cs" />
+    <Compile Include="PayApi\XinFa\RSAHelper.cs" />
+    <Compile Include="PayApi\XingFuTianXia.Lib\SmResult.cs" />
+    <Compile Include="PayApi\XingFuTianXia.Lib\XfData.cs" />
+    <Compile Include="PayApi\XingFuTianXia.Lib\XfResult.cs" />
+    <Compile Include="PayApi\XingFuTianXia\HMPayApi.cs" />
+    <Compile Include="PayApi\XiYangYang\HMPayApi.cs" />
+    <Compile Include="PayApi\XiYangYang\HttpPost.cs" />
+    <Compile Include="PayApi\YiDianFu\HMPayApi.cs" />
+    <Compile Include="PayApi\YiZhiFu\HMPayApi.cs" />
+    <Compile Include="PayApi\YunFuBao.Lib\M2Sdk.cs" />
+    <Compile Include="PayApi\YunFuBao\HMPayApi.cs" />
+    <Compile Include="PayApi\YunFuBao\YFBResult.cs" />
+    <Compile Include="PayApi\YunShanFu\HMPayApi.cs" />
+    <Compile Include="PayApi\ZongHeDianShang.Lib\HttpService.cs" />
+    <Compile Include="PayApi\ZongHeDianShang\HMPayApi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\HM.Framework.csproj">
+      <Project>{613b9753-79c5-4bf8-9ce8-5ea3f842039d}</Project>
+      <Name>HM.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,37 @@
+﻿@charset "gb2312";
+/* CSS Document */
+*{ margin:0px; padding:0px;}
+body{ 
+width:100%;margin:0 auto; font-family:"微软雅黑"; 
+background:#263149 url(../../images/bj.jpg);
+color:#444;}
+ul,li,dl,dd,dt{ list-style:none;}
+i,em{font-style:normal; color:#ab1717;}
+a{ text-decoration:none;}
+img{vertical-align: middle;}
+.href{ color:#ab1717;s}
+
+.wap{ width:98%; margin:0 auto; height: auto; overflow:hidden;}
+.logo{ text-align:center; padding:2% 0; width:100%; margin:0 auto;}
+.logo img{ width: 100%;vertical-align: middle;}
+.box{ width:94%; height:auto; overflow:hidden; background:#fff;border-radius:5px; padding:2% 3% 1% 3%; margin-bottom:2%;}
+.box h1{ font-size:20px; line-height:150%; font-weight:100;}
+.box .cn{ width:100%; height:auto; overflow:hidden; border-left:solid 1px #d5d5d5; border-top:solid 1px #d5d5d5; margin-bottom:1%;}
+.box .cn td{ border-bottom:solid 1px #d5d5d5;border-right:solid 1px #d5d5d5;}
+.box .cn td.w1{ font-size:14px; line-height:32px; text-align:center; background:#f6f6f6;}
+.box .cn td .text{ width:55%; height:22px; border:solid 1px #ccc;border-radius: 2px; line-height:22p margin-bottom:5%;; padding-left:0.5%; background: #fff;vertical-align: middle; -moz-box-shadow: inset 0 1px 3px #ddd;-webkit-box-shadow: inset 0 1px 3px #ddd; box-shadow: inset 0 1px 3px #ddd; color: #666; margin-left:20px; margin-right:10px; float:left;}
+.box .cn td .w2{ font-size:12px; line-height:150%; color:#f00;}
+.box .cn td label{ font-size:12px; line-height:60px; width:40%; float: left;padding-left: 14px;}
+.box .cn td span{ width:33%; height:auto; overflow:hidden; float:left; display:block;}
+.box .cn td span img{ width:34%; margin-left:5%;}
+.box .cn td span input{ margin-left:5%;}
+.box .btn{ text-align: center; line-height:250%; width:100%; background:#00cba4;border-radius:5px; display:block; color:#fff; font-size:20px; margin-bottom:1%;}
+.box .w3{ text-align:center; font-size:14px; line-height:150%;}
+.box .cn td img { padding-left: 10px;}
+
+@media (min-width:320px) and (max-width:479px){ 
+.box .cn td .text{ margin:1%; width:96%;}
+.box .cn td .text2{ margin:1%; width:80%;}
+.box .cn td label{ width:98%;}
+.box .cn td label.rt{ width:16%; float:right; line-height:200%}
+}

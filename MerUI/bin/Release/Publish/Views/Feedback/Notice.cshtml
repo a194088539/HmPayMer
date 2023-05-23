@@ -1,0 +1,76 @@
+﻿
+
+@{
+    ViewBag.Title = "系统公告";
+    ViewBag.PageUri = "/Feedback/Notice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" href="/static/css/compiled/tables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+    <script src="/static/js/jquery.pagination.js"></script>
+    <script src="/static/js/popWinjs.js"></script>
+}
+
+<div class="container-fluid">
+    <div id="pad-wrapper">
+
+        <!-- orders table -->
+        <div class="table-wrapper orders-table section">
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4>系统公告</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row-fluid filter-block">
+                <form id="form_data" style="margin:0;padding:0;">
+                    @*<div class="pull-right">
+                        <a class="btn-flat success new-product" id="a_add">+ 新增意见</a>
+                    </div>*@
+                </form>
+            </div>
+
+            <div class="row-fluid filter-block">
+                <div class="row-fluid" id="NoticeList">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function showPageSearch(p) {
+        $.ajax({
+            type: "post",
+            url: "/Feedback/NoticeList",
+            data: { "pageIndex": p, param: validate.serializeObject($("#form_data")) },
+            dataType: 'html',
+            success: function (html) {
+                if (html != null && html != "") {
+                    $("#NoticeList").empty();
+                    $("#NoticeList").html(html);
+                }
+            }
+        });
+    }
+
+    function GetNoticeInfo(Id) {
+        popWin.showWin("/Feedback/Noticeinfo?Id=" + Id, 700, 350, function () {
+
+        });
+    }
+
+    $(function () {
+        showPageSearch(1);
+        $("#span_seatch").click(function () {
+            showPageSearch(1);
+        });
+
+      
+    });
+</script>
+
+

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{80F6E1B0-149D-47D3-A366-7D6B772582F8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>HM.Framework.Dapper</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJSON, Version=0.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LitJson.0.16.0\lib\net45\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml">
+      <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dapper\CommandDefinition.cs" />
+    <Compile Include="Dapper\CommandFlags.cs" />
+    <Compile Include="Dapper\Contrib.Extensions\SqlMapperExtensions.cs" />
+    <Compile Include="Dapper\CustomPropertyTypeMap.cs" />
+    <Compile Include="Dapper\DapperExtensions\BasePredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\BetweenPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\BetweenValues.cs" />
+    <Compile Include="Dapper\DapperExtensions\ComparePredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\DapperExtensions.cs" />
+    <Compile Include="Dapper\DapperExtensions\DapperExtensionsConfiguration.cs" />
+    <Compile Include="Dapper\DapperExtensions\DapperImplementor.cs" />
+    <Compile Include="Dapper\DapperExtensions\Database.cs" />
+    <Compile Include="Dapper\DapperExtensions\ExistsPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\FieldPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\GetMultiplePredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\GridReaderResultReader.cs" />
+    <Compile Include="Dapper\DapperExtensions\GroupOperator.cs" />
+    <Compile Include="Dapper\DapperExtensions\IBasePredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\IBetweenPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\IComparePredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\IDapperExtensionsConfiguration.cs" />
+    <Compile Include="Dapper\DapperExtensions\IDapperImplementor.cs" />
+    <Compile Include="Dapper\DapperExtensions\IDatabase.cs" />
+    <Compile Include="Dapper\DapperExtensions\IExistsPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\IFieldPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\IMultipleResultReader.cs" />
+    <Compile Include="Dapper\DapperExtensions\IPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\IPredicateGroup.cs" />
+    <Compile Include="Dapper\DapperExtensions\IPropertyPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\ISort.cs" />
+    <Compile Include="Dapper\DapperExtensions\Mapper\AutoClassMapper.cs" />
+    <Compile Include="Dapper\DapperExtensions\Mapper\ClassMapper.cs" />
+    <Compile Include="Dapper\DapperExtensions\Mapper\IClassMapper.cs" />
+    <Compile Include="Dapper\DapperExtensions\Mapper\IPropertyMap.cs" />
+    <Compile Include="Dapper\DapperExtensions\Mapper\KeyType.cs" />
+    <Compile Include="Dapper\DapperExtensions\Mapper\PluralizedAutoClassMapper.cs" />
+    <Compile Include="Dapper\DapperExtensions\Mapper\PropertyMap.cs" />
+    <Compile Include="Dapper\DapperExtensions\Operator.cs" />
+    <Compile Include="Dapper\DapperExtensions\PredicateGroup.cs" />
+    <Compile Include="Dapper\DapperExtensions\Predicates.cs" />
+    <Compile Include="Dapper\DapperExtensions\PropertyPredicate.cs" />
+    <Compile Include="Dapper\DapperExtensions\ReflectionHelper.cs" />
+    <Compile Include="Dapper\DapperExtensions\SequenceReaderResultReader.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sort.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\ISqlDialect.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\ISqlGenerator.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\MySqlDialect.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\OracleDialect.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\PostgreSqlDialect.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\SqlCeDialect.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\SqlDialectBase.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\SqlGeneratorImpl.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\SqliteDialect.cs" />
+    <Compile Include="Dapper\DapperExtensions\Sql\SqlServerDialect.cs" />
+    <Compile Include="Dapper\Database.cs" />
+    <Compile Include="Dapper\DataTableHandler.cs" />
+    <Compile Include="Dapper\DbString.cs" />
+    <Compile Include="Dapper\DefaultTypeMap.cs" />
+    <Compile Include="Dapper\DynamicParameters.cs" />
+    <Compile Include="Dapper\ExplicitConstructorAttribute.cs" />
+    <Compile Include="Dapper\FbAdapter.cs" />
+    <Compile Include="Dapper\FeatureSupport.cs" />
+    <Compile Include="Dapper\IgnorePropertyAttribute.cs" />
+    <Compile Include="Dapper\ISqlAdapter.cs" />
+    <Compile Include="Dapper\IWrappedDataReader.cs" />
+    <Compile Include="Dapper\MySqlAdapter.cs" />
+    <Compile Include="Dapper\PostgresAdapter.cs" />
+    <Compile Include="Dapper\SimpleMemberMap.cs" />
+    <Compile Include="Dapper\Snapshotter.cs" />
+    <Compile Include="Dapper\SqlBuilder.cs" />
+    <Compile Include="Dapper\SqlCeServerAdapter.cs" />
+    <Compile Include="Dapper\SqlCompactDatabase.cs" />
+    <Compile Include="Dapper\SqlDataRecordHandler.cs" />
+    <Compile Include="Dapper\SqlDataRecordListTVPParameter.cs" />
+    <Compile Include="Dapper\SQLiteAdapter.cs" />
+    <Compile Include="Dapper\SqlMapper.cs" />
+    <Compile Include="Dapper\SqlServerAdapter.cs" />
+    <Compile Include="Dapper\TableValuedParameter.cs" />
+    <Compile Include="Dapper\TypeExtensions.cs" />
+    <Compile Include="Dapper\WrappedReader.cs" />
+    <Compile Include="Dapper\XDocumentHandler.cs" />
+    <Compile Include="Dapper\XElementHandler.cs" />
+    <Compile Include="Dapper\XmlDocumentHandler.cs" />
+    <Compile Include="Dapper\XmlTypeHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\HM.Framework.csproj">
+      <Project>{613b9753-79c5-4bf8-9ce8-5ea3f842039d}</Project>
+      <Name>HM.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

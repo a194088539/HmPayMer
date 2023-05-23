@@ -1,0 +1,175 @@
+﻿@model List<HmPMer.Entity.SysConfig>
+@{
+    ViewBag.Title = "注册设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+
+    var gradelist = new HmPMer.Business.GradeBll().GetAllUserGrade(0);
+    var wsList = new HmPMer.Business.WithdrawBll().GetAllWithdrawSchemeList(0);
+    string GetConfiVaule(string Key)
+    {
+        var item = Model.FirstOrDefault(a => a.Key == Key);
+        if (item != null)
+        {
+            return item.Value;
+        }
+        return "";
+    }
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center">参数说明</td>
+                <td align="center">参数值</td>
+                <td align="center">变量名</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tdrigth">是否开启注册</td>
+                <td>
+                    <input type="radio" name="RegIsOpen" class="layui-input" value="0" title="不开启" @(GetConfiVaule("RegIsOpen") == "0" ? "checked" : "") />
+                    <input type="radio" name="RegIsOpen" class="layui-input" value="1" title="开启" @(GetConfiVaule("RegIsOpen") == "1" ? "checked" : "") />
+                </td>
+                <td pc>RegIsOpen</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">注册是否需要审核</td>
+                <td>
+                    <input type="radio" name="RegIsEnabled" class="layui-input" value="0" title="不需要" @(GetConfiVaule("RegIsEnabled") == "0" ? "checked" : "") />
+                    <input type="radio" name="RegIsEnabled" class="layui-input" value="1" title="需要" @(GetConfiVaule("RegIsEnabled") == "1" ? "checked" : "") />
+                </td>
+                <td pc>RegIsEnabled</td>
+            </tr>
+            <tr>
+                <td class="tdrigth"> 注册默认等级</td>
+                <td>
+                    <select name="RegGradeId" class="GradeId" id="RegGradeId" lay-filter="RegGradeId">
+                        <option value="0">请选择等级</option>
+                        @foreach (var item in gradelist)
+                        {
+                            <option value="@item.Id" @(GetConfiVaule("RegGradeId") == item.Id ? "selected" : "") >@item.GradeName</option>
+                        }
+                    </select>
+                </td>
+                <td pc>RegGradeId</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">默认结算方案</td>
+                <td>
+                    <select name="RegWithdrawSchemeId" class="RegWithdrawSchemeId" id="RegWithdrawSchemeId" lay-filter="RegWithdrawSchemeId">
+                        <option value="0">请选择结算方案</option>
+                        @foreach (var item in wsList)
+                        {
+                            <option value="@item.Id" @(GetConfiVaule("RegWithdrawSchemeId") == item.Id ? "selected" : "")>@item.SchemeName</option>
+                        }
+                    </select>
+                </td>
+                <td pc>RegWithdrawSchemeId</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" type="button" id="btn_submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        //提交表单
+        $("#btn_submit").click(function () {
+
+            //循环input
+            var bool = true;
+            var ListModel = [];
+            var Type = 2;
+
+            var model = {};
+            model.Key = "RegIsOpen";
+            model.Type = Type;
+            model.Value = $("input[name='RegIsOpen']:checked").val();
+            model.Desc = "是否开启注册";
+            ListModel.push(model);
+
+            model = {};
+            model.Key = "RegIsEnabled";
+            model.Type = Type;
+            model.Value = $("input[name='RegIsEnabled']:checked").val();
+            model.Desc = "是否需要审核";
+            ListModel.push(model);
+
+            model = {};
+            model.Key = "RegGradeId";
+            model.Type = Type;
+            model.Value = $("#RegGradeId").find("option:selected").val();
+            model.Desc = "注册等级";
+            ListModel.push(model);
+
+
+            model = {};
+            model.Key = "RegWithdrawSchemeId";
+            model.Type = Type;
+            model.Value = $("#RegWithdrawSchemeId").find("option:selected").val();
+            model.Desc = "结算方案";
+            ListModel.push(model);
+
+
+            if (bool) {
+                var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+                setTimeout(function () {
+                    layer.close(index);
+                    hm.ajax("/System/SetSysConfig", {
+                        data: { ListModel: ListModel, Type: Type },
+                        type: "POST",
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result.Success) {
+                                layer.msg("操作成功！", { icon: 1, time: 300 });
+                            } else {
+                                layer.msg(result.Message);
+                            }
+                        },
+                        error: function (x, t, e) {
+                            layer.closeAll();
+                        }
+                    });
+
+                }, 500);
+            }
+
+        });
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+    });
+</script>
+

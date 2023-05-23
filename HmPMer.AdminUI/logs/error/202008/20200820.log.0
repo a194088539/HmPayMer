@@ -1,0 +1,171 @@
+2020-08-20 04:12:53,535 [10] ERROR logerror [(null)] <(null)>
+ - HmSession.SetSession(user,{"ID":"213123e421-21901209","AdmUser":"admin","AdmPass":"21232f297a57a5a743894a0e4a801fc3","AdmPass2":"21232f297a57a5a743894a0e4a801fc3","NickName":"管理员","Flag":0,"IsEnable":1,"AddTime":"\/Date(1575438479597-0000)\/","LastLoginTime":"\/Date(1582183752047-0000)\/","LastLoginIp":"192.168.1.2","Rate":0.0000,"RegCode":"7d8225b4a9a4147fe7c2c94cc986dc6"})出错！
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.HmSession.getRedis() 位置 D:\HmPayMer\HM\Framework\HmSession.cs:行号 50
+   在 HM.Framework.HmSession.SetSession(String key, String val, Boolean isSingle, String singleVal, Int32 min) 位置 D:\HmPayMer\HM\Framework\HmSession.cs:行号 95
+2020-08-20 07:44:30,481 [8] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= update HmAdmin set LastLoginTime=GETDATE(),LastLoginIp=@LastLoginIp  where AdmUser=@AdmUser 
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "HmPayMer"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5013
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:4b099bc6-f4a3-42ae-8e60-82249643cce6
+Error Number:4060,State:1,Class:11
+2020-08-20 07:44:30,696 [8] ERROR logerror [(null)] <(null)>
+ - Insert.Error
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "HmPayMer"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.Contrib.Extensions.SqlMapperExtensions.Insert[T](IDbConnection connection, T entityToInsert, IDbTransaction transaction, Nullable`1 commandTimeout) 位置 D:\HmPayMer\HM\Dapper\Dapper\Contrib.Extensions\SqlMapperExtensions.cs:行号 781
+   在 HM.DAL.DalContext.Insert[T](T model) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 187
+ClientConnectionId:4b099bc6-f4a3-42ae-8e60-82249643cce6
+Error Number:4060,State:1,Class:11
+2020-08-20 07:45:23,014 [10] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= update Menu set menuName=@menuName,menuUrl=@menuUrl,orderNo=@orderNo,icon=@icon,FlagStr=@FlagStr,createTime=GETDATE() where Id=@Id 
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "HmPayMer"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5013
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:5c827715-9ea9-4719-a636-86342fa055fd
+Error Number:4060,State:1,Class:11
+2020-08-20 07:45:26,914 [14] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= update Menu set menuName=@menuName,menuUrl=@menuUrl,orderNo=@orderNo,icon=@icon,FlagStr=@FlagStr,createTime=GETDATE() where Id=@Id 
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "HmPayMer"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5013
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:5c827715-9ea9-4719-a636-86342fa055fd
+Error Number:4060,State:1,Class:11
+2020-08-20 07:46:12,116 [27] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= delete [Role] where Id=@Id; delete [RoleMenu] where roleId=@Id;delete [UserRole] where roleId=@Id; 
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "HmPayMer"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5013
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:43bd88ba-0510-42f9-bec6-1f0768589fdc
+Error Number:4060,State:1,Class:11
+2020-08-20 07:46:59,746 [27] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= update Menu set menuName=@menuName,menuUrl=@menuUrl,orderNo=@orderNo,icon=@icon,FlagStr=@FlagStr,createTime=GETDATE() where Id=@Id 
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "HmPayMer"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5013
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:de8cbc66-6595-4478-b756-2ef8b79ee7eb
+Error Number:4060,State:1,Class:11
+2020-08-20 07:59:28,253 [37] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= backup database HmPayMerchant to disk=@Path 
+System.Data.SqlClient.SqlException (0x80131904): 数据库 'HmPayMerchant' 不存在。请确保正确地输入了该名称。
+BACKUP DATABASE 正在异常终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5015
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:f21faf70-69e6-4fed-b514-50728063daf2
+Error Number:911,State:11,Class:16
+2020-08-20 08:00:02,739 [37] ERROR logerror [(null)] <(null)>
+ - ExecuteSql.Error,sql= backup database HmPayMerchant to disk=@Path 
+System.Data.SqlClient.SqlException (0x80131904): 数据库 'HmPayMerchant' 不存在。请确保正确地输入了该名称。
+BACKUP DATABASE 正在异常终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HM.Framework.Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 5015
+   在 HM.Framework.Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 3087
+   在 HM.Framework.Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) 位置 D:\HmPayMer\HM\Dapper\Dapper\SqlMapper.cs:行号 2993
+   在 HM.DAL.DalContext.ExecuteSql(String sql, Object param) 位置 D:\HmPayMer\HmPMer.Dal\HM.DAL\DalContext.cs:行号 250
+ClientConnectionId:f21faf70-69e6-4fed-b514-50728063daf2
+Error Number:911,State:11,Class:16

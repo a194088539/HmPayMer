@@ -1,0 +1,144 @@
+﻿@model HmPMer.Entity.UserBaseInfo
+@{
+    ViewBag.Title = "安全中心";
+    ViewBag.PageUri = "/center/safety";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section header{
+    <link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+}
+
+<div id="pad-wrapper" class="user-profile">
+    <div class="table-wrapper orders-table section">
+        <!-- header -->
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>安全中心</h4>
+            </div>
+        </div>
+
+        <div class="row-fluid profile">
+            <div class="profile-box">
+                <!-- biography -->
+                <div class="span12 section">
+                    <table class="tables table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span2">
+
+                                </th>
+
+                                <th class="span8">
+
+                                </th>
+                                <th class="span1">
+
+                                </th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <!-- row -->
+                            <tr class="first">
+                                <td>
+                                    登录密码 <span class="label label-success">已设置</span>
+                                </td>
+                                <td class="fontmin">
+                                    上次登录时间：@(Model.LastLoginTime.Value.ToString("yyyy-MM-dd HH:mm:ss"))
+                                </td>
+                                <td>
+                                    <a href="/Center/EditPass">修改</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                @if (string.IsNullOrEmpty(Model.Pass2))
+                                {
+                                    <td>二级密码 <span class="label label-info">未设置</span></td>
+                                    <td class="fontmin">通道配置时输入，保护账户资金安全。（如果未设置，默认为登录密码）</td>
+                                    <td><a href="/Center/EditPass2">设置</a></td>
+                                }
+                                else
+                                {
+                                    <td>二级密码 <span class="label label-success">已设置</span></td>
+                                    <td class="fontmin">通道配置时输入，保护账户资金安全。（如果未设置，默认为登录密码）</td>
+                                    <td><a href="/Center/EditPass2"> 修改 </a></td>
+                                }
+                            </tr>
+                            <tr>
+                                @if (Model.IsMobilePhone == 1)
+                                {
+                                    <td>手机认证 <span class="label label-success">已认证</span></td>
+                                    <td class="fontmin">手机认证流程：输入手机号 - 发送验证码 - 输入验证码确认 - 认证成功</td>
+                                    <td><a href="/Center/AuthPhone?type=1"> 修改 </a></td>
+                                }
+                                else
+                                {
+                                    <td> 手机认证 <span class="label label-info">未认证</span></td>
+                                    <td class="fontmin">手机认证流程：输入手机号 - 发送验证码 - 输入验证码确认 - 认证成功</td>
+                                    <td><a href="/Center/AuthPhone"> 认证 </a></td>
+                                }
+                            </tr>
+
+                            @*<tr>
+                                    @if (Model.IsEmail == 1)
+                                    {
+                                        <td>邮箱认证 <span class="label label-success">已认证</span></td>
+                                        <td class="fontmin">①当前邮箱如果已经认证，修改时系统会给您原邮箱地址发送确认邮件，确认才能修改成功 ②修改新邮箱成功后需要重新进行认证</td>
+                                        <td><a href="#">修改</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td>邮箱认证 <span class="label label-info">未认证</span></td>
+                                        <td class="fontmin">①当前邮箱如果已经认证，修改时系统会给您原邮箱地址发送确认邮件，确认才能修改成功 ②修改新邮箱成功后需要重新进行认证</td>
+                                        <td><a href="#">认证</a></td>
+                                    }
+                                </tr>*@
+                            @if (Model.AccountType == 0)
+                            {
+                            <tr>
+                                @if (Model.IdCardStatus == 1)
+                                {
+                                    <td>实名认证 <span class="label label-success">已认证</span></td>
+                                    <td class="fontmin">①系统不支持一代身份证实名认证；②实名认证的真实姓名必须与银行卡的用户名一致，以免影响提现；③通过实名认证后，账户才能进行提现操作</td>
+                                    <td></td>
+                                }
+                                else
+                                {
+                                    <td>实名认证 <span class="label label-info">未认证</span></td>
+                                    <td class="fontmin">①系统不支持一代身份证实名认证；②实名认证的真实姓名必须与银行卡的用户名一致，以免影响提现；③通过实名认证后，账户才能进行提现操作</td>
+                                    <td><a href="/Center/AuthIdCard">认证</a></td>
+                                }
+                            </tr>
+                            }
+                            else if (Model.AccountType == 1)
+                            {
+                            <tr>
+                                @if (Model.IdCardStatus == 1)
+                                {
+                                    <td>企业认证 <span class="label label-success">已认证</span></td>
+                                    <td class="fontmin">①系统不支持一代身份证实名认证；②实名认证的真实姓名必须与银行卡的用户名一致，以免影响提现；③通过企业认证后，账户才能进行提现操作</td>
+                                    <td></td>
+                                }
+                                else
+                                {
+                                    <td>企业认证 <span class="label label-info">未认证</span></td>
+                                    <td class="fontmin">①系统不支持一代身份证实名认证；②实名认证的真实姓名必须与银行卡的用户名一致，以免影响提现；③通过企业认证后，账户才能进行提现操作</td>
+                                    <td><a href="/Center/AuthCompany">认证</a></td>
+                                }
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+
+}

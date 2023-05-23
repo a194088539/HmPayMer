@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "找回密码";
+    Layout = "~/Views/Shared/_UnLoginLayout.cshtml";
+}
+
+<div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+    <div class="layui-form-item">
+        <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="LAY-user-login-cellphone"></label>
+        <input type="text" name="MobilePhone" id="MobilePhone" lay-verify="phone" placeholder="请输入注册时的手机号" class="layui-input" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-row">
+            <div class="layui-col-xs7">
+                <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+                <input type="text" name="ImgCode" id="ImgCode" lay-verify="required" placeholder="图形验证码" class="layui-input">
+            </div> <div class="layui-col-xs5">
+                <div style="margin-left: 10px;">
+                    <img id="" src="/DrawingApi/GetValidateImg?codeKey=hmerpmfindpwd&t=@DateTime.Now.Ticks" onclick="this.src = '/DrawingApi/GetValidateImg?codeKey=hmerpmfindpwd&t=' + Math.random();" width="100" height="40" style="cursor:pointer" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-row">
+            <div class="layui-col-xs7">
+                <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-smscode"></label>
+                <input type="text" name="SmsCode" id="SmsCode" lay-verify="required" placeholder="短信验证码" class="layui-input">
+            </div>
+            <div class="layui-col-xs5"> <div style="margin-left: 10px;"> <button type="button" class="layui-btn layui-btn-primary layui-btn-fluid" id="GetSmsCode">获取验证码</button> </div> </div>
+        </div>
+    </div>
+    <div class="layui-form-item"> <button class="layui-btn layui-btn-fluid" id="btnSubmit" lay-filter="btnSubmit">下一步</button> </div>
+</div>
+<script>
+    $(function () {
+
+        var codeClick = false;
+        //发送短信验证码
+        $("#GetSmsCode").click(function () {
+
+            if (codeClick) {
+                return;
+            }
+            var Mobile = $("#MobilePhone").val();
+
+            if (Mobile == '') {
+                layer.msg('请输入手机', { icon: 5 });
+                $('#MobilePhone').focus();
+                return;
+            }
+
+            if (!validate.isMobile(Mobile)) {
+                layer.msg('手机号格式错误！', { icon: 5 });
+                $('#MobilePhone').focus();
+                return false;
+            }
+
+            var ImgCode = $.trim($("#ImgCode").val());
+            if (ImgCode == '') {
+                layer.msg('请输入图片验证码', { icon: 5 });
+                $('#ImgCode').focus();
+                return;
+            }
+
+            if (ImgCode.length != 4) {
+                layer.msg('验证码输入错误', { icon: 5 });
+                $('#ImgCode').focus();
+                return;
+            }
+
+
+            //获取短信验证码
+            $.post("/DrawingApi/SendMobileCode", { "Mobile": Mobile, "SmsKey": "smshmerpmfindpwd", "ImgCode": ImgCode, "ImgCodeKey": "hmerpmfindpwd", SmsCode:"findpwd",type: 2 }, function (data) {
+                if (data.IsSuccess) {
+                    layer.msg('获取短信验证码成功', { icon: 5 });
+                    codeClick = true;
+                    var showText = '%s s后获取';
+                    var $this = $("#GetSmsCode");
+
+                    if ($this.data('alt_button_disable_rendered') == 0) {
+                        return false;
+                    }
+                    setTimeout(function () {
+                        var count = 60;
+                        setText();
+                        $this.addClass("cur");
+                        function setText() {
+                            $this.html(showText.replace('%s ', count));
+
+                            if (count > 0) {
+                                count--;
+                                $this.data('alt_button_disable_rendered', 0);
+                                setTimeout(setText, 1000);
+                            } else {
+                                codeClick = false;
+                                $this.html('重新获取');
+                                $this.data('alt_button_disable_rendered', 1);
+                            }
+                        }
+                    }, 10);
+
+                } else {
+                    layer.msg(data.message, { icon: 5 });
+                    return false;
+                }
+
+            });
+            return;
+        });
+
+        $("#btnSubmit").click(function () {
+            Submint();
+        });
+
+        document.onkeydown = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+
+            if (e && e.keyCode == 13) { // enter 键
+                //要做的事情
+                Submint();
+            }
+        };
+
+    });
+
+    function Submint() {
+        var Mobile = $("#MobilePhone").val();
+
+        if (Mobile == '') {
+            layer.msg('请输入手机', { icon: 5 });
+            $('#MobilePhone').focus();
+            return;
+        }
+
+        if (!validate.isMobile(Mobile)) {
+            layer.msg('手机号格式错误！', { icon: 5 });
+            $('#MobilePhone').focus();
+            return false;
+        }
+
+        var SmsCode = $.trim($("#SmsCode").val());
+
+        if (SmsCode == '') {
+            layer.msg('请输入短信验证码', { icon: 5 });
+            $("#SmsCode").focus();
+            return;
+        }
+
+        $.post("/Account/NextGetPwdPhone", { 'Mobile': Mobile, 'SmsCode': SmsCode, 'SmsKey': "smshmerpmfindpwd" }, function (d) {
+            if (d.IsSuccess) {
+                setTimeout(function () {
+                    window.location = "/Account/RestPwd?yzCode=" + d.message;
+                }, 1200);
+                return;
+            } else {
+                layer.msg(d.message, { icon: 5 });
+                return;
+            }
+        });
+
+    }
+</script>

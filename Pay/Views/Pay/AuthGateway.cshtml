@@ -1,0 +1,92 @@
+﻿@using HmPMer.Entity
+@using HmPMer.Pay
+@{
+    Layout = null;
+
+    OrderBase orderInfo = ViewBag.OrderInfo;
+    var orderAmt = "";
+    var orderNo = "";
+    if (orderInfo != null)
+    {
+        orderAmt = (orderInfo.OrderAmt / 100).ToString("0.00");
+        orderNo = orderInfo.OrderId;
+    }
+}
+
+<!DOCTYPE>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <title>确认充值</title>
+    <link href="/static/css/demo/pintuer.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/demo/base.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/static/js/zepto.min.js"></script>
+</head>
+<body>
+
+    <div class="header layout bg-blue">
+        <div class="line text-center">
+            <div class="x1 padding-small-top padding-small-bottom"></div>
+            <div class="x9 padding-top padding-bottom text-big text-white">确认充值</div>
+            <div class="x2 padding-small-top padding-small-bottom text-right"></div>
+        </div>
+    </div>
+    <div class="padding">
+
+        <div class="form-group">
+            <div class="label"><label>订单号</label></div>
+            <div class="field">
+                <label>@orderNo</label>
+            </div>
+        </div>
+        <div class="form-group margin-top">
+            <div class="label"><label>充值金额</label></div>
+            <div class="field">
+                <label>@orderAmt</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-button">
+        <button class="button button-block bg-blue margin-top" type="button" id="toConfirm" onclick="jsApiCall();">确认支付</button>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function jsApiCall() {
+        var data = @Html.Raw(orderInfo.PayQrCode);
+        WeixinJSBridge.invoke('getBrandWCPayRequest'
+            , data
+            , function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                    // 此处可以使用此方式判断前端返回,微信团队郑重提示
+                    // res.err_msg 将在用户支付成 功后返回ok，但并不保证它绝对可靠。                   
+                    window.location.href = "/pay/result?amt=@(orderInfo.OrderAmt.ToString("0"))&oid=@(orderNo)&state=1";
+                }
+            });
+    }
+
+    function zqwpay() {
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        } else {
+            jsApiCall();
+        }
+    }
+
+    Zepto(function ($) {
+        zqwpay();
+    });
+</script>
+<p align="center"><font color="#FFFFFF"></font></p>

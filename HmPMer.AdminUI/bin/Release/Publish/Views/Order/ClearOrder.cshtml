@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "订单清理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var time = DateTime.Now;
+    var beginTime = time;
+    var endTime = time;
+
+    var paytypelist = new HmPMer.Business.PayBll().GetPayTypeList();
+    var agentList = new HmPMer.Business.UserBaseBll().GetUserBaseForType(2);
+    var adminlist = new HmPMer.Business.AccountBll().GetAllHmAdmin();
+    var IBList = new HmPMer.Business.InterfaceBll().GetInterfaceBusinessList(-1);
+
+}
+
+@section HeadSection{
+    <script src="/Scripts/jquery-1.8.3.min.js?@ViewBag.StaticVersion"></script>
+    <script src="/Scripts/My97DatePicker/WdatePicker.js?@ViewBag.StaticVersion"></script>
+    <style>
+        .f-red {
+            color: red;
+            font-size: 14px;
+            margin-right: 3px;
+        }
+
+        .magleft10 {
+            margin-left: 5px;
+        }
+
+        .layui-input-inline {
+            margin-top: 3px;
+        }
+    </style>
+
+}
+
+
+<form class="layui-form" id="formData" style="width:90%;">
+    <br />
+
+
+    <div class="layui-row">
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">商户ID</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input UserId" id="UserId" name="UserId" placeholder="商户ID" />
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">订单号</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input OrderId" id="OrderId" name="OrderId" placeholder="请输入订单号" />
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">下单时间</label>
+            <div class="layui-input-block">
+                <div class="layui-input-inline">
+                    <input style="width:150px" class="layui-input" onfocus="WdatePicker({ maxDate: $('#OrderEndTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd 00:00:00")" type="text" id="OrderBeginTime" name="OrderBeginTime" />
+                </div>
+                <div class="layui-input-inline">
+                    到
+                </div>
+                <div class="layui-input-inline">
+                    <input style="width:150px" class="layui-input" onfocus="WdatePicker({maxDate: '@(DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd 23:59:59"))', minDate: $('#OrderBeginTime').val(),dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="@DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd 23:59:59")" type="text" id="OrderEndTime" name="OrderEndTime" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-row">
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">接口商</label>
+            <div class="layui-input-block">
+                <select name="InterfaceCode" class="InterfaceCode" lay-filter="InterfaceCode">
+                    <option value="">请选择接口商</option>
+                    @foreach (var item in IBList)
+                    {
+                        <option value="@item.Code">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">支付类型</label>
+            <div class="layui-input-block">
+                <select id="PayCode" name="PayCode" lay-verify="" lay-filter="PayCode">
+                    <option value="">请选择</option>
+                    @foreach (var item in paytypelist)
+                    {
+                        <option value="@item.PayCode">@item.PayName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="magb15 layui-col-md4 layui-col-xs12">
+            <label class="layui-form-label">支付状态</label>
+            <div class="layui-input-block">
+                <select id="PayState" name="PayState" lay-verify="" lay-filter="PayState">
+                    <option value="-1">请选择</option>
+                    <option value="0" selected>处理中</option>
+                    <option value="1">已成功</option>
+                    <option value="2">失败</option>
+                    <option value="3">已过期</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-form-item layui-row layui-col-xs12" style="text-align:center">
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn layui-btn-sm" id="btn_update_sub">清除</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+
+        //提交数据
+        $("#btn_update_sub").click(function () {
+
+
+            layer.confirm('确定删除符合条件的订单？', { icon: 3, title: '提示信息' }, function (index) {
+
+
+                hm.ajax("/Order/DelOrder", {
+                    data: hm.serializeObject($("#formData")),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.IsSuccess) {
+                            layer.msg("操作成功！", { icon: 1, time: 300, });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+
+
+            });
+            
+
+        });
+
+    })
+</script>
+

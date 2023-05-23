@@ -1,0 +1,117 @@
+.common-banner.sdk-banner {
+  background-image: url(../img/sdk-banner.jpg);
+  text-align: center;
+}
+.common-banner.sdk-banner .sdk-text {
+  height: 34px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -17px 0 0 -141px;
+}
+.download-wrap {
+  width: 1140px;
+  overflow: hidden;
+  margin: -150px auto 0 auto;
+  padding: 0 4px;
+}
+.download-main {
+  width: 1280px;
+  position: relative;
+  z-index: 2;
+  margin-left: -70px;
+}
+.download-main dl {
+  width: 180px;
+  float: left;
+  text-align: center;
+  margin: 90px 70px 0;
+}
+.download-main dl dt {
+  width: 100%;
+  height: 180px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 8px 0px rgba(208, 210, 210, 0.5);
+  display: table;
+}
+.download-main dl dt .img-box {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.download-main dl dd {
+  margin-top: 20px;
+}
+.download-main dl .sdk-name {
+  border-bottom: 1px solid #E2E2E2;
+  font-size: 18px;
+  color: #666666;
+  letter-spacing: 1.12px;
+  line-height: 30px;
+  padding: 4px 0;
+}
+.download-main dl .link-box {
+  margin: 9px 0 10px 0;
+}
+.download-main dl .link-box a {
+  display: inline-block;
+  font-size: 14px;
+  color: #999;
+  letter-spacing: 0.87px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.download-main dl .link-box a:hover {
+  color: #FF6C2B;
+}
+.download-main dl .btn {
+  width: 110px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #666666;
+  border-radius: 20px;
+  line-height: 32px;
+  font-size: 14px;
+  color: #333333;
+}
+.download-main dl .btn:hover {
+  color: #fff;
+  background-color: #FF6C2B;
+  border-color: #FF6C2B;
+}
+.log_k {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  display: none;
+}
+.log_iframe {
+  width: 600px;
+  height: 540px;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 150px;
+}
+.log_iframe .log_close {
+  padding: 0 10px;
+  height: 40px;
+  background-color: #eee;
+  font-size: 18px;
+  line-height: 40px;
+}
+.log_iframe .log_close i {
+  display: inline-block;
+  font-style: normal;
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
+}
+.log_iframe iframe {
+  width: 100%;
+  height: 500px;
+}

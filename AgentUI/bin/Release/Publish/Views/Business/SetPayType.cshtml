@@ -1,0 +1,91 @@
+﻿@model List<HmPMer.Entity.PayType>
+@{ 
+    var userType= new HmPMer.Business.PayBll().GetInterfaceType(Request["UserId"], 2);
+}
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-overrides.css">
+<link rel="stylesheet" type="text/css" href="/static/css/lib/font-awesome.css">
+
+<link rel="stylesheet" type="text/css" href="/static/css/layout.css">
+<link rel="stylesheet" type="text/css" href="/static/css/elements.css">
+<link rel="stylesheet" type="text/css" href="/static/css/icons.css">
+<link rel="stylesheet" type="text/css" href="/static/css/css.css">
+<link rel="stylesheet" type="text/css" href="/static/css/compiled/user-profile.css" media="screen" />
+
+<script src="/static/js/jquery-1.8.3.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/theme.js"></script>
+<script src="/static/js/layer/layer.js"></script>
+<script src="/static/js/base.js"></script>
+
+<style>
+    .divcbk {
+        float: left;
+        width: 130px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="form-page">
+
+        <div class="row-fluid head">
+            <div class="span12">
+                <h4>设置商户支付类型</h4>
+            </div>
+        </div>
+        @if (Model.Count > 0)
+        {
+            <div class="row-fluid withdraw">
+                @foreach (var item in Model)
+                {
+                    var pm = userType.Where(a => a.PayCode.Equals(item.PayCode)).FirstOrDefault();
+                    <div class="divcbk"><input class="span2" type="checkbox" name="cbktype" value="@item.PayCode" @(pm!=null?"checked":"") />@item.PayName </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="row-fluid withdraw">
+                请先设置代理支持的支付类型
+            </div>
+        }
+        <br /><br /><br />
+        <div class="row-fluid withdraw" style="text-align:center">
+            <div class="span11 field-box actions" style="text-align:center">
+                <input type="button" class="btn-glow primary" id="btn_submit" value="确认提交" >
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("#btn_submit").click(function () {
+
+            var arr = new Array()
+            $("input[name='cbktype']:checked").each(function (i, v) {
+                arr[i] = v.value
+            })
+
+            $.HM.ajax("Business/SetInterfaceType", {
+                data:{ InterfaceCode: '@(Request["UserId"])', PayCode: arr.join(',') },
+                type: "POST",
+                dataType: 'json',
+                success: function (d) {
+                    if (d.IsSuccess) {
+                        layer.msg("设置成功", { icon: 1 });
+                        setTimeout(function () {
+                            window.parent.location.reload();
+                        }, 1500);
+
+                    } else {
+                        layer.msg(d.message, { icon: 0 });
+                    }
+                }
+            });
+
+
+        });
+    });
+</script>

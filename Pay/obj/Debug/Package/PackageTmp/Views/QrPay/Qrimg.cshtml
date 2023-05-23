@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "在线付款";
+    Layout = null;
+}
+
+<html class="no-js css-menubar" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <title>在线付款</title>
+    <link rel="stylesheet" href="/content/wapcss/bootstrap.css">
+    <link rel="stylesheet" href="/content/wapcss/bootstrap-extend.css">
+    <link rel="stylesheet" href="/content/wapcss/site.css">
+    <script type="text/javascript" src="/content/wapcss/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        var wap = true;
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            wap = true;
+        } else {
+            wap = false;
+        }
+    </script>
+    <style>
+        .showinfo {
+            color: red;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="page-maintenance layout-full">
+    <div class="page animsition text-center" style="-webkit-animation: 800ms; opacity: 1;">
+        <div class="page-content vertical-align-middle">
+            <div id="pjax" class="container">
+                <div class="row paypage-logo">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12 paypage-logorow">
+                        <img src="/content/wapcss/@(ViewBag.paytype == "1" ? "weixin.jpg":"alipay.jpg")" alt="" width="94">
+                    </div>
+                </div>
+                <div class="row paypage-info">
+                    <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-xs-10 col-xs-offset-0">
+                        <p class="paypage-desc">订单号：<b>@ViewBag.merchantno</b></p>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-xs-2 clearfix">
+                        <p class="paypage-price">
+                            <span class="paypage-price-number"><b>@ViewBag.total_fee</b></span>元
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12 paypage-qrrow" style="padding-top: 10px;">
+                        <p id="showInfo" class="showinfo">请保存二维码到相册，打开@(ViewBag.paytype == "1" ? "微信" : "支付宝")扫一扫，从相册导入进行支付</p>
+
+                        <p class="waponly showinfo">请按照提示金额付款，否则不到账概不负责</p>
+                        <p id="paypage-order" class="">
+                            <span data-toggle="tooltip" data-placement="bottom" data-trigger="hover" data-title="支付后将自动发货" class="tip_show" data-original-title="" title="">订单号:<b>@ViewBag.merchantno</b></span><br>
+                            <strong id="minute_show"><s></s>05分</strong>
+                            <strong id="second_show"><s></s>00秒</strong>过期
+                        </p>
+                        <img id="qrimg" class="ft-center" style="width:308px;height:418px" src="@ViewBag.qr" />
+                        <input name="payAmount" id="payAmount" value="@ViewBag.total_fee" type="hidden">
+                        <input name="type" id="type" value="@ViewBag.paytype" type="hidden">
+
+                        <p class="animation-slide-bottom">
+
+                            @*<a id="btnImgShow" href="#">
+                    <img style="width:54px;height:54px" src="@(ViewBag.paytype == "1"?"/static/images/pay1/wechat.150.png":"/static/images/pay1/alipay.150.png")" />
+                </a>
+                &nbsp; &nbsp;
+            <a id="btnShow" class="btn @(ViewBag.paytype == "1"?"btn-success":"btn-primary") btn-lg"
+               href="@(ViewBag.paytype == "1" ? "#" : "alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=" + HttpUtility.UrlEncode(ViewBag.qr))">
+            @(ViewBag.paytype == "1" ? "支付完成后自动跳转" : "点击打开支付宝")
+            </a>*@
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="site-footer-legal">在线支付</div>
+            <div class="site-footer-right">
+
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        var intDiff = parseInt(@ViewBag.time);
+        function timer(intDiff) {
+            window.setInterval(function () {
+                var day = 0,
+                    hour = 0,
+                    minute = 0,
+                    second = 0;
+                if (intDiff > 0) {
+                    day = Math.floor(intDiff / (60 * 60 * 24));
+                    hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                    minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                    second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+                }
+                if (minute <= 9) minute = '0' + minute;
+                if (second <= 9) second = '0' + second;
+                $('#day_show').html(day + "天");
+                $('#hour_show').html('<s id="h"></s>' + hour + '时');
+                $('#minute_show').html('<s></s>' + minute + '分');
+                $('#second_show').html('<s></s>' + second + '秒');
+                if (intDiff == 0) {
+                    $("#qrimg").attr("src", "/static/images/qrcode_timeout.png");
+                }
+                intDiff--;
+            }, 1000);
+        }
+        $(function () {
+            if (!wap) {
+                $(".waponly").hide();
+                $("#btnShow").text("支付完成后自动跳转");
+                $("#btnShow").attr("href", "javascript:void(0)");
+                $("#btnImgShow").attr("href", "javascript:void(0)");
+                $("#showInfo").text("打开@(ViewBag.paytype == "1" ? "微信" : "支付宝")扫一扫，进行支付");
+            }
+            timer(intDiff);
+            var $submit = $('#submit');
+            setInterval(function () {
+                $.ajax({
+                    url: "check",
+                    type: "post",
+                    timeout: 2000,
+                    data: { type: @ViewBag.paytype, out_trade_no: '@ViewBag.merchantno', trade_no: '@ViewBag.orderno', total_fee: '@ViewBag.total_fee' },
+                    success: function (d) {
+                        if (d.code == 0 && d.url) {
+                            $('#btnShow').text('付款成功');
+                            setTimeout(function () {
+                                location.replace(d.url);
+                            }, 500);
+                        }
+                    }
+                });
+            }, 2000);
+        });
+        
+    </script>
+</body>
+</html>

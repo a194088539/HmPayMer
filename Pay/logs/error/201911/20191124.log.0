@@ -1,0 +1,12 @@
+2019-11-24 14:59:30,926 [6] ERROR logerror [(null)] <(null)>
+ - 鑫发解密失败.NotifyParamToOrder
+System.InvalidCastException: 无法将类型为“LitJson.JsonData”的对象强制转换为类型“System.IConvertible”。
+   在 System.Convert.ToDecimal(Object value)
+   在 PayApi.XinFa.HMPayApi.NotifyParamToOrder(Dictionary`2 dic) 位置 C:\Users\Administrator\Desktop\HmPMer\HM\PayApi\PayApi\XinFa\HMPayApi.cs:行号 226
+2019-11-24 15:00:52,883 [6] ERROR logerror [(null)] <(null)>
+ - 鑫发解密失败.NotifyParamToOrder
+System.InvalidCastException: 无法将类型为“LitJson.JsonData”的对象强制转换为类型“System.IConvertible”。
+   在 System.Convert.ToDecimal(Object value)
+   在 PayApi.XinFa.HMPayApi.NotifyParamToOrder(Dictionary`2 dic) 位置 C:\Users\Administrator\Desktop\HmPMer\HM\PayApi\PayApi\XinFa\HMPayApi.cs:行号 226
+2019-11-24 15:08:13,264 [6] ERROR logerror [(null)] <(null)>
+ - notify={"NotityId":"a4d5f3db-b241-47ea-847b-183d9431a049","OrderId":"19112414402574783370001","NotityState":0,"NotityCount":1,"NotityUrl":"http://45.248.68.142:6066///demo/paytestnotity?out_trade_no=6a8d8bc11bda4859a&trade_no=19112414402574783370001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=1000&trade_time=2019-11-24 15:08:12&sign=5c0981cf1b78a8a13b50a6e3aec4cc6a","AddTime":"\/Date(1574579293138+0800)\/","NotityTime":"\/Date(1574579293138+0800)\/","ReturnUrl":"http://45.248.68.142:6066///demo/paytestreturn?out_trade_no=6a8d8bc11bda4859a&trade_no=19112414402574783370001&trade_status=SUCCESS&extra_return_param=DebugPayMents&total_amount=1000&trade_time=2019-11-24 15:08:12&sign=5c0981cf1b78a8a13b50a6e3aec4cc6a"}

@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "商户管理";
+    Layout = "~/Views/Shared/_Content.cshtml";
+
+    var agentList = new HmPMer.Business.UserBaseBll().GetUserBaseForType(2);
+
+}
+
+@section HeadSection{
+    <script src="/scripts/withdraw/withdrawuserindex.js?@ViewBag.StaticVersion"></script>
+}
+
+<div class="layui-form">
+    <blockquote class="layui-elem-quote quoteBox">
+        <form class="layui-form" id="form_seartch">
+            <div class="layui-inline">
+                @Html.Hidden("UserType", Request["UserType"])
+                <div class="layui-input-inline">
+                    商户号：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="UserId" name="UserId" placeholder="请输入商户ID" />
+                </div>
+
+                <div class="layui-input-inline">
+                    商户名称：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="MerName" name="MerName" placeholder="请输入商户名称" />
+                </div>
+
+                <div class="layui-input-inline">
+                    邮箱：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="Email" name="Email" placeholder="请输入邮箱" />
+                </div>
+
+                <div class="layui-input-inline">
+                    商户手机：
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="MobilePhone" name="MobilePhone" placeholder="请输入商户名称" />
+                </div>
+
+                <div class="layui-input-inline">
+                    所属代理：
+                </div>
+                <div class="layui-input-inline">
+                    <select name="AgentId" class="AgentId" lay-filter="AgentId">
+                        <option value="">请选择代理</option>
+                        @foreach (var item in agentList)
+                        {
+                            <option value="@item.UserId">@item.MerName</option>
+                        }
+                    </select>
+                </div>
+
+                <a class="layui-btn search_btn" data-type="reload">搜索</a>&nbsp;&nbsp;
+                <div class="layui-inline">
+                    <a class="layui-btn layui-btn-normal" id="btn_audit_all">
+                        <i class="layui-icon">&#xe608;</i>批量审核
+                    </a>
+                </div>
+            </div>
+
+
+        </form>
+    </blockquote>
+    <table id="BusinessList" lay-filter="BusinessList"></table>
+
+    <!--操作-->
+    <script type="text/html" id="BusinessListBar">
+        <a class="layui-btn-xs layui-btn-mycss" lay-event="btn_audit">审核</a>
+    </script>
+</div>
+

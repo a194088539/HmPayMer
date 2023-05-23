@@ -1,0 +1,18 @@
+2019-11-26 01:00:15,567 [11] DEBUG logdebug [(null)] <(null)>
+ - 高盛GetNotifyParam={"appId":"GS190707140931667","payType":"ZFB","outTradeNo":"19112600532464518249001","totalAmount":"10000","goodsInfo":"iPhone配件","resultCode":"00","payDate":"2019-11-26 00:54:19","sign":"11020BDB2804595C6E41FAF9812BDA68"}
+2019-11-26 01:01:10,961 [6] DEBUG logdebug [(null)] <(null)>
+ - 高盛GetNotifyParam={"appId":"GS190707140931667","payType":"ZFB","outTradeNo":"19112600532464518249001","totalAmount":"10000","goodsInfo":"iPhone配件","resultCode":"00","payDate":"2019-11-26 00:54:19","sign":"11020BDB2804595C6E41FAF9812BDA68"}
+2019-11-26 01:01:48,033 [7] DEBUG logdebug [(null)] <(null)>
+ - 高盛GetNotifyParam={"appId":"GS190707140931667","payType":"ZFB","outTradeNo":"19112600532464518249001","totalAmount":"10000","goodsInfo":"iPhone配件","resultCode":"00","payDate":"2019-11-26 00:54:19","sign":"11020BDB2804595C6E41FAF9812BDA68"}
+2019-11-26 01:02:54,477 [7] DEBUG logdebug [(null)] <(null)>
+ - 高盛GetNotifyParam={"appId":"GS190707140931667","payType":"ZFB","outTradeNo":"19112600532464518249001","totalAmount":"10000","goodsInfo":"iPhone配件","resultCode":"00","payDate":"2019-11-26 00:54:19","sign":"11020BDB2804595C6E41FAF9812BDA68"}
+2019-11-26 02:15:31,305 [12] DEBUG logdebug [(null)] <(null)>
+ - 遨游GetNotifyParam={"memberid":"10369","orderid":"19112602085722139737001","transaction_id":"20191126020900995410DEW069","amount":"300.00","datetime":"20191126020917","returncode":"00","sign":"B8E0B44AF5DDEB866C45C308A9FB017D"}
+2019-11-26 02:16:06,041 [12] DEBUG logdebug [(null)] <(null)>
+ - 接口:aoyou,订单号：19112600532464518249001，不一致
+2019-11-26 02:18:06,514 [6] DEBUG logdebug [(null)] <(null)>
+ - 遨游GetNotifyParam={"memberid":"10369","orderid":"19112602085722139737001","transaction_id":"20191126020900995410DEW069","amount":"300.00","datetime":"20191126020917","returncode":"00","sign":"B8E0B44AF5DDEB866C45C308A9FB017D"}
+2019-11-26 02:18:50,731 [7] DEBUG logdebug [(null)] <(null)>
+ - 遨游GetNotifyParam={"memberid":"10369","orderid":"19112602085722139737001","transaction_id":"20191126020900995410DEW069","amount":"300.00","datetime":"20191126020917","returncode":"00","sign":"B8E0B44AF5DDEB866C45C308A9FB017D"}
+2019-11-26 02:19:31,300 [7] DEBUG logdebug [(null)] <(null)>
+ - 遨游GetNotifyParam={"memberid":"10369","orderid":"19112602085722139737001","transaction_id":"20191126020900995410DEW069","amount":"300.00","datetime":"20191126020917","returncode":"00","sign":"B8E0B44AF5DDEB866C45C308A9FB017D"}

@@ -1,0 +1,81 @@
+﻿.window {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    background: transparent url(/Images/panel_title.png) repeat scroll 0 0;
+    border: 1px solid #99BBE8;
+    font-size: 12px;
+    overflow: hidden;
+    padding: 5px;
+    position: absolute;
+}
+
+    .window .window-header {
+        -moz-background-clip: border;
+        -moz-background-inline-policy: continuous;
+        -moz-background-origin: padding;
+        background: transparent none repeat scroll 0 0;
+        padding: 2px 0 4px;
+    }
+
+.panel-header-noborder {
+    border-bottom: 1px solid #99BBE8;
+    border-width: 0 0 1px;
+}
+
+.panel-header {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 15px;
+    position: relative;
+}
+
+.window .window-header .panel-tool {
+    right: 1px;
+    top: 0;
+}
+
+.panel-tool {
+    position: absolute;
+}
+
+.panel-tool div {
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 16px;
+    margin-left: 2px;
+    opacity: 0.6;
+    width: 16px;
+}
+
+.panel-tool-close {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(/Images/panel_tools.gif) no-repeat scroll -16px 0;
+}
+
+.window .window-body {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #FFFFFF none repeat scroll 0 0;
+    border-color: #99BBE8;
+    border-style: solid;
+    border-width: 0 1px 1px;
+}
+
+.panel-body {
+    overflow: auto;
+}
+
+.messager-body {
+    padding: 5px 10px;
+    text-align: center;
+}

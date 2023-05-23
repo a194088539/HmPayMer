@@ -1,0 +1,249 @@
+﻿@model HM.Entity.SystemSet
+@{
+    ViewBag.Title = "系统设置";
+    Layout = "~/Views/Shared/_Content.cshtml";
+
+    var gradelist = new HM.Business.UserBaseBll().GetAllUserGrade(0);
+    var wsList = new HM.Business.WithdrawBll().GetAllWithdrawSchemeList(0);
+}
+
+<style>
+    .tdrigth {
+        text-align: right
+    }
+
+    .layui-table th .tdrigth {
+        text-align: right
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+    @Html.Hidden("SystemCode", Model.SystemCode)
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="25%">
+            <col width="45%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <td align="center">参数说明</td>
+                <td align="center">参数值</td>
+                <td align="center">变量名</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tdrigth">网站名称</td>
+                <td><input type="text" class="layui-input cmsName" lay-verify="required" value="@Model.WebName" id="WebName" name="WebName" placeholder="请输入网站名称"></td>
+                <td pc>WebName</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">商户中心网址</td>
+                <td><input type="text" class="layui-input version" value="@Model.WebUrl" name="WebUrl" placeholder="请输入网址,http://****"></td>
+                <td pc>WebUrl</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">后台网址</td>
+                <td><input type="text" class="layui-input version" value="@Model.AdminUrl" name="AdminUrl" placeholder="请输入网址,http://****"></td>
+                <td pc>AdminUrl</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">API网址</td>
+                <td><input type="text" class="layui-input version" value="@Model.ApiUrl" name="ApiUrl" placeholder="请输入网址,http://****"></td>
+                <td pc>ApiUrl</td>
+            </tr>
+            @*<tr>
+                    <td>网站Logo</td>
+                    <td>
+                        <div class="layui-inline">
+                            <a class="layui-btn layui-btn-sm uploadNewImg">上传新图片</a>
+                        </div>
+                        <input type="text" class="layui-input author" value="@Model.Logo" name="Logo" placeholder="请输入开发作者">
+                    </td>
+                    <td pc>Logo</td>
+                </tr>*@
+            <tr>
+                <td class="tdrigth">公司名称</td>
+                <td><input type="text" class="layui-input server" value="@Model.CompanyName" name="CompanyName" placeholder="请输入公司名称"></td>
+                <td pc>CompanyName</td>
+            </tr>
+            @*<tr>
+                <td class="tdrigth">最小支付金额</td>
+                <td>
+                    <input type="text" class="layui-input maxUpload" id="MinPay" name="MinPay" value="@Model.MinPay" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')"
+                           onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" placeholder="请输入最小支付金额">
+                </td>
+                <td pc>MinPay</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">最大支付金额</td>
+                <td>
+                    <input type="text" class="layui-input maxUpload" id="MaxPay" name="MaxPay" value="@Model.MaxPay" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')"
+                           onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" placeholder="请输入最大支付金额">
+                </td>
+                <td pc>MaxPay</td>
+            </tr>*@
+            @*<tr>
+                    <td class="tdrigth">支付宝默认费率<aaa style="color:red;">（%）</aaa></td>
+                    <td>
+                        <input type="text" class="layui-input maxUpload" id="AlRate" name="AlRate" maxlength="5" value="@((int)(Model.AlRate*100))" onkeyup="this.value=this.value.replace(/[^\d{1-9}\.{1}\d{0-9}]/g,'')"
+                               onafterpaste="this.value=this.value.replace(/[^\d{1-9}\.{1}\d{0-9}]/g,'')" placeholder="请输入支付宝默认费率" />
+                    </td>
+                    <td pc>AlRate</td>
+                </tr>
+                <tr>
+                    <td class="tdrigth">微信默认费率<aaa style="color:red;">（%）</aaa></td>
+                    <td>
+                        <input type="text" class="layui-input maxUpload" id="WxRate" name="WxRate" maxlength="5" value="@((int)(Model.WxRate*100))" onkeyup="this.value=this.value.replace(/[^\d{1-9}\.{1}\d{0-9}]/g,'')"
+                               onafterpaste="this.value=this.value.replace(/[^\d{1-9}\.{1}\d{0-9}]/g,'')" placeholder="请输入微信默认费率" />
+                    </td>
+                    <td pc>WxRate</td>
+                </tr>*@
+
+            <tr>
+                <td class="tdrigth">默认商户注册等级</td>
+                <td>
+                    <select name="GradeId" class="GradeId" lay-filter="GradeId">
+                        <option value="0">请选择等级</option>
+                        @foreach (var item in gradelist)
+                        {
+                            <option value="@item.Id" @(Model.GradeId == item.Id ? "selected" : "")>@item.GradeName</option>
+                        }
+                    </select>
+                </td>
+                <td pc>GradeId</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">默认商户结算方案</td>
+                <td>
+                    <select name="WithdrawSchemeId" class="WithdrawSchemeId" lay-filter="WithdrawSchemeId">
+                        <option value="0">请选择结算方案</option>
+                        @foreach (var item in wsList)
+                        {
+                            <option value="@item.Id" @(Model.WithdrawSchemeId == item.Id ? "selected" : "")>@item.SchemeName</option>
+                        }
+                    </select>
+                </td>
+                <td pc>GradeId</td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">商户注册</td>
+                <td>
+                    <input type="checkbox" id="cbk_all" lay-filter="DefaultRegEnabled" @(Model.DefaultRegEnabled == 1 ? "checked" : "") />商户注册是否默认启用
+                    @Html.Hidden("DefaultRegEnabled", "0")
+                </td>
+                <td pc>DefaultRegEnabled</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">客服电话</td>
+                <td><input type="text" class="layui-input userRights" name="ServicePhone" value="@Model.ServicePhone" placeholder="请输入客服电话"></td>
+                <td pc>ServicePhone</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">客服QQ</td>
+                <td><input type="text" class="layui-input keywords" name="ServiceQq" value="@Model.ServiceQq" placeholder="请输入客服QQ"></td>
+                <td pc>ServiceQq</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">网站备案号</td>
+                <td><input type="text" class="layui-input record" name="IcpCode" value="@Model.IcpCode" placeholder="请输入网站备案号"></td>
+                <td pc>IcpCode</td>
+            </tr>
+            <tr>
+                <td class="tdrigth">版权信息</td>
+                <td><input type="text" class="layui-input server" value="@Model.Copyright" name="Copyright" placeholder="请输入版权信息"></td>
+                <td pc>Copyright</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    layui.use(['hm', 'form'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        form.on('checkbox(DefaultRegEnabled)', function (data) {
+            if (data.elem.checked) {
+                $("#DefaultRegEnabled").val(1);
+            } else {
+                $("#DefaultRegEnabled").val(0);
+            }
+        });
+
+        //提交表单
+        $("#btn_submit").click(function () {
+            var WebName = $("#WebName").val();
+            var MinPay = parseInt($("#MinPay").val());
+            var MaxPay = parseInt($("#MaxPay").val());
+            if (!WebName || WebName == "") {
+                layer.msg("请输入网站名称！");
+                return;
+            }
+
+            if (!MinPay || MinPay == "") {
+                layer.msg("请输入最小支付金额！");
+                return;
+            }
+
+            if (!MaxPay || MaxPay == "") {
+                layer.msg("请输入最大支付金额！");
+                return;
+            }
+
+            if (MinPay >= MaxPay) {
+                layer.msg("最小支付金额不能大于等于最大金额！");
+                return;
+            }
+
+            // if (!AlRate || AlRate == "") {
+            //     layer.msg("请输入支付宝默认费率！");
+            //     return;
+            // }
+            //
+            // if (!WxRate || WxRate == "") {
+            //     layer.msg("请输入微信默认费率！");
+            //     return;
+            // }
+
+            var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("/System/InsertSystem", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+        });
+
+        //重置表单
+        $("#btn_reset").click(function () {
+            $('#formdata')[0].reset()
+        });
+
+    });
+</script>

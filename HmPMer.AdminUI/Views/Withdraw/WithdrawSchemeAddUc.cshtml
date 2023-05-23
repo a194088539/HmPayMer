@@ -1,0 +1,234 @@
+﻿@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+    var IBList = new HmPMer.Business.InterfaceBll().GetInterfaceBusinessList(1);
+}
+<style>
+    .layui-unselect {
+        margin-top: 5px;
+    }
+
+    .tdrigth {
+        text-align: right;
+        border: none;
+    }
+
+    .layui-table td {
+        border: none
+    }
+</style>
+
+<form class="layui-form" id="formdata">
+    <table class="layui-table mag0">
+        <colgroup>
+            <col width="18%">
+            <col width="32%">
+            <col width="18%">
+            <col width="">
+        </colgroup>
+        <tbody>
+
+            <tr>
+                <td class="tdrigth">方案名称</td>
+                <td> <input type="text" class="layui-input" id="SchemeName" name="SchemeName" value="" /></td>
+                <td class="tdrigth">使用类别</td>
+                <td>
+                    <input type="radio" name="UserType" value="0" title="商户" checked>
+                    <input type="radio" name="UserType" value="1" title="代理">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="tdrigth">最低提现金额<br /><span style="color:red;">（每笔）</span></td>
+                <td> <input type="text" class="layui-input" id="MinAmtSingle" name="MinAmtSingle" value="" /></td>
+                <td class="tdrigth">最高提现金额<br /><span style="color:red;">（每笔）</span></td>
+                <td> <input type="text" class="layui-input" id="MaxAmtSingle" name="MaxAmtSingle" value="" /></td>
+            </tr>
+
+            <tr>
+                <td class="tdrigth">最高提现次数<br /><span style="color:red;">（每天）</span></td>
+                <td> <input type="text" class="layui-input" id="MaxtDay" name="MaxtDay" value="" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" /></td>
+             
+            </tr>
+
+            <tr>
+                <td class="tdrigth">提现限额<br /><span style="color:red;">（每天）</span></td>
+                <td> <input type="text" class="layui-input" id="LimitAmtDay" name="LimitAmtDay" value="" /></td>
+                <td class="tdrigth">提现手续费（%）<br /><span style="color:red;">（每笔）</span></td>
+                <td> <input type="text" class="layui-input" id="HandingRateSingle" name="HandingRateSingle" maxlength="5" value="" /></td>
+            </tr>
+            <tr>
+                <td class="tdrigth">最低手续费限制</td>
+                <td>
+                    <input type="radio" name="IsMinHandingSingle" value="0" title="否" checked>
+                    <input type="radio" name="IsMinHandingSingle" value="1" title="是">
+                </td>
+                <td class="tdrigth">最低手续费<br /><span style="color:red;">（每笔）</span></td>
+                <td> <input type="text" class="layui-input" id="MinHandingSingle" name="MinHandingSingle" value="" /></td>
+
+            </tr>
+            <tr>
+                <td class="tdrigth">最高手续费限制</td>
+                <td>
+                    <input type="radio" name="IsMaxHandingSingle" value="0" title="否" checked>
+                    <input type="radio" name="IsMaxHandingSingle" value="1" title="是">
+                </td>
+                <td class="tdrigth">最高手续费<br /><span style="color:red;">（每笔）</span></td>
+                <td> <input type="text" class="layui-input" id="MaxHandingSingle" name="MaxHandingSingle" value="" /></td>
+
+            </tr>
+
+            <tr>
+                <td class="tdrigth">是否走接口</td>
+                <td>
+                    <input type="radio" name="IsInterface" lay-filter="IsInterface" value="0" title="否" checked>
+                    <input type="radio" name="IsInterface" lay-filter="IsInterface" value="1" title="是">
+                </td>
+                <td class="tdrigth tdInfaceCode" style="visibility:hidden">默认接口商</td>
+                <td style="visibility:hidden" class="tdInfaceCode">
+                    <select name="DefaulInfaceCode" id="DefaulInfaceCode" lay-filter="DefaulInfaceCode" lay-search>
+                        <option value="">请选择</option>
+                        @foreach (var item in IBList)
+                        {
+                            <option value="@item.Code">@item.Name</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td class="tdrigth">排序</td>
+                <td>
+                    <input type="text" class="layui-input" id="Sort" name="Sort" value="" onkeyup="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d{1-9}{1}\d{0-9}]/g,'')" />
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="magt10" style="text-align:center">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="systemParameter" type="button" id="btn_submit">立即提交</button>
+        </div>
+    </div>
+</form>
+<script>
+
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        form.on('radio(IsInterface)', function (data) {
+            if (data.value == 1) {
+                $(".tdInfaceCode").css("visibility", "visible");
+            } else {
+                $(".tdInfaceCode").css("visibility", "hidden");
+                $("#DefaulInfaceCode").val("");
+                form.render("select", "DefaulInfaceCode");
+            }
+        });
+
+
+        //提交数据
+        $("#btn_submit").click(function () {
+
+            var SchemeName = $("#SchemeName").val();
+            if (!SchemeName || SchemeName == "") {
+                layer.msg("请输入方案名称！", function () {
+                    $("#SchemeName").focus();
+                });
+                return;
+            }
+            
+
+            var reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            var MinAmtSingle = $("#MinAmtSingle").val();
+            if (!reg.test(MinAmtSingle)) {
+                layer.msg("最低提现金额只能是2位小数！", function () {
+                    $("#MinAmtSingle").focus();
+                });
+                return;
+            }
+            reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            var MaxAmtSingle = $("#MaxAmtSingle").val();
+            if (!reg.test(MaxAmtSingle)) {
+                layer.msg("最高提现金额只能是2位小数！", function () {
+                    $("#MaxAmtSingle").focus();
+                });
+                return;
+            }
+            reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            var MaxtDay = $("#MaxtDay").val();
+            if (!MaxtDay || MaxtDay == "") {
+                layer.msg("请输入最高提现次数！", function () {
+                    $("#MaxtDay").focus();
+                });
+                return;
+            }
+            reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            var LimitAmtDay = $("#LimitAmtDay").val();
+            if (!reg.test(LimitAmtDay)) {
+                layer.msg("提现限额只能是2位小数！", function () {
+                    $("#LimitAmtDay").focus();
+                });
+                return;
+            }
+
+            var HandingRateSingle = $("#HandingRateSingle").val();
+            if (parseInt(HandingRateSingle) > 100) {
+                layer.msg("提现手续费费率不能大于100！", function () {
+                    $("#HandingRateSingle").focus();
+                });
+                return;
+            }
+
+            reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            var MinHandingSingle = $("#MinHandingSingle").val();
+            if (!reg.test(MinHandingSingle)) {
+                layer.msg("最低手续费只能是2位小数！", function () {
+                    $("#MinHandingSingle").focus();
+                });
+                return;
+            }
+
+            reg = /^[1-9]\d*(\.\d{1,2})?$|^[0]\.\d{1,2}$/g;
+            var MaxHandingSingle = $("#MaxHandingSingle").val();
+            if (!reg.test(MaxHandingSingle)) {
+                layer.msg("最高手续费只能是2位小数！", function () {
+                    $("#MaxHandingSingle").focus();
+                });
+                return;
+            }
+
+            var index = layer.msg('操作中，请稍候', { icon: 16, time: false, shade: 0.8 });
+            setTimeout(function () {
+                layer.close(index);
+                hm.ajax("Withdraw/WithdrawSchemeAdd", {
+                    data: $("#formdata").serialize(),
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.Success) {
+                            layer.msg("操作成功！", { icon: 1, time: 300 });
+                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                            parent.tableIns.reload();
+                            parent.layer.close(index);
+                        } else {
+                            layer.msg(result.Message);
+                        }
+                    },
+                    error: function (x, t, e) {
+                        layer.closeAll();
+                    }
+                });
+
+            }, 500);
+
+
+        });
+
+
+    })
+</script>

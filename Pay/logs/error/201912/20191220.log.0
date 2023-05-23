@@ -1,0 +1,496 @@
+2019-12-20 18:05:52,423 [11] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:05:58,014 [11] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.782c3c6d1f664e67b)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:06:04,063 [11] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.782c3c6d1f664e67b)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:06:57,978 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:07:04,678 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.3263f38baa2049dc9)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:07:10,729 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.3263f38baa2049dc9)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:11:07,394 [21] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:11:13,756 [21] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.c7fc0a14f238426f9)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:11:19,793 [21] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.c7fc0a14f238426f9)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:11:52,589 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:11:58,961 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.693f856be8c44fb5a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:12:05,007 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.693f856be8c44fb5a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:21:40,437 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:21:46,943 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.a4f46f43be2e435b9)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:21:52,987 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.a4f46f43be2e435b9)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:22:53,252 [10] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:22:59,583 [10] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.f918ef9100044e4c8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:23:05,630 [10] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.f918ef9100044e4c8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:23:28,240 [10] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:23:34,588 [10] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.f8f1879823624f6fa)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:23:38,700 [10] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.f8f1879823624f6fa)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:24:15,512 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:24:23,288 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.9c15d70f359c44198)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:24:29,330 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.9c15d70f359c44198)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:28:33,912 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:28:41,509 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.a0039389a1684bcaa)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:28:47,554 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.a0039389a1684bcaa)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:31:00,867 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:31:07,932 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.6db6012fe5b348f6a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:31:13,982 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.6db6012fe5b348f6a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:32:55,088 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:36:29,551 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:36:36,147 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.8b1000f7af3e4832b)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:36:42,194 [9] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.8b1000f7af3e4832b)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:37:16,639 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:37:21,167 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.d47827b33ab349e0a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:37:27,211 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.d47827b33ab349e0a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:38:54,398 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:39:01,858 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.fe39c0369a9d48f7a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:39:07,901 [7] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.fe39c0369a9d48f7a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:39:53,794 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:40:00,224 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.91a19a43ade84bcbb)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:40:06,269 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.91a19a43ade84bcbb)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:40:51,407 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:40:58,444 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.459d7b7f7d0b412d8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:41:04,491 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.459d7b7f7d0b412d8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:41:43,018 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:41:48,996 [8] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:41:55,621 [8] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.55b4e8e2c8ab43f4a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:42:01,669 [8] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.55b4e8e2c8ab43f4a)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:54:28,700 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:54:36,541 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.dff56c0598ed45d39)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:54:42,587 [11] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 18:54:48,630 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.dff56c0598ed45d39)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:55:03,633 [11] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.c7cc08c89cfa458e8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 18:55:10,459 [11] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.c7cc08c89cfa458e8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 21:30:31,550 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 21:30:38,921 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.a00b4468d897417f8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 21:30:44,970 [6] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.a00b4468d897417f8)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 21:42:24,214 [5] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(p.c..setting)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, IDictionary`2 dic) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 157
+2019-12-20 21:42:31,581 [5] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.pp.2cee1e18ffb744739)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133
+2019-12-20 21:42:37,631 [5] ERROR logerror [(null)] <(null)>
+ - RedisCache.Add(o.u.2cee1e18ffb744739)
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s); to create a disconnected multiplexer, disable AbortOnConnectFail. SocketFailure on PING
+   在 StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(Func`1 multiplexerFactory, TextWriter log)
+   在 StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log)
+   在 HM.Framework.Caching.RedisStackExchangeContext.GetWriteManager() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 83
+   在 HM.Framework.Caching.RedisStackExchangeContext.get_WriteRedis() 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisStackExchangeContext.cs:行号 52
+   在 HM.Framework.Caching.RedisCache.Add[T](String key, T value, TimeSpan expiresIn) 位置 D:\Workspace\Payment\yidianfu\HM\Framework\Caching\RedisCache.cs:行号 133

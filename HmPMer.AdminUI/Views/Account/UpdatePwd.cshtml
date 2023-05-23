@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "UpdatePwd";
+    Layout = "~/Views/Shared/_Content.cshtml";    
+}
+
+<form class="layui-form layui-row changePwd">
+    <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
+        <br />
+        <div class="layui-form-item">
+            <label class="layui-form-label">旧密码</label>
+            <div class="layui-input-block">
+                <input type="password" value="" placeholder="请输入旧密码" id="oldPwd" class="layui-input pwd">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">新密码</label>
+            <div class="layui-input-block">
+                <input type="password" value="" placeholder="请输入新密码" id="NewPwd" class="layui-input pwd">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">确认密码</label>
+            <div class="layui-input-block">
+                <input type="password" value="" placeholder="请确认密码"  id="NewPwd1" class="layui-input pwd">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="changePwd" type="button" id="btn_submit">立即修改</button>
+                @*<button type="reset" class="layui-btn layui-btn-primary">重置</button>*@
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+    var form = layui.form,
+        layer = parent.layer === undefined ? layui.layer : top.layer,
+        $ = layui.jquery,
+        hm = layui.hm;
+
+
+    //提交数据
+    $("#btn_submit").click(function () {
+        var oldPwd = $("#oldPwd").val();
+        var NewPwd = $("#NewPwd").val();
+        var NewPwd1 = $("#NewPwd1").val();
+
+        if (!oldPwd || oldPwd == "") {
+            layer.msg("请输入旧密码！", function () {
+                $("#oldPwd").focus();
+            });
+            return;
+        }
+
+        if (!NewPwd || NewPwd == "") {
+            layer.msg("请输入新密码！", function () {
+                $("#NewPwd").focus();
+            });
+            return;
+        }
+
+        if (!NewPwd1 || NewPwd1 == "") {
+            layer.msg("请确认密码！", function () {
+                $("#NewPwd1").focus();
+            });
+            return;
+        }
+        
+        if (NewPwd.length > 18 || NewPwd.length < 6) {
+            layer.msg("密码长度只能6-18位！", function () {
+                $("#NewPwd").focus();
+            });
+            return;
+        }
+
+        if (NewPwd != NewPwd1)
+        {
+            layer.msg("两次密码不一致！", function () {
+                $("#NewPwd1").focus();
+            });
+            return;
+        }
+
+        var index = layer.msg('提交，请稍候', { icon: 16, time: false, shade: 0.8 });
+        setTimeout(function () {
+            layer.close(index);
+            hm.ajax("/Account/UpdatePwd", {
+                data: { oldPwd: oldPwd, NewPwd: NewPwd},
+                type: "POST",
+                dataType: 'json',
+                success: function (result) {
+                    if (result.Success) {
+                        layer.msg("操作成功！", { icon: 1, time: 300 });
+                        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                        parent.tableIns.reload();
+                        parent.layer.close(index);
+                    } else {
+                        layer.msg(result.Message);
+                    }
+                },
+                error: function (x, t, e) {
+                    layer.closeAll();
+                }
+            });
+
+        }, 500);
+
+    });
+})
+</script>

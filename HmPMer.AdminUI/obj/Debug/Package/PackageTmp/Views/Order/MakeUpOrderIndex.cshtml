@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+</style>
+
+<body class="childrenBody">
+    <form class="layui-form linksAdd" id="formdata" style="text-align:center;width:500px;height:500px;margin:auto;padding-top:20px;">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">订单Id</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input linkName" style="width:200px" id="OrderId" name="OrderId" value="" lay-verify="required" placeholder="请输入订单ID" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">商户订单号</label>
+            <div class="layui-input-block" id="">
+                <input type="text" class="layui-input inputreadonly" id="MerOrderNo" name="MerOrderNo" value="" lay-verify="required" readonly />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">订单金额</label>
+            <div class="layui-input-block" id="">
+                <input type="text" class="layui-input inputreadonly" id="OrderAmt" name="OrderAmt" value="" lay-verify="required" readonly />
+            </div>
+        </div>
+
+
+        <div class="layui-form-item" style="text-align:center">
+            <button class="layui-btn" lay-filter="" style="width:100px" type="button" id="btn_Add">补单</button>
+        </div>
+    </form>
+</body>
+
+<script>
+    layui.use(['hm', 'form', 'layer', 'laydate', 'table', 'laytpl'], function () {
+        var form = layui.form,
+            layer = parent.layer === undefined ? layui.layer : top.layer,
+            $ = layui.jquery,
+            hm = layui.hm;
+
+        $("#OrderId").blur(function () {
+
+            $.post("/Order/OrderDetailInfo", { OrderId: $(this).val() }, function (result) {
+
+                if (result.Success) {
+                    $("#MerOrderNo").val(result.Data.MerOrderNo);
+                    $("#OrderAmt").val(result.Data.OrderAmt);
+                } else {
+                    $("#MerOrderNo").val("Id不存在！");
+                }
+            });
+
+        });
+
+
+        //提交数据
+        $("#btn_Add").click(function () {
+            var OrderId = $("#OrderId").val();
+            if (!OrderId || OrderId == "") {
+                layer.msg("请输入订单Id！");
+                $("#OrderId").focus();
+                return;
+            }
+
+            setTimeout(function () {
+                hm.ajax("/Order/MakeUpOrder", {
+                    data: {
+                        OrderId: $("#OrderId").val()
+                    },
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.IsSuccess) {
+                            layer.msg(result.message, { icon: 1 }, function () {
+                                window.location.href = window.location.href;
+                            });
+                        }
+                        else {
+                            layer.msg(result.message, { icon: 0 });
+                        }
+                    },
+                    error: function (x, t, e) {
+                       
+                    }
+                });
+            }, 500);
+
+        });
+
+    })
+</script>
+

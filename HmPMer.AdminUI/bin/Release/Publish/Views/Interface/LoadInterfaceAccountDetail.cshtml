@@ -1,0 +1,82 @@
+﻿
+@model HmPMer.Entity.InterfaceAccount
+
+@{
+    Layout = "~/Views/Shared/_Content.cshtml";
+}
+<style>
+    .linksAdd .layui-form-label {
+        width: 100px;
+    }
+
+    .linksAdd .layui-input-block {
+        margin-left: 120px;
+    }
+
+    .tdrigth {
+        text-align: right
+    }
+</style>
+
+<table class="layui-table mag0">
+    <colgroup>
+        <col width="25%">
+        <col width="25%">
+        <col width="25%">
+        <col>
+    </colgroup>
+
+    <tbody>
+        <tr>
+            <td class="tdrigth">接口商编号：</td>
+            <td colspan="3">@Model.Code</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">接口商商户号：</td>
+            <td colspan="3">@Model.Account</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">子商户号：</td>
+            <td colspan="3">@Model.ChildAccount</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">MD5秘钥：</td>
+            <td colspan="3">@Model.MD5Pwd</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">RSA公钥：</td>
+            <td colspan="3">@Model.RSAOpen</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">RSA私钥：</td>
+            <td colspan="3">@Model.RSAPrivate</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">Open密钥：</td>
+            <td colspan="3">@Model.OpenPwd</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">Appid：</td>
+            <td colspan="3">@Model.Appid</td>
+        </tr>
+
+        <tr>
+            <td class="tdrigth">提交域名：</td>
+            <td colspan="3">@Model.SubDomain</td>
+        </tr>
+        <tr>
+            <td class="tdrigth">绑定域名：</td>
+            <td colspan="3">@Model.BindDomain</td>
+        </tr>
+
+    </tbody>
+</table>
+
+
